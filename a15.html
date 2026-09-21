@@ -3,94 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Functions</title>
+
+    <title>My Portfolio</title>
+
     <style>
-        * { box-sizing: border-box; }
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background: #fff5f6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #fff5f6;
+            color: #475569;
+            line-height: 1.6;
         }
-        .container {
-            width: 90%;
-            max-width: 550px;
-            background: white;
-            padding: 40px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(127,29,29,.15);
-        }
-        h1 { color: #7f1d1d; }
-        input {
-            width: 100%;
-            padding: 14px;
-            margin: 8px 0;
-            border: 1px solid #fecdd3;
-            border-radius: 8px;
-        }
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 12px;
-            background: #991b1b;
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
-            border: none;
-            border-radius: 8px;
+            text-align: center;
+            padding: 60px 20px;
         }
-        #result {
-            margin-top: 20px;
-            padding: 20px;
-            background: #ffe4e6;
-            border-radius: 10px;
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ffe4e6;
+            font-size: 18px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px 20px;
+        }
+
+        section {
+            padding: 30px;
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 15px;
+            border-left: 5px solid #dc2626;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.10);
+        }
+
+        h2 {
             color: #991b1b;
-            line-height: 2;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        li {
+            background: #fff1f2;
+            color: #7f1d1d;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #fecdd3;
             font-weight: bold;
         }
-        .back {
-            display: block;
-            margin-top: 20px;
-            color: #991b1b;
+
+        .project {
+            border: 1px solid #fecdd3;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            background: #fff5f6;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.12);
+            background: #ffe4e6;
+        }
+
+        .project h3 {
+            color: #b91c1c;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            background: #fff1f2;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 20px;
+            background: #991b1b;
+            color: white;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: bold;
+        }
+
+        .email:hover {
+            background: #7f1d1d;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #450a0a;
+            color: #fecdd3;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 45px 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 25px 20px;
+            }
+
+            ul {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>JavaScript Functions</h1>
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Computer Science Student</p>
+    </header>
 
-    <input type="number" id="num1" placeholder="Enter first number">
-    <input type="number" id="num2" placeholder="Enter second number">
+    <main>
 
-    <button onclick="showResult()">Run Function</button>
+        <section>
+            <h2>About Me</h2>
 
-    <div id="result"></div>
+            <p>
+                Hello! I am a Computer Science student interested in
+                Web Development, Data Science and Artificial Intelligence.
+            </p>
+        </section>
 
-    <a href="index.html" class="back">← Back to JavaScript Programs</a>
-</div>
+        <section>
+            <h2>My Skills</h2>
 
-<script>
-function add(a, b) {
-    return a + b;
-}
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Python</li>
+                <li>C Programming</li>
+            </ul>
+        </section>
 
-function multiply(a, b) {
-    return a * b;
-}
+        <section>
+            <h2>My Projects</h2>
 
-function showResult() {
-    let a = Number(document.getElementById("num1").value);
-    let b = Number(document.getElementById("num2").value);
+            <div class="project">
+                <h3>Travel Website</h3>
+                <p>
+                    A simple website for exploring travel destinations.
+                </p>
+            </div>
 
-    document.getElementById("result").innerHTML =
-        "Addition: " + add(a, b) + "<br>" +
-        "Multiplication: " + multiply(a, b);
-}
-</script>
+            <div class="project">
+                <h3>Hotel Website</h3>
+                <p>
+                    A simple hotel booking website.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="contact">
+            <h2>Contact</h2>
+
+            <p>Email: example@gmail.com</p>
+
+            <a href="mailto:example@gmail.com" class="email">
+                Contact Me
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 My Portfolio</p>
+    </footer>
 
 </body>
 </html>

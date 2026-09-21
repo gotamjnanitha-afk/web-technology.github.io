@@ -3,61 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript - Hello World</title>
+
+    <title>Basic Webpage</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #475569;
+            line-height: 1.7;
+            padding: 40px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 600px;
-            background: white;
-            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
             border-radius: 18px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-            border-top: 6px solid #991b1b;
         }
 
-        h1 {
-            color: #7f1d1d;
-            margin-bottom: 25px;
-        }
-
-        #output {
-            font-size: 32px;
-            font-weight: bold;
-            color: #dc2626;
-            padding: 25px;
-            background: #ffe4e6;
-            border-radius: 12px;
-        }
-
-        .back {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 22px;
-            background: #991b1b;
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
-            text-decoration: none;
-            border-radius: 8px;
+            text-align: center;
+            padding: 45px 25px;
         }
 
-        .back:hover {
-            background: #7f1d1d;
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #991b1b;
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-left: 5px solid #dc2626;
+            padding-left: 12px;
+        }
+
+        h3 {
+            color: #be123c;
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+
+        .line-example {
+            background: #ffe4e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #7f1d1d;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -65,16 +122,38 @@
 <body>
 
     <div class="container">
-        <h1>JavaScript Hello World</h1>
 
-        <div id="output"></div>
+        <div class="header">
+            <h1>Welcome to My Webpage</h1>
+            <p>HTML Practical Program</p>
+        </div>
 
-        <a href="index.html" class="back">← Back to JavaScript Programs</a>
+        <div class="content">
+
+            <h2>About HTML</h2>
+
+            <div class="info-box">
+                <p>HTML stands for HyperText Markup Language.</p>
+                <p>It is used to create webpages.</p>
+            </div>
+
+            <h3>Line Break Example</h3>
+
+            <div class="line-example">
+                This is the first line.<br>
+                This is the second line.<br>
+                This is the third line.
+            </div>
+
+            <h3>Thank You</h3>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Basic Webpage
+        </div>
+
     </div>
-
-    <script>
-        document.getElementById("output").textContent = "Hello World";
-    </script>
 
 </body>
 </html>

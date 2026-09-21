@@ -3,109 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Largest of Three Numbers</title>
+
+    <title>Student Table</title>
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #475569;
+            line-height: 1.6;
+            padding: 40px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 550px;
-            background: white;
-            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
             border-radius: 18px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-            border-top: 6px solid #991b1b;
         }
 
-        h1 {
-            color: #7f1d1d;
-        }
-
-        input {
-            width: 100%;
-            padding: 13px;
-            margin: 7px 0;
-            border: 1px solid #fecdd3;
-            border-radius: 8px;
-        }
-
-        button {
-            width: 100%;
-            padding: 13px;
-            margin-top: 12px;
-            border: none;
-            border-radius: 8px;
-            background: #991b1b;
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ffe4e6;
             font-size: 16px;
-            cursor: pointer;
         }
 
-        button:hover {
-            background: #7f1d1d;
+        .content {
+            padding: 40px;
         }
 
-        #result {
-            margin-top: 20px;
-            padding: 18px;
-            background: #ffe4e6;
-            color: #991b1b;
-            font-size: 20px;
-            font-weight: bold;
+        .table-box {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
             border-radius: 10px;
+            overflow: hidden;
         }
 
-        .back {
-            display: block;
-            margin-top: 20px;
+        th {
+            background: #991b1b;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #fecdd3;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) td {
+            background: #fff5f6;
+        }
+
+        tr:hover td {
+            background: #ffe4e6;
+        }
+
+        .total {
+            font-weight: bold;
             color: #991b1b;
-            text-decoration: none;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .table-box {
+                padding: 15px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Largest of Three Numbers</h1>
+    <div class="container">
 
-    <input type="number" id="num1" placeholder="Enter first number">
-    <input type="number" id="num2" placeholder="Enter second number">
-    <input type="number" id="num3" placeholder="Enter third number">
+        <div class="header">
+            <h1>Student Details</h1>
+            <p>Student Information Table</p>
+        </div>
 
-    <button onclick="findLargest()">Find Largest</button>
+        <div class="content">
 
-    <div id="result"></div>
+            <div class="table-box">
 
-    <a href="index.html" class="back">← Back to JavaScript Programs</a>
-</div>
+                <table border="1">
 
-<script>
-    function findLargest() {
-        let a = Number(document.getElementById("num1").value);
-        let b = Number(document.getElementById("num2").value);
-        let c = Number(document.getElementById("num3").value);
+                    <tr>
+                        <th colspan="3">Student Information</th>
+                    </tr>
 
-        let largest = Math.max(a, b, c);
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                    </tr>
 
-        document.getElementById("result").textContent =
-            "Largest Number: " + largest;
-    }
-</script>
+                    <tr>
+                        <td>Rahul</td>
+                        <td>20</td>
+                        <td>CSE</td>
+                    </tr>
+
+                    <tr>
+                        <td>Priya</td>
+                        <td>19</td>
+                        <td>Data Science</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="total">Total Students</td>
+                        <td colspan="2" class="total">2</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Student Table
+        </div>
+
+    </div>
 
 </body>
 </html>

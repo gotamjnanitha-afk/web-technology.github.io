@@ -3,108 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Number</title>
+
+    <title>Student Table</title>
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #475569;
+            line-height: 1.6;
+            padding: 40px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
             border-radius: 18px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        h1 {
-            color: #7f1d1d;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            margin: 15px 0;
-            border: 1px solid #fecdd3;
-            border-radius: 8px;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #991b1b;
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            text-align: center;
+            padding: 45px 25px;
         }
 
-        #result {
-            margin-top: 20px;
-            padding: 18px;
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .table-box {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        th {
+            background: #991b1b;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid #7f1d1d;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #fecdd3;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) td {
+            background: #fff5f6;
+        }
+
+        tr:hover td {
             background: #ffe4e6;
-            border-radius: 10px;
-            font-size: 20px;
+        }
+
+        .total {
             font-weight: bold;
             color: #991b1b;
         }
 
-        .back {
-            display: block;
-            margin-top: 20px;
-            color: #991b1b;
-            text-decoration: none;
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .table-box {
+                padding: 15px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Prime Number Checker</h1>
+    <div class="container">
 
-    <input type="number" id="number" placeholder="Enter a number">
+        <div class="header">
+            <h1>Student Details</h1>
+            <p>Student Information Table</p>
+        </div>
 
-    <button onclick="checkPrime()">Check Prime</button>
+        <div class="content">
 
-    <div id="result"></div>
+            <div class="table-box">
 
-    <a href="index.html" class="back">← Back to JavaScript Programs</a>
-</div>
+                <table border="1">
 
-<script>
-    function checkPrime() {
-        let number = Number(document.getElementById("number").value);
-        let prime = true;
+                    <tr>
+                        <th colspan="3">Student Information</th>
+                    </tr>
 
-        if (number < 2) {
-            prime = false;
-        }
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                    </tr>
 
-        for (let i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i === 0) {
-                prime = false;
-                break;
-            }
-        }
+                    <tr>
+                        <td>Rahul</td>
+                        <td>20</td>
+                        <td>CSE</td>
+                    </tr>
 
-        document.getElementById("result").textContent =
-            prime ? number + " is a Prime Number" : number + " is not a Prime Number";
-    }
-</script>
+                    <tr>
+                        <td>Priya</td>
+                        <td>19</td>
+                        <td>Data Science</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="total">Total Students</td>
+                        <td colspan="2" class="total">2</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Student Table
+        </div>
+
+    </div>
 
 </body>
 </html>

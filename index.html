@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Programs</title>
+
+    <title>HTML Practical Programs</title>
 
     <style>
         * {
@@ -13,124 +14,139 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Arial, sans-serif;
             background: #fff5f6;
             color: #450a0a;
         }
 
         header {
-            background: linear-gradient(135deg, #450a0a, #991b1b);
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
-            padding: 35px 20px;
             text-align: center;
+            padding: 45px 20px;
         }
 
         header h1 {
-            font-size: 36px;
+            font-size: 38px;
             margin-bottom: 10px;
         }
 
         header p {
-            font-size: 17px;
             color: #ffe4e6;
+            font-size: 16px;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 35px auto;
+        nav {
+            background: #450a0a;
+            padding: 14px;
+            text-align: center;
         }
 
-        .back {
+        nav a {
             display: inline-block;
-            text-decoration: none;
-            background: #7f1d1d;
             color: white;
-            padding: 11px 20px;
+            text-decoration: none;
+            margin: 4px 8px;
+            padding: 9px 16px;
             border-radius: 8px;
-            margin-bottom: 25px;
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        .back:hover {
-            background: #b91c1c;
+        nav a:hover {
+            background: #dc2626;
         }
 
-        .section-title {
-            background: #ffe4e6;
-            border-left: 6px solid #991b1b;
-            padding: 16px 20px;
-            margin: 25px 0 15px;
-            border-radius: 8px;
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 55px 20px;
         }
 
-        .section-title h2 {
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .heading h2 {
             color: #7f1d1d;
-            font-size: 22px;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #64748b;
         }
 
         .questions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
         .question {
             background: white;
             border: 1px solid #fecdd3;
-            border-radius: 12px;
-            padding: 18px;
-            text-decoration: none;
-            color: #450a0a;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.08);
             transition: 0.3s;
-            box-shadow: 0 3px 10px rgba(127, 29, 29, 0.08);
         }
 
         .question:hover {
-            transform: translateY(-4px);
-            border-color: #dc2626;
-            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.15);
+            transform: translateY(-5px);
+            border-color: #fb7185;
+            box-shadow: 0 15px 30px rgba(127, 29, 29, 0.14);
         }
 
         .number {
-            min-width: 42px;
-            height: 42px;
-            background: #991b1b;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
+            background: #ffe4e6;
+            color: #991b1b;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: bold;
+            margin-bottom: 14px;
         }
 
-        .question-text {
+        .question h3 {
+            color: #450a0a;
+            font-size: 18px;
             line-height: 1.5;
-            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #7f1d1d;
+            transform: translateY(-2px);
         }
 
         footer {
-            margin-top: 50px;
             background: #450a0a;
             color: #ffe4e6;
             text-align: center;
-            padding: 22px;
+            padding: 25px;
+            margin-top: 30px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
-
-            .container {
-                width: 94%;
-            }
-
+        @media (max-width: 700px) {
             .questions {
                 grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
             }
         }
     </style>
@@ -139,396 +155,123 @@
 <body>
 
 <header>
-    <h1>JavaScript Practical Programs</h1>
-    <p>67 JavaScript Experiments</p>
+    <h1>HTML Practical Programs</h1>
+    <p>Select a question to view its working output</p>
 </header>
 
-<div class="container">
+<nav>
+    <a href="../index.html">Home</a>
+    <a href="index.html">HTML</a>
+    <a href="../css/index.html">CSS</a>
+    <a href="../javascript/index.html">JavaScript</a>
+</nav>
 
-    <a href="../index.html" class="back">← Back to Home</a>
+<main>
 
-    <!-- Questions 1-20 -->
-
-    <div class="section-title">
-        <h2>Basic JavaScript Programs — Questions 1 to 20</h2>
+    <div class="heading">
+        <h2>HTML Questions</h2>
+        <p>15 HTML practical programs</p>
     </div>
 
     <div class="questions">
 
-        <a href="a1.html" class="question">
-            <span class="number">1</span>
-            <span class="question-text">Write a JavaScript program to display “Hello World”.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 01</span>
+            <h3>Create a basic HTML webpage using headings, paragraphs and line breaks.</h3>
+            <a href="a1.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a2.html" class="question">
-            <span class="number">2</span>
-            <span class="question-text">Write a JavaScript program to perform arithmetic operations.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 02</span>
+            <h3>Create ordered, unordered and description lists.</h3>
+            <a href="a2.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a3.html" class="question">
-            <span class="number">3</span>
-            <span class="question-text">Write a program to find the largest of three numbers.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 03</span>
+            <h3>Create tables with rows, columns, borders and merged cells.</h3>
+            <a href="a3.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a4.html" class="question">
-            <span class="number">4</span>
-            <span class="question-text">Write a program to check whether a number is even or odd.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 04</span>
+            <h3>Display images and create hyperlinks.</h3>
+            <a href="a4.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a5.html" class="question">
-            <span class="number">5</span>
-            <span class="question-text">Write a program to check whether a number is positive, negative, or zero.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 05</span>
+            <h3>Create a student registration form.</h3>
+            <a href="a5.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a6.html" class="question">
-            <span class="number">6</span>
-            <span class="question-text">Write a program to find the factorial of a number.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 06</span>
+            <h3>Embed audio and video in a webpage.</h3>
+            <a href="a6.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a7.html" class="question">
-            <span class="number">7</span>
-            <span class="question-text">Write a program to generate the Fibonacci series.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 07</span>
+            <h3>Create frames and iframes.</h3>
+            <a href="a7.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a8.html" class="question">
-            <span class="number">8</span>
-            <span class="question-text">Write a program to check whether a number is prime.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 08</span>
+            <h3>Use semantic HTML elements such as header, nav, section, article and footer.</h3>
+            <a href="a8.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a9.html" class="question">
-            <span class="number">9</span>
-            <span class="question-text">Write a program to check whether a number is a palindrome.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 09</span>
+            <h3>Use HTML5 input types such as email, date, number and password.</h3>
+            <a href="a9.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a10.html" class="question">
-            <span class="number">10</span>
-            <span class="question-text">Write a program to reverse a number.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 10</span>
+            <h3>Create a college timetable.</h3>
+            <a href="a10.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a11.html" class="question">
-            <span class="number">11</span>
-            <span class="question-text">Write a program to find the sum of digits of a number.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 11</span>
+            <h3>Apply internal and external CSS styling.</h3>
+            <a href="a11.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a12.html" class="question">
-            <span class="number">12</span>
-            <span class="question-text">Write a program to find the largest and smallest element in an array.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 12</span>
+            <h3>Use CSS selectors, colors, fonts, margins, padding and borders.</h3>
+            <a href="a12.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a13.html" class="question">
-            <span class="number">13</span>
-            <span class="question-text">Write a program to sort an array.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 13</span>
+            <h3>Create a responsive webpage using media queries.</h3>
+            <a href="a13.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a14.html" class="question">
-            <span class="number">14</span>
-            <span class="question-text">Write a program to find the sum and average of array elements.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 14</span>
+            <h3>Create a webpage using Bootstrap components.</h3>
+            <a href="a14.html" class="button">View Output →</a>
+        </div>
 
-        <a href="a15.html" class="question">
-            <span class="number">15</span>
-            <span class="question-text">Write a program to demonstrate JavaScript functions.</span>
-        </a>
-
-        <a href="a16.html" class="question">
-            <span class="number">16</span>
-            <span class="question-text">Write a program using arrow functions.</span>
-        </a>
-
-        <a href="a17.html" class="question">
-            <span class="number">17</span>
-            <span class="question-text">Write a program demonstrating strings and string methods.</span>
-        </a>
-
-        <a href="a18.html" class="question">
-            <span class="number">18</span>
-            <span class="question-text">Write a program demonstrating arrays and array methods.</span>
-        </a>
-
-        <a href="a19.html" class="question">
-            <span class="number">19</span>
-            <span class="question-text">Write a program demonstrating objects in JavaScript.</span>
-        </a>
-
-        <a href="a20.html" class="question">
-            <span class="number">20</span>
-            <span class="question-text">Write a program demonstrating Date and Math objects.</span>
-        </a>
+        <div class="question">
+            <span class="number">Question 15</span>
+            <h3>Create a personal portfolio webpage.</h3>
+            <a href="a15.html" class="button">View Output →</a>
+        </div>
 
     </div>
 
-
-    <!-- Questions 21-36 -->
-
-    <div class="section-title">
-        <h2>DOM & Event-Based Experiments — Questions 21 to 36</h2>
-    </div>
-
-    <div class="questions">
-
-        <a href="a21.html" class="question">
-            <span class="number">21</span>
-            <span class="question-text">DOM & Event-Based Experiments</span>
-        </a>
-
-        <a href="a22.html" class="question">
-            <span class="number">22</span>
-            <span class="question-text">Create a webpage that changes text using JavaScript.</span>
-        </a>
-
-        <a href="a23.html" class="question">
-            <span class="number">23</span>
-            <span class="question-text">Change the background color of a webpage using JavaScript.</span>
-        </a>
-
-        <a href="a24.html" class="question">
-            <span class="number">24</span>
-            <span class="question-text">Create a button click event using JavaScript.</span>
-        </a>
-
-        <a href="a25.html" class="question">
-            <span class="number">25</span>
-            <span class="question-text">Create a program to show/hide an HTML element.</span>
-        </a>
-
-        <a href="a26.html" class="question">
-            <span class="number">26</span>
-            <span class="question-text">Create a program to change an image when a button is clicked.</span>
-        </a>
-
-        <a href="a27.html" class="question">
-            <span class="number">27</span>
-            <span class="question-text">Create a digital clock using JavaScript.</span>
-        </a>
-
-        <a href="a28.html" class="question">
-            <span class="number">28</span>
-            <span class="question-text">Create a simple calculator using HTML, CSS, and JavaScript.</span>
-        </a>
-
-        <a href="a29.html" class="question">
-            <span class="number">29</span>
-            <span class="question-text">Create a number guessing game.</span>
-        </a>
-
-        <a href="a30.html" class="question">
-            <span class="number">30</span>
-            <span class="question-text">Create a form validation program.</span>
-        </a>
-
-        <a href="a31.html" class="question">
-            <span class="number">31</span>
-            <span class="question-text">Validate name, email, phone number, and password using JavaScript.</span>
-        </a>
-
-        <a href="a32.html" class="question">
-            <span class="number">32</span>
-            <span class="question-text">Create a to-do list using JavaScript.</span>
-        </a>
-
-        <a href="a33.html" class="question">
-            <span class="number">33</span>
-            <span class="question-text">Create a simple quiz application.</span>
-        </a>
-
-        <a href="a34.html" class="question">
-            <span class="number">34</span>
-            <span class="question-text">Create a counter application with increment and decrement buttons.</span>
-        </a>
-
-        <a href="a35.html" class="question">
-            <span class="number">35</span>
-            <span class="question-text">Create a stopwatch using JavaScript.</span>
-        </a>
-
-        <a href="a36.html" class="question">
-            <span class="number">36</span>
-            <span class="question-text">Create a countdown timer using JavaScript.</span>
-        </a>
-
-    </div>
-
-
-    <!-- Questions 37-47 -->
-
-    <div class="section-title">
-        <h2>Advanced JavaScript Lab Questions — Questions 37 to 47</h2>
-    </div>
-
-    <div class="questions">
-
-        <a href="a37.html" class="question">
-            <span class="number">37</span>
-            <span class="question-text">Advanced JavaScript Lab Questions</span>
-        </a>
-
-        <a href="a38.html" class="question">
-            <span class="number">38</span>
-            <span class="question-text">Demonstrate ES6 let, const, template literals, and destructuring.</span>
-        </a>
-
-        <a href="a39.html" class="question">
-            <span class="number">39</span>
-            <span class="question-text">Demonstrate spread and rest operators.</span>
-        </a>
-
-        <a href="a40.html" class="question">
-            <span class="number">40</span>
-            <span class="question-text">Demonstrate classes and objects.</span>
-        </a>
-
-        <a href="a41.html" class="question">
-            <span class="number">41</span>
-            <span class="question-text">Demonstrate inheritance in JavaScript.</span>
-        </a>
-
-        <a href="a42.html" class="question">
-            <span class="number">42</span>
-            <span class="question-text">Demonstrate callbacks, promises, and async/await.</span>
-        </a>
-
-        <a href="a43.html" class="question">
-            <span class="number">43</span>
-            <span class="question-text">Fetch data from an API using Fetch API.</span>
-        </a>
-
-        <a href="a44.html" class="question">
-            <span class="number">44</span>
-            <span class="question-text">Display API data dynamically on a webpage.</span>
-        </a>
-
-        <a href="a45.html" class="question">
-            <span class="number">45</span>
-            <span class="question-text">Store and retrieve data using localStorage.</span>
-        </a>
-
-        <a href="a46.html" class="question">
-            <span class="number">46</span>
-            <span class="question-text">Create a responsive login form with JavaScript validation.</span>
-        </a>
-
-        <a href="a47.html" class="question">
-            <span class="number">47</span>
-            <span class="question-text">Create a complete interactive webpage using HTML, CSS, and JavaScript.</span>
-        </a>
-
-    </div>
-
-
-    <!-- Questions 48-67 -->
-
-    <div class="section-title">
-        <h2>Additional JavaScript Programs — Questions 48 to 67</h2>
-    </div>
-
-    <div class="questions">
-
-        <a href="a48.html" class="question">
-            <span class="number">48</span>
-            <span class="question-text">Write a JavaScript program to swap two numbers.</span>
-        </a>
-
-        <a href="a49.html" class="question">
-            <span class="number">49</span>
-            <span class="question-text">Write a program to find the greatest common divisor (GCD) of two numbers.</span>
-        </a>
-
-        <a href="a50.html" class="question">
-            <span class="number">50</span>
-            <span class="question-text">Write a program to find the least common multiple (LCM) of two numbers.</span>
-        </a>
-
-        <a href="a51.html" class="question">
-            <span class="number">51</span>
-            <span class="question-text">Write a program to check whether a number is an Armstrong number.</span>
-        </a>
-
-        <a href="a52.html" class="question">
-            <span class="number">52</span>
-            <span class="question-text">Write a program to check whether a number is a perfect number.</span>
-        </a>
-
-        <a href="a53.html" class="question">
-            <span class="number">53</span>
-            <span class="question-text">Write a program to generate the multiplication table of a given number.</span>
-        </a>
-
-        <a href="a54.html" class="question">
-            <span class="number">54</span>
-            <span class="question-text">Write a program to calculate the power of a number.</span>
-        </a>
-
-        <a href="a55.html" class="question">
-            <span class="number">55</span>
-            <span class="question-text">Write a program to count the number of digits in a number.</span>
-        </a>
-
-        <a href="a56.html" class="question">
-            <span class="number">56</span>
-            <span class="question-text">Write a program to find the second-largest element in an array.</span>
-        </a>
-
-        <a href="a57.html" class="question">
-            <span class="number">57</span>
-            <span class="question-text">Write a program to remove duplicate elements from an array.</span>
-        </a>
-
-        <a href="a58.html" class="question">
-            <span class="number">58</span>
-            <span class="question-text">Write a program to merge two arrays.</span>
-        </a>
-
-        <a href="a59.html" class="question">
-            <span class="number">59</span>
-            <span class="question-text">Write a program to find the frequency of each element in an array.</span>
-        </a>
-
-        <a href="a60.html" class="question">
-            <span class="number">60</span>
-            <span class="question-text">Write a program to find common elements in two arrays.</span>
-        </a>
-
-        <a href="a61.html" class="question">
-            <span class="number">61</span>
-            <span class="question-text">Write a program to reverse a string.</span>
-        </a>
-
-        <a href="a62.html" class="question">
-            <span class="number">62</span>
-            <span class="question-text">Write a program to check whether a string is a palindrome.</span>
-        </a>
-
-        <a href="a63.html" class="question">
-            <span class="number">63</span>
-            <span class="question-text">Write a program to count vowels and consonants in a string.</span>
-        </a>
-
-        <a href="a64.html" class="question">
-            <span class="number">64</span>
-            <span class="question-text">Write a program to count the number of words in a string.</span>
-        </a>
-
-        <a href="a65.html" class="question">
-            <span class="number">65</span>
-            <span class="question-text">Write a program to find the frequency of characters in a string.</span>
-        </a>
-
-        <a href="a66.html" class="question">
-            <span class="number">66</span>
-            <span class="question-text">Write a program to demonstrate regular expressions in JavaScript.</span>
-        </a>
-
-        <a href="a67.html" class="question">
-            <span class="number">67</span>
-            <span class="question-text">Write a program to validate an email address using a regular expression.</span>
-        </a>
-
-    </div>
-
-</div>
+</main>
 
 <footer>
-    <p>JavaScript Practical Programs | 67 Experiments</p>
+    <p>WEB DEVELOPMENT PRACTICALS</p>
+    <p>HTML • CSS • JavaScript</p>
 </footer>
 
 </body>

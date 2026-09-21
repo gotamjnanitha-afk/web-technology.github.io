@@ -3,101 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial</title>
+
+    <title>Audio and Video</title>
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #475569;
+            line-height: 1.6;
+            padding: 40px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
             border-radius: 18px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        h1 {
-            color: #7f1d1d;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            margin: 15px 0;
-            border: 1px solid #fecdd3;
-            border-radius: 8px;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #991b1b;
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
             color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            text-align: center;
+            padding: 45px 25px;
         }
 
-        #result {
-            margin-top: 20px;
-            padding: 18px;
-            background: #ffe4e6;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #991b1b;
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
-        .back {
-            display: block;
-            margin-top: 20px;
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .media-section {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        h2 {
             color: #991b1b;
-            text-decoration: none;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 550px;
+        }
+
+        video {
+            width: 400px;
+            max-width: 100%;
+            border-radius: 12px;
+            border: 4px solid #fecdd3;
+            box-shadow: 0 5px 15px rgba(127, 29, 29, 0.15);
+        }
+
+        .media-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .media-section {
+                padding: 20px 15px;
+            }
+
+            h2 {
+                font-size: 23px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Factorial of a Number</h1>
+    <div class="container">
 
-    <input type="number" id="number" placeholder="Enter a number">
+        <div class="header">
+            <h1>Audio and Video</h1>
+            <p>HTML Multimedia Elements</p>
+        </div>
 
-    <button onclick="findFactorial()">Calculate Factorial</button>
+        <div class="content">
 
-    <div id="result"></div>
+            <div class="media-section">
 
-    <a href="index.html" class="back">← Back to JavaScript Programs</a>
-</div>
+                <h2>Audio</h2>
 
-<script>
-    function findFactorial() {
-        let number = Number(document.getElementById("number").value);
-        let factorial = 1;
+                <div class="media-box">
+                    <audio controls>
+                        <source src="music.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
 
-        for (let i = 1; i <= number; i++) {
-            factorial *= i;
-        }
+            </div>
 
-        document.getElementById("result").textContent =
-            "Factorial = " + factorial;
-    }
-</script>
+            <div class="media-section">
+
+                <h2>Video</h2>
+
+                <div class="media-box">
+                    <video controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Audio and Video
+        </div>
+
+    </div>
 
 </body>
 </html>
