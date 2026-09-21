@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sliding Card Animation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f6;
+    color: #450a0a;
+}
+
+header {
+    background: linear-gradient(135deg, #450a0a, #b91c1c);
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 45px auto;
+}
+
+.cards {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 280px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(127,29,29,0.15);
+    animation: slideIn 1s ease forwards;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.image {
+    height: 180px;
+    background: linear-gradient(135deg, #7f1d1d, #fda4af);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.content {
+    padding: 22px;
+}
+
+.content h3 {
+    color: #991b1b;
+    margin-bottom: 10px;
+}
+
+.content p {
+    color: #64748b;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+footer {
+    margin-top: 40px;
+    background: #450a0a;
+    color: #fecdd3;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sliding Card Animation</h1>
+    <p>Cards enter the page using CSS animation</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="image">FASHION</div>
+            <div class="content">
+                <h3>Men's Fashion</h3>
+                <p>Explore modern fashion collections.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image">STYLE</div>
+            <div class="content">
+                <h3>New Styles</h3>
+                <p>Discover the latest styles and trends.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image">OFFERS</div>
+            <div class="content">
+                <h3>Special Offers</h3>
+                <p>Check out exciting offers and deals.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    CSS Sliding Animation | Practical Program 69
+</footer>
+
+</body>
+</html>

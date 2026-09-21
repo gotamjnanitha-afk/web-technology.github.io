@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Q29 - CSS Variables</title>
+
+    <style>
+        :root {
+            --primary-color: #991b1b;
+            --dark-color: #450a0a;
+            --accent-color: #dc2626;
+            --light-color: #fff5f6;
+            --soft-color: #ffe4e6;
+            --border-color: #fecdd3;
+            --text-color: #64748b;
+            --card-radius: 16px;
+            --main-padding: 28px;
+            --shadow: 0 10px 25px rgba(127, 29, 29, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        header h1 {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--border-color);
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .intro h2 {
+            color: var(--primary-color);
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            color: var(--text-color);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: var(--main-padding);
+            border: 2px solid var(--border-color);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--soft-color);
+            color: var(--accent-color);
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-color);
+        }
+
+        .theme-demo {
+            margin-top: 30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 35px;
+            border-radius: var(--card-radius);
+            text-align: center;
+        }
+
+        .theme-demo h2 {
+            margin-bottom: 10px;
+        }
+
+        .theme-demo p {
+            color: var(--soft-color);
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .variables {
+            margin-top: 30px;
+            background: white;
+            padding: var(--main-padding);
+            border-radius: var(--card-radius);
+            border: 2px solid var(--border-color);
+        }
+
+        .variables h2 {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+        }
+
+        .variable-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .variable-item {
+            background: var(--soft-color);
+            padding: 13px;
+            border-radius: 8px;
+            color: var(--dark-color);
+        }
+
+        .variable-item strong {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--border-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .variable-list {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            main {
+                width: 92%;
+            }
+
+            .card,
+            .variables {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Variables</h1>
+        <p>Demonstrating Custom Properties in CSS</p>
+    </header>
+
+    <main>
+
+        <div class="intro">
+            <h2>Reusable CSS Values</h2>
+            <p>
+                CSS variables allow commonly used values to be stored
+                and reused throughout a webpage.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">01</div>
+                <h3>Primary Color</h3>
+                <p>
+                    The primary color is stored in a CSS variable
+                    and reused throughout the design.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">02</div>
+                <h3>Spacing</h3>
+                <p>
+                    Common padding values can be stored in variables
+                    and reused by multiple components.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">03</div>
+                <h3>Border Radius</h3>
+                <p>
+                    A single variable controls the rounded corners
+                    of different elements.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="theme-demo">
+
+            <h2>Variable-Based Design</h2>
+
+            <p>
+                Colors, spacing, shadows and other design values
+                are controlled using custom properties.
+            </p>
+
+            <a href="#" class="button">Explore</a>
+
+        </div>
+
+        <div class="variables">
+
+            <h2>Custom Properties Used</h2>
+
+            <div class="variable-list">
+
+                <div class="variable-item">
+                    <strong>--primary-color</strong> → Main theme color
+                </div>
+
+                <div class="variable-item">
+                    <strong>--dark-color</strong> → Header and footer
+                </div>
+
+                <div class="variable-item">
+                    <strong>--accent-color</strong> → Buttons and highlights
+                </div>
+
+                <div class="variable-item">
+                    <strong>--light-color</strong> → Page background
+                </div>
+
+                <div class="variable-item">
+                    <strong>--card-radius</strong> → Card corner radius
+                </div>
+
+                <div class="variable-item">
+                    <strong>--main-padding</strong> → Card spacing
+                </div>
+
+                <div class="variable-item">
+                    <strong>--shadow</strong> → Card shadow
+                </div>
+
+                <div class="variable-item">
+                    <strong>--text-color</strong> → Secondary text
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        CSS Practical Assignment • Question 29
+    </footer>
+
+</body>
+</html>

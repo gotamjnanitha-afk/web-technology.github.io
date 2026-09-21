@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Layout</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f6;
+            padding: 35px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            min-height: 180px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
+        }
+
+        .card h2 {
+            color: #991b1b;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 950px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Responsive CSS Grid</h1>
+
+        <p class="subtitle">
+            Resize the browser window to see the number of columns change.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h2>HTML</h2>
+                <p>Creates the structure of a webpage.</p>
+            </div>
+
+            <div class="card">
+                <h2>CSS</h2>
+                <p>Styles and designs the webpage.</p>
+            </div>
+
+            <div class="card">
+                <h2>JavaScript</h2>
+                <p>Adds interaction and dynamic behavior.</p>
+            </div>
+
+            <div class="card">
+                <h2>Python</h2>
+                <p>A popular programming language.</p>
+            </div>
+
+            <div class="card">
+                <h2>Data Science</h2>
+                <p>Works with data, analysis and models.</p>
+            </div>
+
+            <div class="card">
+                <h2>AI & ML</h2>
+                <p>Build intelligent applications.</p>
+            </div>
+
+            <div class="card">
+                <h2>Web Design</h2>
+                <p>Creates attractive user interfaces.</p>
+            </div>
+
+            <div class="card">
+                <h2>Projects</h2>
+                <p>Apply your skills through practical work.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

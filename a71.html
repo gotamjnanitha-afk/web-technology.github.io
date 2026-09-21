@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Mode CSS Variables</title>
+
+<style>
+:root {
+    --background: #fff5f6;
+    --card: #ffffff;
+    --text: #450a0a;
+    --accent: #b91c1c;
+    --muted: #64748b;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: 0.4s;
+}
+
+#darkmode {
+    display: none;
+}
+
+.dark {
+    --background: #1f1113;
+    --card: #32191c;
+    --text: #fff1f2;
+    --accent: #fda4af;
+    --muted: #fecdd3;
+}
+
+#darkmode:checked ~ .page {
+    --background: #1f1113;
+    --card: #32191c;
+    --text: #fff1f2;
+    --accent: #fda4af;
+    --muted: #fecdd3;
+}
+
+.page {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+}
+
+header {
+    background: var(--accent);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.toggle {
+    display: inline-block;
+    margin-top: 15px;
+    background: white;
+    color: #450a0a;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    color: var(--accent);
+}
+
+.card p {
+    color: var(--muted);
+}
+
+footer {
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="darkmode">
+
+<div class="page">
+
+<header>
+    <h1>Dark Mode Webpage</h1>
+    <p>Using CSS Variables</p>
+    <label for="darkmode" class="toggle">Toggle Dark Mode</label>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Welcome</h2>
+        <p>This webpage uses CSS custom properties to create a light and dark theme.</p>
+    </div>
+
+    <div class="card">
+        <h2>CSS Variables</h2>
+        <p>The colors change automatically when dark mode is activated.</p>
+    </div>
+
+</div>
+
+<footer>
+    CSS Variables | Practical Program 71
+</footer>
+
+</div>
+
+</body>
+</html>

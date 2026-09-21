@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Z-Index and Stacking Order</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            margin-bottom: 30px;
+        }
+
+        .intro h2 {
+            color: #991b1b;
+            margin-top: 0;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            margin-bottom: 30px;
+        }
+
+        .demo-card h2 {
+            color: #7f1d1d;
+            text-align: center;
+        }
+
+        .stack-area {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            height: 360px;
+            margin: 30px auto;
+            background: #fff1f2;
+            border: 2px dashed #fda4af;
+            border-radius: 18px;
+        }
+
+        .box {
+            position: absolute;
+            width: 190px;
+            height: 130px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 10px 20px rgba(69, 10, 10, 0.15);
+        }
+
+        .box-one {
+            background: #fda4af;
+            top: 55px;
+            left: 80px;
+            z-index: 1;
+        }
+
+        .box-two {
+            background: #dc2626;
+            top: 100px;
+            left: 180px;
+            z-index: 2;
+        }
+
+        .box-three {
+            background: #450a0a;
+            top: 145px;
+            left: 280px;
+            z-index: 3;
+        }
+
+        .box-four {
+            background: #991b1b;
+            top: 190px;
+            left: 380px;
+            z-index: 4;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .info div {
+            background: #fff1f2;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #fecdd3;
+        }
+
+        .info strong {
+            display: block;
+            color: #991b1b;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            display: inline-block;
+            padding: 7px 12px;
+            background: #fff1f2;
+            color: #991b1b;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+
+        .note {
+            text-align: center;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #450a0a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .stack-area {
+                height: 420px;
+            }
+
+            .box {
+                width: 150px;
+                height: 100px;
+            }
+
+            .box-one {
+                left: 20px;
+            }
+
+            .box-two {
+                left: 80px;
+                top: 100px;
+            }
+
+            .box-three {
+                left: 140px;
+                top: 145px;
+            }
+
+            .box-four {
+                left: 200px;
+                top: 190px;
+            }
+
+            .info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 450px) {
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            .box-one {
+                left: 10px;
+            }
+
+            .box-two {
+                left: 45px;
+            }
+
+            .box-three {
+                left: 80px;
+            }
+
+            .box-four {
+                left: 115px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Z-Index</h1>
+        <p>Understanding Stacking Order</p>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <h2>Z-Index and Stacking Order</h2>
+            <p>
+                The <strong>z-index</strong> property controls which positioned
+                element appears in front of another when elements overlap.
+            </p>
+        </section>
+
+        <section class="demo-card">
+
+            <h2>Overlapping Elements</h2>
+
+            <div class="stack-area">
+
+                <div class="box box-one">
+                    Box 1<br>
+                    z-index: 1
+                </div>
+
+                <div class="box box-two">
+                    Box 2<br>
+                    z-index: 2
+                </div>
+
+                <div class="box box-three">
+                    Box 3<br>
+                    z-index: 3
+                </div>
+
+                <div class="box box-four">
+                    Box 4<br>
+                    z-index: 4
+                </div>
+
+            </div>
+
+            <div class="info">
+                <div>
+                    <strong>Box 1</strong>
+                    z-index: 1
+                </div>
+
+                <div>
+                    <strong>Box 2</strong>
+                    z-index: 2
+                </div>
+
+                <div>
+                    <strong>Box 3</strong>
+                    z-index: 3
+                </div>
+
+                <div>
+                    <strong>Box 4</strong>
+                    z-index: 4
+                </div>
+            </div>
+
+            <p class="note">
+                A higher z-index value places an element above an element
+                with a lower z-index value within the same stacking context.
+            </p>
+
+            <div style="text-align:center;">
+                <span class="value">z-index: 1 → 4</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        CSS Practical — Z-Index and Stacking Order
+    </footer>
+
+</body>
+</html>

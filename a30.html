@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Q30 - Background Images</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+        }
+
+        header {
+            background: #450a0a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #fecdd3;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .intro h2 {
+            color: #991b1b;
+            margin-bottom: 8px;
+            font-size: 30px;
+        }
+
+        .intro p {
+            color: #64748b;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .background-card {
+            height: 300px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 3px solid #fecdd3;
+            box-shadow: 0 10px 25px rgba(127, 29, 29, 0.12);
+        }
+
+        .background-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent,
+                rgba(69, 10, 10, 0.85)
+            );
+        }
+
+        .card-content {
+            position: absolute;
+            z-index: 2;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            color: white;
+        }
+
+        .card-content h3 {
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .card-content p {
+            color: #ffe4e6;
+        }
+
+        .image-one {
+            background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80");
+            background-position: center;
+        }
+
+        .image-two {
+            background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80");
+            background-position: top;
+        }
+
+        .image-three {
+            background-image: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80");
+            background-position: bottom;
+        }
+
+        .image-four {
+            background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80");
+            background-position: right;
+        }
+
+        .position-section {
+            margin-top: 30px;
+            background: white;
+            padding: 30px;
+            border: 2px solid #fecdd3;
+            border-radius: 18px;
+        }
+
+        .position-section h2 {
+            color: #991b1b;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .position-demo {
+            height: 280px;
+            border-radius: 14px;
+            background-image: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80");
+            background-size: cover;
+            background-position: 75% 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .position-content {
+            background: rgba(69, 10, 10, 0.8);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 550px;
+        }
+
+        .position-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .position-content p {
+            color: #ffe4e6;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 750px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                width: 92%;
+            }
+
+            .background-card {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Background Images</h1>
+        <p>Different Background Images and Positioning</p>
+    </header>
+
+    <main>
+
+        <div class="intro">
+            <h2>Background Image Demonstration</h2>
+            <p>
+                The examples below demonstrate background images
+                with different background-position values.
+            </p>
+        </div>
+
+        <div class="gallery">
+
+            <div class="background-card image-one">
+                <div class="card-content">
+                    <h3>Center Position</h3>
+                    <p>background-position: center</p>
+                </div>
+            </div>
+
+            <div class="background-card image-two">
+                <div class="card-content">
+                    <h3>Top Position</h3>
+                    <p>background-position: top</p>
+                </div>
+            </div>
+
+            <div class="background-card image-three">
+                <div class="card-content">
+                    <h3>Bottom Position</h3>
+                    <p>background-position: bottom</p>
+                </div>
+            </div>
+
+            <div class="background-card image-four">
+                <div class="card-content">
+                    <h3>Right Position</h3>
+                    <p>background-position: right</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="position-section">
+
+            <h2>Custom Background Position</h2>
+
+            <div class="position-demo">
+
+                <div class="position-content">
+                    <h3>75% 30% Position</h3>
+                    <p>
+                        This background uses a custom horizontal
+                        and vertical position.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        CSS Practical Assignment • Question 30
+    </footer>
+
+</body>
+</html>

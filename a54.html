@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Contact Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff5f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(127, 29, 29, 0.14);
+        }
+
+        .info {
+            background: #450a0a;
+            color: white;
+            padding: 45px 35px;
+        }
+
+        .info h1 {
+            color: #fda4af;
+            margin-bottom: 18px;
+        }
+
+        .info p {
+            color: #ffe4e6;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .detail {
+            margin-bottom: 20px;
+        }
+
+        .detail strong {
+            display: block;
+            color: #fda4af;
+            margin-bottom: 5px;
+        }
+
+        .detail span {
+            color: #ffe4e6;
+        }
+
+        .form {
+            padding: 45px 40px;
+        }
+
+        .form h2 {
+            color: #7f1d1d;
+            margin-bottom: 25px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #475569;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #b91c1c;
+            box-shadow: 0 0 0 3px #fff1f2;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #b91c1c;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #7f1d1d;
+        }
+
+        @media (max-width: 750px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                text-align: center;
+            }
+
+            .form {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section class="info">
+
+            <h1>Contact Us</h1>
+
+            <p>
+                Have a question or need assistance? Send us a message
+                and our team will get back to you.
+            </p>
+
+            <div class="detail">
+                <strong>Address</strong>
+                <span>Chennai, Tamil Nadu, India</span>
+            </div>
+
+            <div class="detail">
+                <strong>Email</strong>
+                <span>support@example.com</span>
+            </div>
+
+            <div class="detail">
+                <strong>Phone</strong>
+                <span>+91 98765 43210</span>
+            </div>
+
+        </section>
+
+        <section class="form">
+
+            <h2>Send a Message</h2>
+
+            <form>
+
+                <div class="row">
+
+                    <div class="group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name">
+                    </div>
+
+                    <div class="group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your email">
+                    </div>
+
+                </div>
+
+                <div class="group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="Subject">
+                </div>
+
+                <div class="group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Write your message"></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</body>
+</html>

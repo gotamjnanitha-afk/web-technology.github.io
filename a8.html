@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Question 8 - Float and Clear</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ffe4e6;
+            font-size: 17px;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        .card {
+            background: #fff1f2;
+            padding: 25px;
+            border-left: 6px solid #b91c1c;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #991b1b;
+            margin-bottom: 15px;
+        }
+
+        .float-left {
+            float: left;
+            width: 180px;
+            height: 120px;
+            background: #dc2626;
+            color: white;
+            margin: 0 20px 15px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .float-right {
+            float: right;
+            width: 180px;
+            height: 120px;
+            background: #991b1b;
+            color: white;
+            margin: 0 0 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .text {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .clear-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ffe4e6;
+            border-radius: 12px;
+            clear: both;
+        }
+
+        .clear-box {
+            background: #7f1d1d;
+            color: white;
+            padding: 20px;
+            margin-top: 15px;
+            clear: both;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .clearfix {
+            overflow: auto;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 15px;
+            }
+
+            .float-left,
+            .float-right {
+                float: none;
+                width: 100%;
+                margin: 0 0 15px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>CSS Float & Clear</h1>
+            <p>Demonstration of Float and Clear Properties</p>
+        </header>
+
+        <main>
+
+            <section class="card clearfix">
+                <h2>Float Left</h2>
+
+                <div class="float-left">
+                    Float Left
+                </div>
+
+                <p class="text">
+                    The float property allows an element to move to the
+                    left or right side of its container. When an element
+                    is floated to the left, the text can flow around it.
+                    This technique was commonly used for creating layouts
+                    and positioning images beside text.
+                </p>
+            </section>
+
+            <section class="card clearfix">
+                <h2>Float Right</h2>
+
+                <div class="float-right">
+                    Float Right
+                </div>
+
+                <p class="text">
+                    An element can also be floated to the right using
+                    the float property. The surrounding text flows around
+                    the floated element. Float can be useful for simple
+                    layouts and content positioning.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Clear Property</h2>
+
+                <p class="text">
+                    The clear property prevents an element from being
+                    positioned next to floated elements.
+                </p>
+
+                <div class="clear-box">
+                    Clear: Both — This element starts below floated elements
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            CSS Practical Program 08
+        </footer>
+
+    </div>
+
+</body>
+</html>

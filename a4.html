@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Question 4 - Fonts and Text Formatting</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ffe4e6;
+            font-size: 17px;
+        }
+
+        main {
+            padding: 40px;
+            display: grid;
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff1f2;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid #b91c1c;
+        }
+
+        .card h2 {
+            color: #991b1b;
+            margin-bottom: 18px;
+        }
+
+        .example {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 12px;
+            border: 1px solid #fecdd3;
+        }
+
+        .font-family {
+            font-family: Georgia, serif;
+            font-size: 22px;
+        }
+
+        .font-size {
+            font-size: 28px;
+            color: #dc2626;
+        }
+
+        .font-weight {
+            font-weight: bold;
+        }
+
+        .font-style {
+            font-style: italic;
+        }
+
+        .text-align {
+            text-align: center;
+        }
+
+        .text-decoration {
+            text-decoration: underline;
+        }
+
+        .text-transform {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .line-height {
+            line-height: 2;
+        }
+
+        .letter-spacing {
+            letter-spacing: 5px;
+        }
+
+        .word-spacing {
+            word-spacing: 12px;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Fonts & Text Formatting</h1>
+            <p>CSS Font and Text Properties</p>
+        </header>
+
+        <main>
+
+            <section class="card">
+                <h2>Font Family</h2>
+                <div class="example font-family">
+                    This text uses the Georgia font family.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Font Size</h2>
+                <div class="example font-size">
+                    This text has a larger font size.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Font Weight</h2>
+                <div class="example font-weight">
+                    This text is displayed in bold.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Font Style</h2>
+                <div class="example font-style">
+                    This text is displayed in italic style.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Text Alignment</h2>
+                <div class="example text-align">
+                    This text is center aligned.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Text Decoration</h2>
+                <div class="example text-decoration">
+                    This text has an underline.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Text Transformation</h2>
+                <div class="example text-transform">
+                    css text transformation example
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Line Height</h2>
+                <div class="example line-height">
+                    CSS controls the spacing between lines of text.<br>
+                    This example demonstrates the line-height property.<br>
+                    It makes paragraphs easier to read.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Letter Spacing & Word Spacing</h2>
+                <div class="example letter-spacing">
+                    LETTER SPACING
+                </div>
+
+                <div class="example word-spacing">
+                    CSS makes web pages attractive
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            CSS Practical Program 04
+        </footer>
+
+    </div>
+
+</body>
+</html>

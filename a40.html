@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Hover Effect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            margin-bottom: 30px;
+        }
+
+        .intro h2 {
+            color: #991b1b;
+            margin-top: 0;
+        }
+
+        .intro p {
+            color: #64748b;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            text-align: center;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #ffe4e6;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s ease;
+        }
+
+        .zoom img:hover {
+            transform: scale(1.15);
+        }
+
+        .rotate img:hover {
+            transform: rotate(5deg) scale(1.08);
+        }
+
+        .gray img:hover {
+            filter: grayscale(100%);
+            transform: scale(1.08);
+        }
+
+        .dark img:hover {
+            filter: brightness(60%);
+            transform: scale(1.08);
+        }
+
+        .card h3 {
+            color: #7f1d1d;
+            margin: 18px 0 8px;
+        }
+
+        .card p {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .effect {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 7px 12px;
+            background: #fff1f2;
+            color: #991b1b;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+
+        footer {
+            background: #450a0a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .image-box {
+                height: 210px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Image Hover Effects</h1>
+        <p>Interactive Image Effects Using CSS</p>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <h2>Hover Over the Images</h2>
+            <p>
+                Move your mouse over each image to see different CSS
+                hover effects such as zoom, rotation, grayscale and brightness.
+            </p>
+        </section>
+
+        <section class="gallery">
+
+            <div class="card zoom">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                        alt="Nature">
+                </div>
+
+                <h3>Zoom Effect</h3>
+                <p>Image smoothly becomes larger.</p>
+                <span class="effect">transform: scale()</span>
+            </div>
+
+            <div class="card rotate">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                        alt="Beach">
+                </div>
+
+                <h3>Rotate Effect</h3>
+                <p>Image rotates slightly on hover.</p>
+                <span class="effect">transform: rotate()</span>
+            </div>
+
+            <div class="card gray">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+                        alt="Forest">
+                </div>
+
+                <h3>Grayscale Effect</h3>
+                <p>Image changes to black and white.</p>
+                <span class="effect">filter: grayscale()</span>
+            </div>
+
+            <div class="card dark">
+                <div class="image-box">
+                    <img
+                        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+                        alt="Mountain">
+                </div>
+
+                <h3>Brightness Effect</h3>
+                <p>Image becomes darker on hover.</p>
+                <span class="effect">filter: brightness()</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        CSS Practical — Image Hover Effect
+    </footer>
+
+</body>
+</html>

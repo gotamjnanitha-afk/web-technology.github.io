@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tooltip</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff5f6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            padding: 50px 30px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        h1 {
+            color: #7f1d1d;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #64748b;
+            margin-bottom: 45px;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip-button {
+            padding: 15px 28px;
+            border: none;
+            border-radius: 10px;
+            background: #b91c1c;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tooltip-text {
+            position: absolute;
+            bottom: 135%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 230px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            background: #450a0a;
+            color: white;
+            font-size: 14px;
+            line-height: 1.5;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease;
+            z-index: 10;
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #450a0a transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .examples {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .example {
+            padding: 15px 20px;
+            border: 2px solid #fecdd3;
+            border-radius: 10px;
+            color: #991b1b;
+            background: #fff1f2;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .example span {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            padding: 8px;
+            border-radius: 8px;
+            background: #7f1d1d;
+            color: white;
+            font-size: 12px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .example:hover span {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>CSS Tooltip</h1>
+
+        <p>Move your mouse over the button to display a tooltip.</p>
+
+        <div class="tooltip">
+            <button class="tooltip-button">Hover Me</button>
+
+            <div class="tooltip-text">
+                This is a CSS tooltip. It appears when you hover over the button.
+            </div>
+        </div>
+
+        <div class="examples">
+
+            <div class="example">
+                HTML
+                <span>HyperText Markup Language</span>
+            </div>
+
+            <div class="example">
+                CSS
+                <span>Cascading Style Sheets</span>
+            </div>
+
+            <div class="example">
+                JavaScript
+                <span>Programming language for web pages</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
