@@ -3,266 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 19 - Responsive Navigation</title>
-
+    <title>JavaScript Objects</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-        }
-
-        .navbar {
-            background: #450a0a;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #fda4af;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            background: #dc2626;
-        }
-
-        .hero {
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 550px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(
-                135deg,
-                #fff5f6,
-                #ffe4e6
-            );
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #7f1d1d;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #dc2626;
-        }
-
-        .hero p {
-            color: #64748b;
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
+        h1 { color: #7f1d1d; }
+        button {
+            width: 100%;
+            padding: 14px;
             background: #991b1b;
             color: white;
-            text-decoration: none;
-            padding: 14px 28px;
+            border: none;
             border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
+            cursor: pointer;
         }
-
-        .button:hover {
-            background: #dc2626;
-            transform: translateY(-3px);
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            text-align: left;
+            line-height: 2;
+            color: #450a0a;
         }
-
-        .features {
-            padding: 50px 7%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .feature {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border: 2px solid #fecdd3;
-            border-radius: 15px;
-        }
-
-        .feature h3 {
+        .back {
+            display: block;
+            margin-top: 20px;
             color: #991b1b;
-            margin-bottom: 12px;
-        }
-
-        .feature p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 22px;
-        }
-
-        @media (max-width: 768px) {
-
-            .navbar {
-                flex-direction: column;
-                gap: 18px;
-                padding: 20px;
-            }
-
-            .nav-links {
-                width: 100%;
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-            }
-
-            .nav-links a {
-                display: block;
-            }
-
-            .hero {
-                min-height: 65vh;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-                padding: 40px 6%;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            .logo {
-                font-size: 24px;
-            }
-
-            .hero h1 {
-                font-size: 30px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .button {
-                padding: 12px 22px;
-            }
+            text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-    <nav class="navbar">
+<div class="container">
+    <h1>JavaScript Objects</h1>
 
-        <div class="logo">
-            Web<span>Lab</span>
-        </div>
+    <button onclick="displayObject()">Display Object</button>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+    <div id="result"></div>
 
-    </nav>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-    <section class="hero">
+<script>
+function displayObject() {
+    let student = {
+        name: "Rahul",
+        age: 20,
+        course: "Data Science",
+        college: "Sai University"
+    };
 
-        <div class="hero-content">
-
-            <h1>
-                Responsive <span>Navigation</span>
-            </h1>
-
-            <p>
-                This webpage demonstrates a responsive navigation
-                menu created using HTML and CSS. Resize the browser
-                window to see the navigation adapt to smaller screens.
-            </p>
-
-            <a href="#" class="button">
-                Explore More
-            </a>
-
-        </div>
-
-    </section>
-
-    <section class="features">
-
-        <div class="feature">
-            <h3>Responsive</h3>
-            <p>
-                The navigation automatically adjusts
-                for different screen sizes.
-            </p>
-        </div>
-
-        <div class="feature">
-            <h3>Simple Design</h3>
-            <p>
-                A clean and professional navigation
-                structure using HTML and CSS.
-            </p>
-        </div>
-
-        <div class="feature">
-            <h3>Mobile Friendly</h3>
-            <p>
-                The menu changes to a vertical layout
-                on smaller devices.
-            </p>
-        </div>
-
-    </section>
-
-    <footer>
-        CSS Practical Program 19
-    </footer>
+    document.getElementById("result").innerHTML =
+        "Name: " + student.name + "<br>" +
+        "Age: " + student.age + "<br>" +
+        "Course: " + student.course + "<br>" +
+        "College: " + student.college;
+}
+</script>
 
 </body>
 </html>

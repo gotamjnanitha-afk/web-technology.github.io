@@ -3,223 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 17 - Transitions and Transformations</title>
-
+    <title>Strings and String Methods</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
         .container {
             width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 50px 0;
-        }
-
-        .title {
-            text-align: center;
-            color: #991b1b;
-            font-size: 30px;
-            margin-bottom: 35px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .card {
+            max-width: 650px;
             background: white;
-            border: 2px solid #fecdd3;
-            border-radius: 18px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 18px 30px rgba(127, 29, 29, 0.2);
-        }
-
-        .shape {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 25px;
-            background: #dc2626;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.7s ease;
-        }
-
-        .rotate:hover .shape {
-            transform: rotate(180deg);
-        }
-
-        .scale:hover .shape {
-            transform: scale(1.3);
-        }
-
-        .move:hover .shape {
-            transform: translateX(30px);
-        }
-
-        .card h3 {
-            color: #7f1d1d;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .demo {
-            background: #ffe4e6;
-            border-radius: 18px;
             padding: 40px;
+            border-radius: 18px;
             text-align: center;
-            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        .demo h2 {
-            color: #7f1d1d;
-            margin-bottom: 25px;
+        h1 { color: #7f1d1d; }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
         }
-
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
+        button {
+            width: 100%;
+            padding: 14px;
             background: #991b1b;
             color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffe4e6;
             border-radius: 10px;
+            text-align: left;
+            line-height: 2;
+            color: #450a0a;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.4s ease;
-        }
-
-        .button:hover {
-            background: #dc2626;
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(127, 29, 29, 0.25);
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 25px;
-        }
-
-        @media (max-width: 800px) {
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 30px;
-            }
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Transitions & Transformations</h1>
-        <p>Interactive CSS effects using transition and transform properties</p>
-    </header>
+<div class="container">
+    <h1>String Methods</h1>
 
-    <section class="section">
+    <input type="text" id="text" placeholder="Enter a string">
 
-        <div class="container">
+    <button onclick="showMethods()">Show String Methods</button>
 
-            <h2 class="title">CSS Transformation Effects</h2>
+    <div id="result"></div>
 
-            <div class="cards">
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <div class="card rotate">
-                    <div class="shape">ROTATE</div>
-                    <h3>Rotate</h3>
-                    <p>
-                        Hover over the card to rotate the shape
-                        using the CSS rotate transformation.
-                    </p>
-                </div>
+<script>
+function showMethods() {
+    let text = document.getElementById("text").value;
 
-                <div class="card scale">
-                    <div class="shape">SCALE</div>
-                    <h3>Scale</h3>
-                    <p>
-                        Hover over the card to enlarge the shape
-                        using the CSS scale transformation.
-                    </p>
-                </div>
-
-                <div class="card move">
-                    <div class="shape">MOVE</div>
-                    <h3>Translate</h3>
-                    <p>
-                        Hover over the card to move the shape
-                        using the CSS translate transformation.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="demo">
-
-                <h2>Transition Button</h2>
-
-                <a href="#" class="button">
-                    Hover Me
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer>
-        CSS Practical Program 17
-    </footer>
+    document.getElementById("result").innerHTML =
+        "Original: " + text + "<br>" +
+        "Uppercase: " + text.toUpperCase() + "<br>" +
+        "Lowercase: " + text.toLowerCase() + "<br>" +
+        "Length: " + text.length + "<br>" +
+        "First Character: " + text.charAt(0) + "<br>" +
+        "Trimmed: " + text.trim();
+}
+</script>
 
 </body>
 </html>

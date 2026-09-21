@@ -3,347 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 21 - Student Profile</title>
-
+    <title>Change Text Using JavaScript</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-        }
-
         .container {
             width: 90%;
-            max-width: 1000px;
-            margin: 40px auto;
-        }
-
-        .profile-card {
+            max-width: 600px;
             background: white;
-            border: 2px solid #fecdd3;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(127, 29, 29, 0.12);
+            padding: 45px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        .profile-top {
+        h1 { color: #7f1d1d; }
+        #message {
+            margin: 25px 0;
+            padding: 20px;
             background: #ffe4e6;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #991b1b, #dc2626);
-            border: 7px solid white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .profile-info h2 {
-            color: #7f1d1d;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .profile-info h3 {
-            color: #dc2626;
-            margin-bottom: 12px;
-        }
-
-        .profile-info p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .content {
-            padding: 35px;
-        }
-
-        .section-title {
-            color: #991b1b;
-            font-size: 24px;
-            margin-bottom: 20px;
-            border-left: 5px solid #dc2626;
-            padding-left: 12px;
-        }
-
-        .details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-
-        .detail {
-            background: #fff5f6;
-            border: 1px solid #fecdd3;
             border-radius: 10px;
-            padding: 18px;
-        }
-
-        .detail strong {
-            display: block;
-            color: #7f1d1d;
-            margin-bottom: 6px;
-        }
-
-        .detail span {
-            color: #64748b;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 35px;
-        }
-
-        .skill {
-            background: #991b1b;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        .education {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .education-card {
-            background: #fff5f6;
-            border: 1px solid #fecdd3;
-            border-radius: 12px;
-            padding: 22px;
-        }
-
-        .education-card h3 {
+            font-size: 24px;
             color: #991b1b;
-            margin-bottom: 8px;
+            font-weight: bold;
         }
-
-        .education-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .contact {
-            margin-top: 35px;
+        button {
+            padding: 14px 25px;
             background: #991b1b;
             color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
-
-        .contact h2 {
-            margin-bottom: 12px;
-        }
-
-        .contact p {
-            color: #ffe4e6;
-            margin: 7px 0;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 25px;
-        }
-
-        @media (max-width: 700px) {
-
-            .profile-top {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-
-            .profile-info h2 {
-                font-size: 27px;
-            }
-
-            .details,
-            .education {
-                grid-template-columns: 1fr;
-            }
-
-            .content {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            .profile-image {
-                width: 120px;
-                height: 120px;
-                font-size: 38px;
-            }
-
-            .profile-info h2 {
-                font-size: 24px;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>College Student Profile</h1>
-        <p>Student Academic & Personal Information</p>
-    </header>
+<div class="container">
+    <h1>Change Text Using JavaScript</h1>
 
-    <main class="container">
+    <div id="message">Original Text</div>
 
-        <div class="profile-card">
+    <button onclick="changeText()">Change Text</button>
 
-            <div class="profile-top">
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <div class="profile-image">
-                    S
-                </div>
-
-                <div class="profile-info">
-                    <h2>Sarah Johnson</h2>
-                    <h3>B.Tech - Computer Science</h3>
-                    <p>
-                        A passionate college student interested in
-                        technology, programming and web development.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="content">
-
-                <h2 class="section-title">Student Details</h2>
-
-                <div class="details">
-
-                    <div class="detail">
-                        <strong>Student ID</strong>
-                        <span>STU2026001</span>
-                    </div>
-
-                    <div class="detail">
-                        <strong>Department</strong>
-                        <span>Computer Science</span>
-                    </div>
-
-                    <div class="detail">
-                        <strong>Year</strong>
-                        <span>2nd Year</span>
-                    </div>
-
-                    <div class="detail">
-                        <strong>Section</strong>
-                        <span>A</span>
-                    </div>
-
-                    <div class="detail">
-                        <strong>Email</strong>
-                        <span>sarah@example.com</span>
-                    </div>
-
-                    <div class="detail">
-                        <strong>College</strong>
-                        <span>ABC University</span>
-                    </div>
-
-                </div>
-
-                <h2 class="section-title">Skills</h2>
-
-                <div class="skills">
-                    <span class="skill">HTML</span>
-                    <span class="skill">CSS</span>
-                    <span class="skill">JavaScript</span>
-                    <span class="skill">Python</span>
-                    <span class="skill">Data Science</span>
-                    <span class="skill">Git</span>
-                </div>
-
-                <h2 class="section-title">Education</h2>
-
-                <div class="education">
-
-                    <div class="education-card">
-                        <h3>B.Tech</h3>
-                        <p>
-                            Computer Science and Engineering<br>
-                            ABC University<br>
-                            2025 - 2029
-                        </p>
-                    </div>
-
-                    <div class="education-card">
-                        <h3>Higher Secondary</h3>
-                        <p>
-                            Science Stream<br>
-                            XYZ Junior College<br>
-                            2023 - 2025
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="contact">
-                    <h2>Contact Information</h2>
-                    <p>Email: sarah@example.com</p>
-                    <p>Phone: +91 98765 43210</p>
-                    <p>Location: Chennai, India</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical Program 21
-    </footer>
+<script>
+function changeText() {
+    document.getElementById("message").textContent =
+        "Text Changed Successfully!";
+}
+</script>
 
 </body>
 </html>

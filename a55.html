@@ -1,231 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive College Website</title>
-
+    <title>Q55 - Count Digits</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            background: #450a0a;
+            background: #7f1d1d;
             color: white;
-        }
-
-        .top {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #fda4af;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 22px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #fda4af;
-        }
-
-        .hero {
-            min-height: 430px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(
-                135deg,
-                #fff1f2,
-                #ffe4e6
-            );
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #7f1d1d;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: #64748b;
-            line-height: 1.7;
-            margin: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 13px 25px;
-            background: #b91c1c;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 55px 20px;
-        }
-
-        .section h2 {
-            text-align: center;
-            color: #7f1d1d;
-            margin-bottom: 30px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
-        }
-
-        .card h3 {
-            color: #991b1b;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #ffe4e6;
-            text-align: center;
             padding: 25px;
         }
 
-        @media (max-width: 750px) {
-            .top {
-                flex-direction: column;
-                gap: 15px;
-            }
+        .card {
+            width: 420px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
 
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
 
-            .hero h1 {
-                font-size: 36px;
-            }
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #991b1b;
+        }
+
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
+<header>
+    <h1>Count Digits</h1>
+</header>
 
-        <div class="top">
+<div class="card">
 
-            <div class="logo">ABC College</div>
+    <input type="number" id="number" placeholder="Enter a number">
 
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Courses</a>
-                <a href="#">Admissions</a>
-                <a href="#">Contact</a>
-            </nav>
+    <br>
 
-        </div>
+    <button onclick="countDigits()">Count</button>
 
-    </header>
+    <p id="result"></p>
 
-    <section class="hero">
+</div>
 
-        <div>
-            <h1>Welcome to ABC College</h1>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <p>
-                Empowering students through quality education,
-                innovation, research and practical learning.
-            </p>
+<script>
+    function countDigits() {
+        const number = Number(document.getElementById("number").value);
 
-            <a href="#" class="btn">Explore College</a>
-        </div>
+        const count = Math.abs(number).toString().replace(".", "").length;
 
-    </section>
-
-    <section class="section">
-
-        <h2>Our Programs</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Computer Science</h3>
-                <p>
-                    Learn programming, software development and
-                    modern computing technologies.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Data Science</h3>
-                <p>
-                    Explore data analysis, artificial intelligence
-                    and machine learning.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Business</h3>
-                <p>
-                    Develop management, entrepreneurship and
-                    business skills.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer>
-        © 2026 ABC College. All Rights Reserved.
-    </footer>
+        document.getElementById("result").textContent =
+            "Number of digits: " + count;
+    }
+</script>
 
 </body>
 </html>

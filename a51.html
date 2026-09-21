@@ -1,222 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Sidebar</title>
-
+    <title>Q51 - Armstrong Number</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 240px;
-            height: 100vh;
-            background: #450a0a;
-            padding: 30px 20px;
-            z-index: 1000;
-        }
-
-        .sidebar h2 {
-            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
             text-align: center;
-            margin-bottom: 35px;
+            color: #450a0a;
         }
 
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar a {
-            display: block;
-            padding: 13px 15px;
+        header {
+            background: #7f1d1d;
             color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            background: #991b1b;
-        }
-
-        .content {
-            margin-left: 240px;
-            padding: 35px;
-        }
-
-        .hero {
-            background: white;
-            padding: 45px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.1);
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            color: #7f1d1d;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            color: #64748b;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            padding: 25px;
         }
 
         .card {
-            min-height: 250px;
+            width: 450px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
             background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h2 {
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        a {
             color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 800px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            .sidebar h2 {
-                margin-bottom: 15px;
-            }
-
-            .sidebar ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 5px;
-            }
-
-            .sidebar li {
-                margin: 0;
-            }
-
-            .content {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
-
 <body>
 
-    <aside class="sidebar">
+<header>
+    <h1>Armstrong Number</h1>
+</header>
 
-        <h2>My Website</h2>
+<div class="card">
 
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+    <input type="number" id="number" placeholder="Enter a number">
 
-    </aside>
+    <br>
 
-    <main class="content">
+    <button onclick="checkArmstrong()">Check</button>
 
-        <section class="hero">
-            <h1>Fixed Sidebar</h1>
-            <p>
-                Scroll the page to see that the sidebar remains fixed
-                on the left side.
-            </p>
-        </section>
+    <p id="result"></p>
 
-        <div class="cards">
+</div>
 
-            <section class="card">
-                <h2>About</h2>
-                <p>
-                    This webpage demonstrates a fixed sidebar using
-                    position: fixed. The sidebar stays in the same
-                    position even when the page is scrolled.
-                </p>
-            </section>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <section class="card">
-                <h2>Services</h2>
-                <p>
-                    Fixed sidebars are commonly used in dashboards,
-                    administration panels and documentation websites.
-                </p>
-            </section>
+<script>
+    function checkArmstrong() {
+        const number = Number(document.getElementById("number").value);
 
-            <section class="card">
-                <h2>Projects</h2>
-                <p>
-                    The main content area has a left margin so that it
-                    does not overlap with the fixed sidebar.
-                </p>
-            </section>
+        if (number < 0 || !Number.isInteger(number)) {
+            document.getElementById("result").textContent =
+                "Enter a valid positive integer.";
+            return;
+        }
 
-            <section class="card">
-                <h2>Responsive Design</h2>
-                <p>
-                    On smaller screens, the sidebar becomes a normal
-                    responsive navigation section at the top.
-                </p>
-            </section>
+        const digits = String(number).split("");
+        const power = digits.length;
 
-            <section class="card">
-                <h2>Web Development</h2>
-                <p>
-                    HTML provides structure, CSS provides styling and
-                    JavaScript provides interactivity.
-                </p>
-            </section>
+        const sum = digits.reduce((total, digit) => {
+            return total + Number(digit) ** power;
+        }, 0);
 
-            <section class="card">
-                <h2>CSS Positioning</h2>
-                <p>
-                    CSS position properties include static, relative,
-                    absolute, fixed and sticky.
-                </p>
-            </section>
-
-        </div>
-
-    </main>
+        document.getElementById("result").textContent =
+            sum === number
+                ? number + " is an Armstrong number."
+                : number + " is not an Armstrong number.";
+    }
+</script>
 
 </body>
 </html>

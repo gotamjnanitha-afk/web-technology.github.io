@@ -1,314 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Q27 - CSS Selectors</title>
-
+    <title>Q27 - Digital Clock</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
+            text-align: center;
             color: #450a0a;
         }
 
         header {
-            background: #450a0a;
+            background: #7f1d1d;
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            padding: 25px;
         }
 
-        header h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #fecdd3;
-        }
-
-        main {
-            width: 90%;
-            max-width: 1100px;
-            margin: 45px auto;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .intro h2 {
-            color: #991b1b;
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .intro p {
-            color: #64748b;
-        }
-
-        .selector-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .card {
+        .clock {
+            width: 350px;
+            margin: 100px auto 30px;
+            padding: 35px;
             background: white;
-            border: 2px solid #fecdd3;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 10px 25px rgba(127, 29, 29, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h3 {
-            color: #7f1d1d;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .demo {
-            background: #fff1f2;
-            padding: 18px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        /* Element selector */
-        h4 {
-            color: #dc2626;
-            margin-bottom: 8px;
-        }
-
-        /* Class selector */
-        .highlight {
-            background: #ffe4e6;
-            color: #991b1b;
-            padding: 10px;
-            border-radius: 6px;
+        #time {
+            font-size: 45px;
             font-weight: bold;
-        }
-
-        /* ID selector */
-        #unique-box {
-            background: #991b1b;
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        /* Attribute selector */
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #fda4af;
-            border-radius: 7px;
-            outline: none;
-        }
-
-        input[type="text"]:focus {
-            border-color: #dc2626;
-        }
-
-        /* Grouping selector */
-        .group-title,
-        .group-text {
             color: #b91c1c;
         }
 
-        .selector-name {
-            display: inline-block;
-            background: #7f1d1d;
-            color: white;
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .summary {
-            margin-top: 30px;
-            background: #991b1b;
-            color: white;
-            padding: 28px;
-            border-radius: 16px;
-        }
-
-        .summary h2 {
-            margin-bottom: 15px;
-        }
-
-        .summary ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .summary li {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 12px;
-            border-radius: 7px;
-            color: #ffe4e6;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 750px) {
-            .selector-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .summary ul {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                width: 92%;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Selectors</h1>
-        <p>Universal, Element, Class, ID, Attribute and Grouping Selectors</p>
-    </header>
+<header>
+    <h1>Digital Clock</h1>
+</header>
 
-    <main>
+<div class="clock">
+    <div id="time">00:00:00</div>
+</div>
 
-        <div class="intro">
-            <h2>Selector Demonstration</h2>
-            <p>Each card below demonstrates a different CSS selector.</p>
-        </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-        <div class="selector-grid">
+<script>
+    function updateClock() {
+        const now = new Date();
 
-            <div class="card">
-                <span class="selector-name">Universal Selector *</span>
+        let hours = String(now.getHours()).padStart(2, "0");
+        let minutes = String(now.getMinutes()).padStart(2, "0");
+        let seconds = String(now.getSeconds()).padStart(2, "0");
 
-                <h3>Universal Selector</h3>
+        document.getElementById("time").textContent =
+            hours + ":" + minutes + ":" + seconds;
+    }
 
-                <div class="demo">
-                    <p>
-                        The universal selector applies common styles
-                        to all elements on the page.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="selector-name">Element Selector</span>
-
-                <h3>Element Selector</h3>
-
-                <div class="demo">
-                    <h4>This heading uses an element selector.</h4>
-                    <p>
-                        The selector targets all elements of a particular type.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="selector-name">Class Selector</span>
-
-                <h3>Class Selector</h3>
-
-                <div class="demo">
-                    <p class="highlight">
-                        This paragraph uses the .highlight class.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="selector-name">ID Selector</span>
-
-                <h3>ID Selector</h3>
-
-                <div class="demo">
-                    <div id="unique-box">
-                        This element uses the #unique-box ID selector.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="selector-name">Attribute Selector</span>
-
-                <h3>Attribute Selector</h3>
-
-                <div class="demo">
-                    <input
-                        type="text"
-                        placeholder="This input is styled using [type='text']"
-                    >
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="selector-name">Grouping Selector</span>
-
-                <h3>Grouping Selector</h3>
-
-                <div class="demo">
-                    <h4 class="group-title">Grouped Heading</h4>
-                    <p class="group-text">
-                        This heading and paragraph share the same CSS rule.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="summary">
-
-            <h2>Selectors Used</h2>
-
-            <ul>
-                <li>Universal Selector (*)</li>
-                <li>Element Selector (h1, p, h4)</li>
-                <li>Class Selector (.highlight)</li>
-                <li>ID Selector (#unique-box)</li>
-                <li>Attribute Selector ([type="text"])</li>
-                <li>Grouping Selector (.group-title, .group-text)</li>
-            </ul>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical Assignment • Question 27
-    </footer>
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>

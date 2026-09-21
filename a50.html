@@ -1,198 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticky Header</title>
-
+    <title>Q50 - LCM</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #450a0a;
-            padding: 18px 30px;
-            box-shadow: 0 4px 15px rgba(69, 10, 10, 0.2);
-        }
-
-        .nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
+            background: #7f1d1d;
             color: white;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 25px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .nav-links a:hover {
-            color: #fda4af;
-        }
-
-        .hero {
-            max-width: 1100px;
-            min-height: 450px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero h1 {
-            color: #7f1d1d;
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: #64748b;
-            font-size: 18px;
-        }
-
-        .sections {
-            max-width: 1000px;
-            margin: auto;
-            padding: 30px 20px 100px;
-        }
-
-        .section {
-            min-height: 350px;
+        .card {
+            width: 400px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
             background: white;
-            margin-bottom: 30px;
-            padding: 35px;
             border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.1);
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .section h2 {
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
             color: #991b1b;
-            margin-bottom: 15px;
         }
 
-        .section p {
-            color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 650px) {
-            header {
-                padding: 15px;
-            }
-
-            .nav {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
+<header>
+    <h1>Least Common Multiple</h1>
+</header>
 
-        <nav class="nav">
+<div class="card">
 
-            <div class="logo">TechLearn</div>
+    <input type="number" id="a" placeholder="Enter first number">
+    <input type="number" id="b" placeholder="Enter second number">
 
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <button onclick="findLCM()">Find LCM</button>
 
-        </nav>
+    <p id="result"></p>
 
-    </header>
+</div>
 
-    <section class="hero">
-        <div>
-            <h1>Sticky Header</h1>
-            <p>Scroll down and notice that the header stays at the top.</p>
-        </div>
-    </section>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-    <main class="sections">
+<script>
+    function gcd(a, b) {
+        while (b !== 0) {
+            let remainder = a % b;
+            a = b;
+            b = remainder;
+        }
 
-        <section class="section" id="courses">
-            <h2>Courses</h2>
-            <p>
-                Learn HTML, CSS, JavaScript, Python and other modern
-                technologies through practical examples.
-            </p>
-            <p>
-                The navigation header remains visible while scrolling
-                because the CSS position property is set to sticky.
-            </p>
-        </section>
+        return Math.abs(a);
+    }
 
-        <section class="section" id="projects">
-            <h2>Projects</h2>
-            <p>
-                Build responsive websites, dashboards, portfolios and
-                interactive web applications.
-            </p>
-            <p>
-                Sticky navigation improves accessibility because important
-                navigation links remain available while the user scrolls.
-            </p>
-        </section>
+    function findLCM() {
+        const a = Number(document.getElementById("a").value);
+        const b = Number(document.getElementById("b").value);
 
-        <section class="section" id="contact">
-            <h2>Contact</h2>
-            <p>
-                This section demonstrates the scrolling behavior of the
-                sticky header.
-            </p>
-            <p>
-                Continue scrolling to see that the header remains fixed
-                at the top of the page.
-            </p>
-        </section>
+        if (a === 0 || b === 0) {
+            document.getElementById("result").textContent = "LCM = 0";
+            return;
+        }
 
-    </main>
+        const lcm = Math.abs(a * b) / gcd(a, b);
+
+        document.getElementById("result").textContent =
+            "LCM = " + lcm;
+    }
+</script>
 
 </body>
 </html>

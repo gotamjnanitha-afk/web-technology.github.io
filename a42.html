@@ -1,174 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Tooltip</title>
-
+    <title>Q42 - Callbacks Promises Async Await</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fff5f6;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 650px;
-            padding: 50px 30px;
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        h1 {
-            color: #7f1d1d;
-            margin-bottom: 15px;
-        }
-
-        p {
-            color: #64748b;
-            margin-bottom: 45px;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .tooltip-button {
-            padding: 15px 28px;
-            border: none;
-            border-radius: 10px;
-            background: #b91c1c;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .tooltip-text {
-            position: absolute;
-            bottom: 135%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 230px;
-            padding: 12px 15px;
-            border-radius: 10px;
-            background: #450a0a;
-            color: white;
-            font-size: 14px;
-            line-height: 1.5;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.3s ease;
-            z-index: 10;
-        }
-
-        .tooltip-text::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 8px;
-            border-style: solid;
-            border-color: #450a0a transparent transparent transparent;
-        }
-
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .examples {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .example {
-            padding: 15px 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-            color: #991b1b;
+            margin: 0;
+            font-family: Arial, sans-serif;
             background: #fff1f2;
-            cursor: pointer;
-            position: relative;
+            color: #450a0a;
+            text-align: center;
         }
 
-        .example span {
-            position: absolute;
-            bottom: 120%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            padding: 8px;
-            border-radius: 8px;
+        header {
             background: #7f1d1d;
             color: white;
-            font-size: 12px;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.3s;
+            padding: 25px;
         }
 
-        .example:hover span {
-            visibility: visible;
-            opacity: 1;
+        .card {
+            width: 650px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        .result {
+            padding: 18px;
+            margin: 12px 0;
+            background: #fff1f2;
+            border-left: 5px solid #b91c1c;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<header>
+    <h1>Asynchronous JavaScript</h1>
+</header>
 
-        <h1>CSS Tooltip</h1>
+<div class="card">
 
-        <p>Move your mouse over the button to display a tooltip.</p>
+    <button onclick="runExamples()">Run Examples</button>
 
-        <div class="tooltip">
-            <button class="tooltip-button">Hover Me</button>
+    <div class="result" id="callback">Callback: —</div>
+    <div class="result" id="promise">Promise: —</div>
+    <div class="result" id="async">Async/Await: —</div>
 
-            <div class="tooltip-text">
-                This is a CSS tooltip. It appears when you hover over the button.
-            </div>
-        </div>
+</div>
 
-        <div class="examples">
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <div class="example">
-                HTML
-                <span>HyperText Markup Language</span>
-            </div>
+<script>
+    function callbackExample(callback) {
+        setTimeout(() => {
+            callback("Callback executed successfully!");
+        }, 500);
+    }
 
-            <div class="example">
-                CSS
-                <span>Cascading Style Sheets</span>
-            </div>
+    function promiseExample() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Promise resolved successfully!");
+            }, 1000);
+        });
+    }
 
-            <div class="example">
-                JavaScript
-                <span>Programming language for web pages</span>
-            </div>
+    async function asyncExample() {
+        const result = await promiseExample();
+        return "Async/Await: " + result;
+    }
 
-        </div>
+    function runExamples() {
+        callbackExample((message) => {
+            document.getElementById("callback").textContent =
+                message;
+        });
 
-    </div>
+        promiseExample().then((message) => {
+            document.getElementById("promise").textContent =
+                message;
+        });
+
+        asyncExample().then((message) => {
+            document.getElementById("async").textContent =
+                message;
+        });
+    }
+</script>
 
 </body>
 </html>

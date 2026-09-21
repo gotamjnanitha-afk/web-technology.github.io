@@ -1,183 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox Alignment and Ordering</title>
-
+    <title>Q62 - String Palindrome</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        h1 {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
             text-align: center;
-            color: #7f1d1d;
-            margin-bottom: 10px;
+            color: #450a0a;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 30px;
-        }
-
-        .box {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
-        }
-
-        .box h2 {
-            color: #991b1b;
-            margin-bottom: 18px;
-        }
-
-        .flex-container {
-            min-height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            background: #fff1f2;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .item {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #b91c1c;
-            color: white;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-
-        .order-container {
-            display: flex;
-            gap: 15px;
-            padding: 20px;
-            background: #fff1f2;
-            border-radius: 10px;
-        }
-
-        .order-one {
-            order: 3;
-        }
-
-        .order-two {
-            order: 1;
-        }
-
-        .order-three {
-            order: 2;
-        }
-
-        .align-container {
-            height: 180px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            padding: 20px;
-            background: #fff1f2;
-            border-radius: 10px;
-        }
-
-        .align-item {
-            width: 70px;
-            padding: 15px 5px;
+        header {
             background: #7f1d1d;
             color: white;
-            text-align: center;
+            padding: 25px;
+        }
+
+        .card {
+            width: 450px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
             border-radius: 8px;
         }
 
-        .small {
-            height: 50px;
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        .medium {
-            height: 80px;
+        #result {
+            font-size: 20px;
+            font-weight: bold;
         }
 
-        .large {
-            height: 120px;
-        }
-
-        @media (max-width: 600px) {
-            .flex-container,
-            .order-container {
-                flex-wrap: wrap;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<header>
+    <h1>String Palindrome</h1>
+</header>
 
-        <h1>Flexbox Alignment & Ordering</h1>
+<div class="card">
 
-        <p class="subtitle">
-            Demonstration of justify-content, align-items, gap and order.
-        </p>
+    <input type="text" id="text" placeholder="Example: madam">
 
-        <div class="box">
+    <br>
 
-            <h2>Alignment</h2>
+    <button onclick="checkPalindrome()">Check</button>
 
-            <div class="flex-container">
-                <div class="item">A</div>
-                <div class="item">B</div>
-                <div class="item">C</div>
-            </div>
+    <p id="result"></p>
 
-        </div>
+</div>
 
-        <div class="box">
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <h2>Ordering</h2>
+<script>
+    function checkPalindrome() {
+        const text = document.getElementById("text").value
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, "");
 
-            <div class="order-container">
-                <div class="item order-one">1</div>
-                <div class="item order-two">2</div>
-                <div class="item order-three">3</div>
-            </div>
+        const reversed = text.split("").reverse().join("");
 
-        </div>
-
-        <div class="box">
-
-            <h2>Align Items</h2>
-
-            <div class="align-container">
-                <div class="align-item small">Small</div>
-                <div class="align-item medium">Medium</div>
-                <div class="align-item large">Large</div>
-            </div>
-
-        </div>
-
-    </div>
+        document.getElementById("result").textContent =
+            text === reversed
+                ? "It is a palindrome."
+                : "It is not a palindrome.";
+    }
+</script>
 
 </body>
 </html>

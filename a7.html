@@ -3,269 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 7 - Positioning</title>
+    <title>Fibonacci Series</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 650px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
+        h1 {
+            color: #7f1d1d;
         }
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
         }
 
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 40px;
-            display: grid;
-            gap: 30px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 6px solid #b91c1c;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .demo-area {
-            background: #ffe4e6;
-            padding: 25px;
-            border-radius: 12px;
-            min-height: 150px;
-            margin-top: 15px;
-        }
-
-        .box {
-            width: 180px;
-            padding: 18px;
-            text-align: center;
-            background: #dc2626;
-            color: white;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-
-        .static-box {
-            position: static;
-        }
-
-        .relative-box {
-            position: relative;
-            left: 40px;
-            top: 15px;
+        button {
+            width: 100%;
+            padding: 14px;
             background: #991b1b;
-        }
-
-        .absolute-area {
-            position: relative;
-            height: 180px;
-        }
-
-        .absolute-box {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            background: #7f1d1d;
-        }
-
-        .sticky-box {
-            position: sticky;
-            top: 10px;
-            background: #b91c1c;
-            margin-bottom: 20px;
-        }
-
-        .scroll-content {
-            height: 300px;
-            overflow-y: auto;
-            background: #fff;
-            padding: 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-        }
-
-        .scroll-content p {
-            line-height: 2;
-            margin-bottom: 15px;
-        }
-
-        .fixed-box {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            background: #450a0a;
             color: white;
-            padding: 15px 20px;
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
+        #result {
+            margin-top: 20px;
             padding: 20px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            color: #991b1b;
+            font-size: 18px;
+            line-height: 1.8;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-
-            .relative-box {
-                left: 20px;
-            }
-
-            .fixed-box {
-                right: 10px;
-                bottom: 10px;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Fibonacci Series</h1>
 
-        <header>
-            <h1>CSS Positioning</h1>
-            <p>Static • Relative • Absolute • Fixed • Sticky</p>
-        </header>
+    <input type="number" id="number" placeholder="Enter number of terms">
 
-        <main>
+    <button onclick="generateFibonacci()">Generate Series</button>
 
-            <section class="card">
-                <h2>1. Static Position</h2>
+    <div id="result"></div>
 
-                <div class="demo-area">
-                    <div class="box static-box">
-                        Static
-                    </div>
-                </div>
-            </section>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-            <section class="card">
-                <h2>2. Relative Position</h2>
+<script>
+    function generateFibonacci() {
+        let number = Number(document.getElementById("number").value);
+        let a = 0;
+        let b = 1;
+        let series = [];
 
-                <div class="demo-area">
-                    <div class="box relative-box">
-                        Relative
-                    </div>
-                </div>
-            </section>
+        for (let i = 0; i < number; i++) {
+            series.push(a);
 
-            <section class="card">
-                <h2>3. Absolute Position</h2>
+            let next = a + b;
+            a = b;
+            b = next;
+        }
 
-                <div class="demo-area absolute-area">
-                    <div class="box absolute-box">
-                        Absolute
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>4. Sticky Position</h2>
-
-                <div class="scroll-content">
-
-                    <div class="box sticky-box">
-                        Sticky Element
-                    </div>
-
-                    <p>
-                        Scroll this area to see the sticky element remain
-                        visible while the content moves.
-                    </p>
-
-                    <p>
-                        CSS positioning allows elements to be placed at
-                        specific locations on a webpage.
-                    </p>
-
-                    <p>
-                        The sticky element changes its position when the
-                        user scrolls through its container.
-                    </p>
-
-                    <p>
-                        This is useful for navigation bars, headings,
-                        menus, and other important elements.
-                    </p>
-
-                    <p>
-                        Continue scrolling to observe the sticky behavior.
-                    </p>
-
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>5. Fixed Position</h2>
-
-                <p>
-                    The fixed element stays in the same position even when
-                    the webpage is scrolled.
-                </p>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 07
-        </footer>
-
-    </div>
-
-    <div class="fixed-box">
-        Fixed Element
-    </div>
+        document.getElementById("result").textContent =
+            series.join(" , ");
+    }
+</script>
 
 </body>
 </html>

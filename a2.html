@@ -3,192 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 2 - Selectors</title>
+    <title>Arithmetic Operations</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 600px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
             padding: 40px;
-            display: grid;
-            gap: 25px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+            border-top: 6px solid #991b1b;
         }
 
-        .card {
-            background: #fff1f2;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 6px solid #b91c1c;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        #special {
-            background: #7f1d1d;
-            color: white;
-            padding: 18px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .highlight {
-            background: #fecdd3;
-            color: #7f1d1d;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        h3 {
-            color: #dc2626;
-            margin-top: 15px;
-        }
-
-        .card > p {
-            border-left: 4px solid #fda4af;
-            padding-left: 12px;
-        }
-
-        .card h2 + p {
-            margin-top: 5px;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
+        h1 {
             text-align: center;
-            padding: 20px;
+            color: #7f1d1d;
+            margin-bottom: 25px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
+        input {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+            font-size: 16px;
+        }
 
-            header h1 {
-                font-size: 28px;
-            }
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-            main {
-                padding: 20px 15px;
-            }
+        button:hover {
+            background: #7f1d1d;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            line-height: 2;
+            color: #450a0a;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Arithmetic Operations</h1>
 
-        <header>
-            <h1>CSS Selectors</h1>
-            <p>Demonstration of Different CSS Selectors</p>
-        </header>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
 
-        <main>
+    <button onclick="calculate()">Calculate</button>
 
-            <section class="card">
-                <h2>Element Selector</h2>
-                <p>
-                    The element selector selects HTML elements using their tag name.
-                </p>
-                <h3>This heading is styled using an element selector.</h3>
-            </section>
+    <div id="result"></div>
 
-            <section class="card">
-                <h2>Class Selector</h2>
-                <p class="highlight">
-                    This paragraph is styled using a class selector.
-                </p>
-            </section>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-            <section class="card">
-                <h2>ID Selector</h2>
-                <p id="special">
-                    This paragraph is styled using an ID selector.
-                </p>
-            </section>
+<script>
+    function calculate() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
 
-            <section class="card">
-                <h2>Universal Selector</h2>
-                <p>
-                    The universal selector (*) applies basic styles to all elements.
-                </p>
-            </section>
-
-            <section class="card">
-                <h2>Child Selector</h2>
-                <p>
-                    This paragraph is a direct child of the section.
-                </p>
-                <div>
-                    <p>
-                        This paragraph is inside a div.
-                    </p>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Grouping Selector</h2>
-                <p>
-                    Multiple selectors can be grouped together to apply the same style.
-                </p>
-                <h3>CSS makes webpage design easier.</h3>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 02
-        </footer>
-
-    </div>
+        document.getElementById("result").innerHTML =
+            "Addition: " + (a + b) + "<br>" +
+            "Subtraction: " + (a - b) + "<br>" +
+            "Multiplication: " + (a * b) + "<br>" +
+            "Division: " + (b !== 0 ? a / b : "Cannot divide by zero");
+    }
+</script>
 
 </body>
 </html>

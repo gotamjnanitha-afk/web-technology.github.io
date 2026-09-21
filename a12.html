@@ -3,280 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 12 - Lists and Tables</title>
-
+    <title>Largest and Smallest Array Element</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 600px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
             padding: 40px;
-            display: grid;
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 28px;
-            border-left: 6px solid #b91c1c;
-            border-radius: 15px;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 18px;
-        }
-
-        .list-box {
-            background: white;
-            padding: 25px;
-            border: 2px solid #fecdd3;
-            border-radius: 12px;
-        }
-
-        .unordered-list {
-            list-style-type: square;
-            padding-left: 30px;
-        }
-
-        .unordered-list li {
-            padding: 8px;
-            color: #7f1d1d;
-        }
-
-        .ordered-list {
-            list-style-type: upper-roman;
-            padding-left: 35px;
-        }
-
-        .ordered-list li {
-            padding: 8px;
-            color: #991b1b;
-        }
-
-        .custom-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .custom-list li {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            background: #ffe4e6;
-            border-left: 5px solid #dc2626;
-            border-radius: 6px;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
-
-        th {
-            background: #7f1d1d;
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-
-        td {
-            padding: 14px 15px;
-            border: 1px solid #fecdd3;
-        }
-
-        tr:nth-child(even) {
-            background: #fff1f2;
-        }
-
-        tr:hover {
-            background: #ffe4e6;
-        }
-
-        caption {
-            caption-side: top;
-            color: #991b1b;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
+            border-radius: 18px;
             text-align: center;
-            padding: 20px;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
+        h1 { color: #7f1d1d; }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            line-height: 2;
+            font-weight: bold;
+            color: #991b1b;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Largest and Smallest</h1>
+    <input type="text" id="array" placeholder="Example: 10, 25, 5, 40, 15">
+    <button onclick="findValues()">Find Values</button>
+    <div id="result"></div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-        <header>
-            <h1>CSS Lists & Tables</h1>
-            <p>Styling Lists and Tables Using CSS</p>
-        </header>
+<script>
+function findValues() {
+    let values = document.getElementById("array").value
+        .split(",")
+        .map(Number);
 
-        <main>
+    let largest = Math.max(...values);
+    let smallest = Math.min(...values);
 
-            <section class="card">
-                <h2>Styled Unordered List</h2>
-
-                <div class="list-box">
-                    <ul class="unordered-list">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>Data Science</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Styled Ordered List</h2>
-
-                <div class="list-box">
-                    <ol class="ordered-list">
-                        <li>Plan the webpage</li>
-                        <li>Create HTML structure</li>
-                        <li>Add CSS styling</li>
-                        <li>Test the webpage</li>
-                        <li>Publish the website</li>
-                    </ol>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Custom Styled List</h2>
-
-                <div class="list-box">
-                    <ul class="custom-list">
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Services</li>
-                        <li>Projects</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Styled Table</h2>
-
-                <div class="table-wrapper">
-
-                    <table>
-
-                        <caption>Student Information</caption>
-
-                        <thead>
-                            <tr>
-                                <th>Roll No.</th>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Marks</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>101</td>
-                                <td>Ananya</td>
-                                <td>Data Science</td>
-                                <td>89</td>
-                            </tr>
-
-                            <tr>
-                                <td>102</td>
-                                <td>Rahul</td>
-                                <td>Computer Science</td>
-                                <td>92</td>
-                            </tr>
-
-                            <tr>
-                                <td>103</td>
-                                <td>Priya</td>
-                                <td>Artificial Intelligence</td>
-                                <td>87</td>
-                            </tr>
-
-                            <tr>
-                                <td>104</td>
-                                <td>Arjun</td>
-                                <td>Data Science</td>
-                                <td>94</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 12
-        </footer>
-
-    </div>
+    document.getElementById("result").innerHTML =
+        "Largest: " + largest + "<br>" +
+        "Smallest: " + smallest;
+}
+</script>
 
 </body>
 </html>

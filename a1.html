@@ -3,109 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 1</title>
+    <title>JavaScript - Hello World</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 600px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 50px;
+            border-radius: 18px;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+            border-top: 6px solid #991b1b;
         }
 
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 40px;
-            display: grid;
-            gap: 25px;
-        }
-
-        .card {
-            padding: 28px;
-            border-radius: 15px;
-            background: #fff1f2;
-            border-left: 6px solid #b91c1c;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .internal-box {
-            background: #ffe4e6;
+        h1 {
             color: #7f1d1d;
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #fda4af;
-            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        #output {
+            font-size: 32px;
             font-weight: bold;
-        }
-
-        .external-box {
-            background: #7f1d1d;
-            color: white;
-            padding: 20px;
+            color: #dc2626;
+            padding: 25px;
+            background: #ffe4e6;
             border-radius: 12px;
-            border: 3px solid #dc2626;
-            font-size: 18px;
         }
 
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
+        .back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 22px;
+            background: #991b1b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
+        .back:hover {
+            background: #7f1d1d;
         }
     </style>
 </head>
@@ -113,45 +65,16 @@
 <body>
 
     <div class="container">
+        <h1>JavaScript Hello World</h1>
 
-        <header>
-            <h1>CSS Styling</h1>
-            <p>Inline, Internal and External CSS</p>
-        </header>
+        <div id="output"></div>
 
-        <main>
-
-            <section class="card">
-                <h2>1. Inline CSS</h2>
-
-                <p style="color: #dc2626; font-size: 21px; font-weight: bold;">
-                    This text is styled using Inline CSS.
-                </p>
-            </section>
-
-            <section class="card">
-                <h2>2. Internal CSS</h2>
-
-                <div class="internal-box">
-                    This box is styled using Internal CSS.
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>3. External CSS</h2>
-
-                <div class="external-box">
-                    This section represents styling applied using an External CSS file.
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 01
-        </footer>
-
+        <a href="index.html" class="back">← Back to JavaScript Programs</a>
     </div>
+
+    <script>
+        document.getElementById("output").textContent = "Hello World";
+    </script>
 
 </body>
 </html>

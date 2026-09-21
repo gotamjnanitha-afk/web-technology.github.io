@@ -1,269 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Shopping Webpage</title>
-
+    <title>Q57 - Remove Duplicates</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            background: #450a0a;
-            padding: 18px 20px;
-        }
-
-        .nav {
-            max-width: 1150px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            color: #fda4af;
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .search {
-            flex: 1;
-            max-width: 450px;
-            padding: 12px 16px;
-            border: none;
-            border-radius: 8px;
-            outline: none;
-        }
-
-        .cart {
+            background: #7f1d1d;
             color: white;
-            font-weight: bold;
+            padding: 25px;
         }
 
-        .hero {
-            max-width: 1150px;
-            margin: 30px auto;
-            width: 90%;
-            padding: 55px 30px;
-            border-radius: 18px;
-            text-align: center;
-            background: linear-gradient(135deg, #7f1d1d, #b91c1c);
-            color: white;
-        }
-
-        .hero h1 {
-            color: #fda4af;
-            margin-bottom: 12px;
-            font-size: 40px;
-        }
-
-        .hero p {
-            color: #ffe4e6;
-        }
-
-        .products {
-            max-width: 1150px;
-            width: 90%;
-            margin: auto;
-            padding: 25px 0 60px;
-        }
-
-        .products h2 {
-            color: #7f1d1d;
-            margin-bottom: 25px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .product {
+        .card {
+            width: 550px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.12);
-            transition: 0.3s;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .product:hover {
-            transform: translateY(-6px);
-        }
-
-        .product img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-
-        .details {
-            padding: 18px;
-        }
-
-        .details h3 {
-            color: #991b1b;
-            margin-bottom: 8px;
-        }
-
-        .details p {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .price {
-            color: #b91c1c;
-            font-size: 19px;
-            font-weight: bold;
-        }
-
-        .old-price {
-            color: #94a3b8;
-            text-decoration: line-through;
-            margin-left: 7px;
-            font-size: 14px;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            margin-top: 15px;
-            padding: 11px;
-            border: none;
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
             border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
             background: #b91c1c;
             color: white;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
         }
 
-        .btn:hover {
-            background: #7f1d1d;
+        .result {
+            margin: 15px 0;
+            padding: 15px;
+            background: #fff1f2;
+            border-radius: 8px;
         }
 
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .nav {
-                flex-wrap: wrap;
-            }
-
-            .search {
-                order: 3;
-                max-width: none;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 550px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 30px;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
+<header>
+    <h1>Remove Duplicates</h1>
+</header>
 
-        <div class="nav">
+<div class="card">
 
-            <div class="logo">ShopNow</div>
+    <input type="text" id="array" placeholder="Example: 1,2,2,3,4,4,5">
 
-            <input
-                type="search"
-                class="search"
-                placeholder="Search products..."
-            >
+    <br>
 
-            <div class="cart">🛒 Cart</div>
+    <button onclick="removeDuplicates()">Remove</button>
 
-        </div>
+    <div class="result" id="result"></div>
 
-    </header>
+</div>
 
-    <section class="hero">
-        <h1>Big Shopping Sale</h1>
-        <p>Discover amazing products at special prices.</p>
-    </section>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-    <section class="products">
+<script>
+    function removeDuplicates() {
+        const input = document.getElementById("array").value;
 
-        <h2>Featured Products</h2>
+        const numbers = input
+            .split(",")
+            .map(item => item.trim());
 
-        <div class="grid">
+        const unique = [...new Set(numbers)];
 
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="T-Shirt">
-
-                <div class="details">
-                    <h3>Classic T-Shirt</h3>
-                    <p>Comfortable cotton casual wear.</p>
-                    <span class="price">₹599</span>
-                    <span class="old-price">₹899</span>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Shoes">
-
-                <div class="details">
-                    <h3>Running Shoes</h3>
-                    <p>Lightweight shoes for everyday use.</p>
-                    <span class="price">₹1,499</span>
-                    <span class="old-price">₹1,999</span>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Backpack">
-
-                <div class="details">
-                    <h3>Travel Backpack</h3>
-                    <p>Stylish and spacious everyday backpack.</p>
-                    <span class="price">₹899</span>
-                    <span class="old-price">₹1,299</span>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Watch">
-
-                <div class="details">
-                    <h3>Classic Watch</h3>
-                    <p>Elegant design for every occasion.</p>
-                    <span class="price">₹1,199</span>
-                    <span class="old-price">₹1,799</span>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
+        document.getElementById("result").textContent =
+            "Array without duplicates: " + unique.join(", ");
+    }
+</script>
 
 </body>
 </html>

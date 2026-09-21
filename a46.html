@@ -1,158 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Q46 - Responsive Login Validation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox Card Layout</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #fff5f6;
-            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #450a0a;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 35px;
+        .login {
+            width: 400px;
+            max-width: 90%;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
         h1 {
+            text-align: center;
             color: #7f1d1d;
-            margin-bottom: 10px;
         }
 
-        header p {
-            color: #64748b;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            flex: 1 1 280px;
-            max-width: 330px;
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(127, 29, 29, 0.2);
-        }
-
-        .card img {
+        input {
             width: 100%;
-            height: 190px;
-            object-fit: cover;
+            padding: 13px;
+            margin: 8px 0 15px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
         }
 
-        .content {
-            padding: 22px;
-        }
-
-        .content h2 {
-            color: #991b1b;
-            margin-bottom: 12px;
-        }
-
-        .content p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
+        button {
+            width: 100%;
+            padding: 13px;
             background: #b91c1c;
             color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 8px;
-            transition: 0.3s;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background: #7f1d1d;
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
         }
 
-        @media (max-width: 700px) {
-            .cards {
-                flex-direction: column;
-                align-items: center;
-            }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #991b1b;
+        }
 
-            .card {
-                width: 100%;
-                max-width: 450px;
+        @media (max-width: 500px) {
+            .login {
+                padding: 25px;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<div class="login">
 
-        <header>
-            <h1>Card-Based Layout</h1>
-            <p>Cards arranged using CSS Flexbox.</p>
-        </header>
+    <h1>Login</h1>
 
-        <div class="cards">
+    <form onsubmit="return login()">
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Web Development">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email">
 
-                <div class="content">
-                    <h2>Web Development</h2>
-                    <p>Learn HTML, CSS and JavaScript to build modern websites.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="Data Science">
+        <button type="submit">Login</button>
 
-                <div class="content">
-                    <h2>Data Science</h2>
-                    <p>Explore data analysis, visualization and machine learning.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
+        <p id="message"></p>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" alt="Technology">
+    </form>
 
-                <div class="content">
-                    <h2>Technology</h2>
-                    <p>Discover modern technologies and develop useful projects.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
+    <a href="index.html">← Back to JavaScript Programs</a>
 
-        </div>
+</div>
 
-    </div>
+<script>
+    function login() {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("message");
+
+        if (email === "" || password === "") {
+            message.textContent = "Please fill all fields.";
+            message.style.color = "#b91c1c";
+            return false;
+        }
+
+        if (password.length < 6) {
+            message.textContent = "Password must contain at least 6 characters.";
+            message.style.color = "#b91c1c";
+            return false;
+        }
+
+        message.textContent = "Login successful!";
+        message.style.color = "green";
+
+        return false;
+    }
+</script>
 
 </body>
 </html>

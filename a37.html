@@ -1,254 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Display Properties</title>
-
+    <title>Q37 - Advanced JavaScript Lab Questions</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
             color: #450a0a;
+            text-align: center;
         }
 
         header {
-            background: linear-gradient(135deg, #450a0a, #991b1b);
+            background: #7f1d1d;
             color: white;
-            text-align: center;
             padding: 35px 20px;
         }
 
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 32px;
-        }
-
-        header p {
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
-
-        .intro {
-            background: white;
-            padding: 25px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
-            margin-bottom: 30px;
-        }
-
-        .intro h2 {
-            color: #991b1b;
-            margin-top: 0;
-        }
-
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-        }
-
         .card {
+            width: 700px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 45px;
             background: white;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h3 {
-            color: #7f1d1d;
-            text-align: center;
-            margin-top: 0;
+        .icon {
+            font-size: 55px;
         }
 
-        .demo-area {
-            background: #fff1f2;
-            border: 2px dashed #fda4af;
-            border-radius: 12px;
-            padding: 18px;
-            min-height: 150px;
-        }
-
-        .block-item {
-            display: block;
-            background: #dc2626;
-            color: white;
-            padding: 12px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .inline-item {
-            display: inline;
-            background: #dc2626;
-            color: white;
-            padding: 8px;
-            margin: 4px;
-        }
-
-        .inline-block-item {
-            display: inline-block;
-            background: #991b1b;
-            color: white;
-            padding: 15px;
-            margin: 5px;
-            border-radius: 8px;
-            width: 100px;
-            text-align: center;
-        }
-
-        .none-item {
-            display: none;
-        }
-
-        .value {
-            display: block;
-            width: fit-content;
-            margin: 18px auto 0;
-            padding: 7px 12px;
-            background: #fff1f2;
+        h2 {
             color: #991b1b;
-            border-radius: 8px;
-            font-family: monospace;
         }
 
-        .description {
+        p {
             color: #64748b;
-            text-align: center;
-            line-height: 1.5;
+            line-height: 1.7;
         }
 
-        footer {
-            background: #450a0a;
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #b91c1c;
             color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
+            text-decoration: none;
+            border-radius: 8px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 25px;
-            }
-
-            .container {
-                width: 92%;
-            }
+        a:hover {
+            background: #7f1d1d;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Display Properties</h1>
-        <p>Block, Inline, Inline-Block and None</p>
-    </header>
+<header>
+    <h1>Advanced JavaScript Lab Questions</h1>
+</header>
 
-    <main class="container">
+<div class="card">
+    <div class="icon">⚡</div>
 
-        <section class="intro">
-            <h2>Display Property Demonstration</h2>
-            <p>
-                The CSS <strong>display</strong> property controls how an
-                element appears and behaves in the page layout.
-            </p>
-        </section>
+    <h2>Advanced JavaScript</h2>
 
-        <section class="demo-grid">
+    <p>
+        This section contains advanced JavaScript laboratory experiments
+        covering modern JavaScript features, objects, classes, asynchronous
+        programming, APIs, storage, and interactive webpages.
+    </p>
 
-            <div class="card">
-                <h3>Block</h3>
-
-                <div class="demo-area">
-                    <span class="block-item">Block 1</span>
-                    <span class="block-item">Block 2</span>
-                    <span class="block-item">Block 3</span>
-                </div>
-
-                <p class="description">
-                    Block elements start on a new line and normally take
-                    the available width.
-                </p>
-
-                <span class="value">display: block</span>
-            </div>
-
-            <div class="card">
-                <h3>Inline</h3>
-
-                <div class="demo-area">
-                    <span class="inline-item">Inline 1</span>
-                    <span class="inline-item">Inline 2</span>
-                    <span class="inline-item">Inline 3</span>
-                </div>
-
-                <p class="description">
-                    Inline elements stay on the same line and take only
-                    the space they need.
-                </p>
-
-                <span class="value">display: inline</span>
-            </div>
-
-            <div class="card">
-                <h3>Inline-Block</h3>
-
-                <div class="demo-area">
-                    <span class="inline-block-item">Box 1</span>
-                    <span class="inline-block-item">Box 2</span>
-                    <span class="inline-block-item">Box 3</span>
-                </div>
-
-                <p class="description">
-                    Inline-block elements remain on the same line while
-                    allowing width and height.
-                </p>
-
-                <span class="value">display: inline-block</span>
-            </div>
-
-            <div class="card">
-                <h3>None</h3>
-
-                <div class="demo-area">
-                    <div class="block-item">Visible Element</div>
-
-                    <div class="block-item none-item">
-                        Hidden Element
-                    </div>
-
-                    <div class="block-item">Visible Again</div>
-                </div>
-
-                <p class="description">
-                    An element with display:none is completely removed
-                    from the page layout.
-                </p>
-
-                <span class="value">display: none</span>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        CSS Practical — Display Properties
-    </footer>
+    <a href="index.html">← Back to JavaScript Programs</a>
+</div>
 
 </body>
 </html>

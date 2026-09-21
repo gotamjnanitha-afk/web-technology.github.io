@@ -1,149 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Column Flexbox Layout</title>
-
+    <title>Q49 - GCD</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            padding: 35px 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 35px;
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
         }
 
-        h1 {
-            color: #7f1d1d;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #64748b;
-        }
-
-        .columns {
-            display: flex;
-            gap: 22px;
-            align-items: stretch;
-        }
-
-        .column {
-            flex: 1;
+        .card {
+            width: 400px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
             background: white;
-            padding: 30px 22px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
-            transition: 0.3s;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .column:hover {
-            transform: translateY(-6px);
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
         }
 
-        .icon {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background: #ffe4e6;
-            color: #991b1b;
-            font-size: 25px;
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
             font-weight: bold;
-        }
-
-        .column h2 {
             color: #991b1b;
-            margin-bottom: 12px;
         }
 
-        .column p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            color: #64748b;
-        }
-
-        @media (max-width: 750px) {
-            .columns {
-                flex-direction: column;
-            }
-
-            .column {
-                width: 100%;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<header>
+    <h1>Greatest Common Divisor</h1>
+</header>
 
-        <header>
-            <h1>Three-Column Layout</h1>
-            <p>Created using CSS Flexbox.</p>
-        </header>
+<div class="card">
 
-        <div class="columns">
+    <input type="number" id="a" placeholder="Enter first number">
+    <input type="number" id="b" placeholder="Enter second number">
 
-            <section class="column">
-                <div class="icon">1</div>
-                <h2>HTML</h2>
-                <p>
-                    HTML provides the structure and content of a webpage
-                    using elements and tags.
-                </p>
-            </section>
+    <button onclick="findGCD()">Find GCD</button>
 
-            <section class="column">
-                <div class="icon">2</div>
-                <h2>CSS</h2>
-                <p>
-                    CSS controls the appearance, layout, colors and
-                    responsiveness of webpages.
-                </p>
-            </section>
+    <p id="result"></p>
 
-            <section class="column">
-                <div class="icon">3</div>
-                <h2>JavaScript</h2>
-                <p>
-                    JavaScript adds interaction and dynamic behavior
-                    to webpages.
-                </p>
-            </section>
+</div>
 
-        </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-        <footer>
-            Responsive Three-Column Flexbox Layout
-        </footer>
+<script>
+    function findGCD() {
+        let a = Math.abs(Number(document.getElementById("a").value));
+        let b = Math.abs(Number(document.getElementById("b").value));
 
-    </div>
+        while (b !== 0) {
+            let remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+
+        document.getElementById("result").textContent = "GCD = " + a;
+    }
+</script>
 
 </body>
 </html>

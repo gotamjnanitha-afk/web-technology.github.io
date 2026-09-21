@@ -1,140 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSS Keyframe Animation</title>
+    <title>Q67 - Email Regex</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #fff5f6;
-    color: #450a0a;
-}
+        .card {
+            width: 500px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
 
-header {
-    background: linear-gradient(135deg, #450a0a, #b91c1c);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
+        input {
+            width: 90%;
+            padding: 13px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
-}
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-.card {
-    background: white;
-    padding: 35px;
-    margin-bottom: 25px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(127,29,29,0.12);
-    text-align: center;
-}
+        #result {
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
 
-.box {
-    width: 100px;
-    height: 100px;
-    margin: 30px auto;
-    background: #b91c1c;
-    color: white;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.move {
-    animation: moveBox 3s infinite alternate;
-}
-
-@keyframes moveBox {
-    from {
-        transform: translateX(-150px);
-    }
-    to {
-        transform: translateX(150px);
-    }
-}
-
-.color {
-    animation: colorChange 3s infinite alternate;
-}
-
-@keyframes colorChange {
-    0% {
-        background: #7f1d1d;
-    }
-    50% {
-        background: #dc2626;
-        transform: scale(1.2);
-    }
-    100% {
-        background: #fda4af;
-        transform: scale(0.8);
-    }
-}
-
-.rotate {
-    animation: rotateBox 3s linear infinite;
-}
-
-@keyframes rotateBox {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-footer {
-    background: #450a0a;
-    color: #fecdd3;
-    text-align: center;
-    padding: 20px;
-}
-</style>
+        a {
+            color: #991b1b;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <h1>CSS Keyframe Animations</h1>
-    <p>Different animation effects using @keyframes</p>
+    <h1>Email Validation</h1>
 </header>
 
-<div class="container">
+<div class="card">
 
-    <div class="card">
-        <h2>Moving Animation</h2>
-        <div class="box move">MOVE</div>
-    </div>
+    <input type="email" id="email"
+        placeholder="Enter your email">
 
-    <div class="card">
-        <h2>Color & Scale Animation</h2>
-        <div class="box color">COLOR</div>
-    </div>
+    <br>
 
-    <div class="card">
-        <h2>Rotation Animation</h2>
-        <div class="box rotate">ROTATE</div>
-    </div>
+    <button onclick="validateEmail()">Validate Email</button>
+
+    <div id="result"></div>
 
 </div>
 
-<footer>
-    CSS Animations | Practical Program 67
-</footer>
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function validateEmail() {
+        const email = document.getElementById("email").value.trim();
+
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const result = document.getElementById("result");
+
+        if (pattern.test(email)) {
+            result.textContent = "✓ Valid email address.";
+            result.style.color = "green";
+            result.style.background = "#ecfdf5";
+        } else {
+            result.textContent = "✗ Invalid email address.";
+            result.style.color = "#b91c1c";
+            result.style.background = "#fff1f2";
+        }
+    }
+</script>
 
 </body>
 </html>

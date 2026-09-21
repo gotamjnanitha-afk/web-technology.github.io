@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CSS Programs</title>
+    <title>JavaScript Programs</title>
 
     <style>
         * {
@@ -14,171 +12,125 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #475569;
+            color: #450a0a;
         }
 
         header {
-            background: linear-gradient(135deg, #450a0a, #7f1d1d, #dc2626);
+            background: linear-gradient(135deg, #450a0a, #991b1b);
             color: white;
+            padding: 35px 20px;
             text-align: center;
-            padding: 50px 20px;
         }
 
         header h1 {
-            font-size: 40px;
+            font-size: 36px;
             margin-bottom: 10px;
         }
 
         header p {
-            color: #ffe4e6;
             font-size: 17px;
+            color: #ffe4e6;
         }
 
-        .top-bar {
-            background: #450a0a;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .back {
+            display: inline-block;
+            text-decoration: none;
+            background: #7f1d1d;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            background: #b91c1c;
+        }
+
+        .section-title {
+            background: #ffe4e6;
+            border-left: 6px solid #991b1b;
+            padding: 16px 20px;
+            margin: 25px 0 15px;
+            border-radius: 8px;
+        }
+
+        .section-title h2 {
+            color: #7f1d1d;
+            font-size: 22px;
+        }
+
+        .questions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 15px;
         }
 
-        .top-bar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            background: #991b1b;
-        }
-
-        .top-bar a:hover,
-        .top-bar a:focus-visible {
-            background: #dc2626;
-            outline: 3px solid #fecdd3;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        .intro {
-            background: white;
-            border-left: 5px solid #dc2626;
-            border-radius: 14px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 20px rgba(127, 29, 29, 0.10);
-        }
-
-        .intro h2 {
-            color: #991b1b;
-            margin-bottom: 10px;
-        }
-
-        .intro p {
-            line-height: 1.7;
-        }
-
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .program-card {
+        .question {
             background: white;
             border: 1px solid #fecdd3;
-            border-radius: 14px;
-            padding: 22px;
-            box-shadow: 0 5px 18px rgba(127, 29, 29, 0.08);
-            transition: 0.3s ease;
+            border-radius: 12px;
+            padding: 18px;
+            text-decoration: none;
+            color: #450a0a;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: 0.3s;
+            box-shadow: 0 3px 10px rgba(127, 29, 29, 0.08);
         }
 
-        .program-card:hover {
+        .question:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(127, 29, 29, 0.15);
+            border-color: #dc2626;
+            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.15);
         }
 
-        .program-number {
-            display: inline-block;
+        .number {
+            min-width: 42px;
+            height: 42px;
             background: #991b1b;
             color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 13px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            margin-bottom: 12px;
         }
 
-        .program-card h3 {
-            color: #7f1d1d;
-            font-size: 17px;
+        .question-text {
             line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .open-button {
-            display: inline-block;
-            text-decoration: none;
-            background: #dc2626;
-            color: white;
-            padding: 9px 16px;
-            border-radius: 7px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .open-button:hover,
-        .open-button:focus-visible {
-            background: #7f1d1d;
-            outline: 3px solid #fecdd3;
-            outline-offset: 2px;
+            font-size: 15px;
         }
 
         footer {
+            margin-top: 50px;
             background: #450a0a;
-            color: #fecdd3;
+            color: #ffe4e6;
             text-align: center;
-            padding: 25px;
-            margin-top: 20px;
+            padding: 22px;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             header h1 {
-                font-size: 30px;
+                font-size: 28px;
             }
 
-            .top-bar {
-                flex-direction: column;
-                text-align: center;
+            .container {
+                width: 94%;
             }
 
-            .program-grid {
+            .questions {
                 grid-template-columns: 1fr;
-            }
-
-            main {
-                padding: 25px 15px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            * {
-                transition: none !important;
             }
         }
     </style>
@@ -186,488 +138,398 @@
 
 <body>
 
-    <header>
-        <h1>CSS Programs</h1>
-        <p>CSS Practical Experiments</p>
-    </header>
+<header>
+    <h1>JavaScript Practical Programs</h1>
+    <p>67 JavaScript Experiments</p>
+</header>
 
-    <div class="top-bar">
-        <a href="../index.html">← Home</a>
-        <a href="../html/index.html">HTML Programs</a>
-        <a href="../javascript/index.html">JavaScript Programs</a>
+<div class="container">
+
+    <a href="../index.html" class="back">← Back to Home</a>
+
+    <!-- Questions 1-20 -->
+
+    <div class="section-title">
+        <h2>Basic JavaScript Programs — Questions 1 to 20</h2>
     </div>
 
-    <main>
-
-        <div class="intro">
-            <h2>CSS Practical Questions</h2>
-            <p>
-                Select any question below to open its individual output page.
-                Each CSS experiment is stored as a separate HTML file.
-            </p>
-        </div>
-
-        <div class="program-grid">
-
-            <div class="program-card">
-                <span class="program-number">CSS 01</span>
-                <h3>1. Create a webpage demonstrating inline, internal, and external CSS.</h3>
-                <a href="a1.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 02</span>
-                <h3>2. Create a webpage using different CSS selectors.</h3>
-                <a href="a2.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 03</span>
-                <h3>3. Demonstrate CSS colors, backgrounds, and borders.</h3>
-                <a href="a3.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 04</span>
-                <h3>4. Create a webpage demonstrating font properties and text formatting.</h3>
-                <a href="a4.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 05</span>
-                <h3>5. Demonstrate the CSS box model using margin, border, padding, and content.</h3>
-                <a href="a5.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 06</span>
-                <h3>6. Create a webpage using different width, height, and sizing properties.</h3>
-                <a href="a6.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 07</span>
-                <h3>7. Create a webpage demonstrating CSS positioning — static, relative, absolute, fixed, and sticky.</h3>
-                <a href="a7.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 08</span>
-                <h3>8. Create a webpage using float and clear properties.</h3>
-                <a href="a8.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 09</span>
-                <h3>9. Create a styled navigation bar using CSS.</h3>
-                <a href="a9.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 10</span>
-                <h3>10. Create a webpage demonstrating pseudo-classes such as :hover, :active, :focus, and :visited.</h3>
-                <a href="a10.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 11</span>
-                <h3>11. Create a webpage demonstrating pseudo-elements such as ::before, ::after, ::first-letter, and ::first-line.</h3>
-                <a href="a11.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 12</span>
-                <h3>12. Create a webpage using CSS lists and tables.</h3>
-                <a href="a12.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 13</span>
-                <h3>13. Create a webpage with a styled registration form using CSS.</h3>
-                <a href="a13.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 14</span>
-                <h3>14. Create a webpage demonstrating CSS Flexbox.</h3>
-                <a href="a14.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 15</span>
-                <h3>15. Create a webpage demonstrating CSS Grid layout.</h3>
-                <a href="a15.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 16</span>
-                <h3>16. Create a responsive webpage using CSS media queries.</h3>
-                <a href="a16.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 17</span>
-                <h3>17. Create a webpage demonstrating transitions and transformations.</h3>
-                <a href="a17.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 18</span>
-                <h3>18. Create a webpage using CSS animations.</h3>
-                <a href="a18.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 19</span>
-                <h3>19. Create a responsive navigation menu using HTML and CSS.</h3>
-                <a href="a19.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 20</span>
-                <h3>20. Design a personal portfolio webpage using HTML and CSS.</h3>
-                <a href="a20.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 21</span>
-                <h3>21. Design a college/student profile page using HTML and CSS.</h3>
-                <a href="a21.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 22</span>
-                <h3>22. Create a login page using HTML and CSS.</h3>
-                <a href="a22.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 23</span>
-                <h3>23. Create a product card layout using CSS.</h3>
-                <a href="a23.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 24</span>
-                <h3>24. Create a responsive photo gallery using CSS Grid/Flexbox.</h3>
-                <a href="a24.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 25</span>
-                <h3>25. Create a complete website homepage using HTML and CSS.</h3>
-                <a href="a25.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 26</span>
-                <h3>26. Create a webpage demonstrating CSS inheritance and specificity.</h3>
-                <a href="a26.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 27</span>
-                <h3>27. Demonstrate universal, element, class, ID, attribute, and grouping selectors.</h3>
-                <a href="a27.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 28</span>
-                <h3>28. Create a webpage using combinator selectors: descendant, child, adjacent sibling, and general sibling.</h3>
-                <a href="a28.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 29</span>
-                <h3>29. Create a webpage demonstrating CSS variables (custom properties).</h3>
-                <a href="a29.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 30</span>
-                <h3>30. Create a webpage using different background images and background positioning.</h3>
-                <a href="a30.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 31</span>
-                <h3>31. Demonstrate linear gradients and radial gradients using CSS.</h3>
-                <a href="a31.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 32</span>
-                <h3>32. Create a webpage demonstrating box-shadow and text-shadow.</h3>
-                <a href="a32.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 33</span>
-                <h3>33. Create a webpage using border-radius to design different shapes.</h3>
-                <a href="a33.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 34</span>
-                <h3>34. Demonstrate opacity and transparency using CSS.</h3>
-                <a href="a34.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 35</span>
-                <h3>35. Create a webpage using overflow properties.</h3>
-                <a href="a35.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 36</span>
-                <h3>36. Demonstrate z-index and stacking order.</h3>
-                <a href="a36.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 37</span>
-                <h3>37. Create a webpage using CSS display properties such as block, inline, inline-block, and none.</h3>
-                <a href="a37.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 38</span>
-                <h3>38. Create a webpage demonstrating visibility and hiding elements.</h3>
-                <a href="a38.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 39</span>
-                <h3>39. Create a dropdown menu using HTML and CSS.</h3>
-                <a href="a39.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 40</span>
-                <h3>40. Create an image hover effect using CSS.</h3>
-                <a href="a40.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 41</span>
-                <h3>41. Create a tooltip using CSS.</h3>
-                <a href="a41.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 42</span>
-                <h3>42. Create a webpage with a CSS-only button hover animation.</h3>
-                <a href="a42.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 43</span>
-                <h3>43. Create a webpage demonstrating CSS filters such as blur, grayscale, brightness, and contrast.</h3>
-                <a href="a43.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 44</span>
-                <h3>44. Create a webpage demonstrating object-fit and object-position.</h3>
-                <a href="a44.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 45</span>
-                <h3>45. Create a responsive image gallery using CSS.</h3>
-                <a href="a45.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 46</span>
-                <h3>46. Create a card-based layout using Flexbox.</h3>
-                <a href="a46.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 47</span>
-                <h3>47. Create a dashboard layout using CSS Grid.</h3>
-                <a href="a47.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 48</span>
-                <h3>48. Create a two-column webpage layout using CSS Grid.</h3>
-                <a href="a48.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 49</span>
-                <h3>49. Create a three-column webpage layout using Flexbox.</h3>
-                <a href="a49.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 50</span>
-                <h3>50. Create a webpage with a sticky header.</h3>
-                <a href="a50.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 51</span>
-                <h3>51. Create a webpage with a fixed sidebar.</h3>
-                <a href="a51.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 52</span>
-                <h3>52. Create a responsive footer using HTML and CSS.</h3>
-                <a href="a52.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 53</span>
-                <h3>53. Create a responsive login and signup page.</h3>
-                <a href="a53.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 54</span>
-                <h3>54. Create a responsive contact form.</h3>
-                <a href="a54.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 55</span>
-                <h3>55. Create a responsive college website homepage.</h3>
-                <a href="a55.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 56</span>
-                <h3>56. Create a restaurant webpage using HTML and CSS.</h3>
-                <a href="a56.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 57</span>
-                <h3>57. Create an online shopping webpage using CSS.</h3>
-                <a href="a57.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 58</span>
-                <h3>58. Create a travel website homepage using CSS.</h3>
-                <a href="a58.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 59</span>
-                <h3>59. Create a news/blog webpage layout using CSS Grid.</h3>
-                <a href="a59.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 60</span>
-                <h3>60. Create a portfolio website with multiple sections using HTML and CSS.</h3>
-                <a href="a60.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 61</span>
-                <h3>61. Create a webpage using CSS Grid template areas.</h3>
-                <a href="a61.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 62</span>
-                <h3>62. Demonstrate Flexbox alignment and ordering properties.</h3>
-                <a href="a62.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 63</span>
-                <h3>63. Create a responsive layout using CSS Grid and media queries.</h3>
-                <a href="a63.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 64</span>
-                <h3>64. Create a mobile-first responsive webpage.</h3>
-                <a href="a64.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 65</span>
-                <h3>65. Create a webpage demonstrating CSS transitions.</h3>
-                <a href="a65.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 66</span>
-                <h3>66. Create a webpage demonstrating 2D and 3D CSS transformations.</h3>
-                <a href="a66.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 67</span>
-                <h3>67. Create a webpage using keyframe animations.</h3>
-                <a href="a67.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 68</span>
-                <h3>68. Create a loading spinner animation using CSS.</h3>
-                <a href="a68.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 69</span>
-                <h3>69. Create a sliding image/card animation using CSS.</h3>
-                <a href="a69.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 70</span>
-                <h3>70. Create a CSS-only modal/popup design.</h3>
-                <a href="a70.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 71</span>
-                <h3>71. Create a dark-mode webpage using CSS variables.</h3>
-                <a href="a71.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 72</span>
-                <h3>72. Create a webpage demonstrating responsive typography.</h3>
-                <a href="a72.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 73</span>
-                <h3>73. Create a webpage using clamp(), min(), and max() CSS functions.</h3>
-                <a href="a73.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 74</span>
-                <h3>74. Create a webpage demonstrating CSS calc() function.</h3>
-                <a href="a74.html" class="open-button">Open Program</a>
-            </div>
-
-            <div class="program-card">
-                <span class="program-number">CSS 75</span>
-                <h3>75. Create a complete responsive website using HTML5, CSS3, Flexbox, Grid, and media queries.</h3>
-                <a href="a75.html" class="open-button">Open Program</a>
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer>
-        <p>CSS Practical Programs &nbsp; | &nbsp; 75 Experiments</p>
-        <p>Web Development Practicals</p>
-    </footer>
+    <div class="questions">
+
+        <a href="a1.html" class="question">
+            <span class="number">1</span>
+            <span class="question-text">Write a JavaScript program to display “Hello World”.</span>
+        </a>
+
+        <a href="a2.html" class="question">
+            <span class="number">2</span>
+            <span class="question-text">Write a JavaScript program to perform arithmetic operations.</span>
+        </a>
+
+        <a href="a3.html" class="question">
+            <span class="number">3</span>
+            <span class="question-text">Write a program to find the largest of three numbers.</span>
+        </a>
+
+        <a href="a4.html" class="question">
+            <span class="number">4</span>
+            <span class="question-text">Write a program to check whether a number is even or odd.</span>
+        </a>
+
+        <a href="a5.html" class="question">
+            <span class="number">5</span>
+            <span class="question-text">Write a program to check whether a number is positive, negative, or zero.</span>
+        </a>
+
+        <a href="a6.html" class="question">
+            <span class="number">6</span>
+            <span class="question-text">Write a program to find the factorial of a number.</span>
+        </a>
+
+        <a href="a7.html" class="question">
+            <span class="number">7</span>
+            <span class="question-text">Write a program to generate the Fibonacci series.</span>
+        </a>
+
+        <a href="a8.html" class="question">
+            <span class="number">8</span>
+            <span class="question-text">Write a program to check whether a number is prime.</span>
+        </a>
+
+        <a href="a9.html" class="question">
+            <span class="number">9</span>
+            <span class="question-text">Write a program to check whether a number is a palindrome.</span>
+        </a>
+
+        <a href="a10.html" class="question">
+            <span class="number">10</span>
+            <span class="question-text">Write a program to reverse a number.</span>
+        </a>
+
+        <a href="a11.html" class="question">
+            <span class="number">11</span>
+            <span class="question-text">Write a program to find the sum of digits of a number.</span>
+        </a>
+
+        <a href="a12.html" class="question">
+            <span class="number">12</span>
+            <span class="question-text">Write a program to find the largest and smallest element in an array.</span>
+        </a>
+
+        <a href="a13.html" class="question">
+            <span class="number">13</span>
+            <span class="question-text">Write a program to sort an array.</span>
+        </a>
+
+        <a href="a14.html" class="question">
+            <span class="number">14</span>
+            <span class="question-text">Write a program to find the sum and average of array elements.</span>
+        </a>
+
+        <a href="a15.html" class="question">
+            <span class="number">15</span>
+            <span class="question-text">Write a program to demonstrate JavaScript functions.</span>
+        </a>
+
+        <a href="a16.html" class="question">
+            <span class="number">16</span>
+            <span class="question-text">Write a program using arrow functions.</span>
+        </a>
+
+        <a href="a17.html" class="question">
+            <span class="number">17</span>
+            <span class="question-text">Write a program demonstrating strings and string methods.</span>
+        </a>
+
+        <a href="a18.html" class="question">
+            <span class="number">18</span>
+            <span class="question-text">Write a program demonstrating arrays and array methods.</span>
+        </a>
+
+        <a href="a19.html" class="question">
+            <span class="number">19</span>
+            <span class="question-text">Write a program demonstrating objects in JavaScript.</span>
+        </a>
+
+        <a href="a20.html" class="question">
+            <span class="number">20</span>
+            <span class="question-text">Write a program demonstrating Date and Math objects.</span>
+        </a>
+
+    </div>
+
+
+    <!-- Questions 21-36 -->
+
+    <div class="section-title">
+        <h2>DOM & Event-Based Experiments — Questions 21 to 36</h2>
+    </div>
+
+    <div class="questions">
+
+        <a href="a21.html" class="question">
+            <span class="number">21</span>
+            <span class="question-text">DOM & Event-Based Experiments</span>
+        </a>
+
+        <a href="a22.html" class="question">
+            <span class="number">22</span>
+            <span class="question-text">Create a webpage that changes text using JavaScript.</span>
+        </a>
+
+        <a href="a23.html" class="question">
+            <span class="number">23</span>
+            <span class="question-text">Change the background color of a webpage using JavaScript.</span>
+        </a>
+
+        <a href="a24.html" class="question">
+            <span class="number">24</span>
+            <span class="question-text">Create a button click event using JavaScript.</span>
+        </a>
+
+        <a href="a25.html" class="question">
+            <span class="number">25</span>
+            <span class="question-text">Create a program to show/hide an HTML element.</span>
+        </a>
+
+        <a href="a26.html" class="question">
+            <span class="number">26</span>
+            <span class="question-text">Create a program to change an image when a button is clicked.</span>
+        </a>
+
+        <a href="a27.html" class="question">
+            <span class="number">27</span>
+            <span class="question-text">Create a digital clock using JavaScript.</span>
+        </a>
+
+        <a href="a28.html" class="question">
+            <span class="number">28</span>
+            <span class="question-text">Create a simple calculator using HTML, CSS, and JavaScript.</span>
+        </a>
+
+        <a href="a29.html" class="question">
+            <span class="number">29</span>
+            <span class="question-text">Create a number guessing game.</span>
+        </a>
+
+        <a href="a30.html" class="question">
+            <span class="number">30</span>
+            <span class="question-text">Create a form validation program.</span>
+        </a>
+
+        <a href="a31.html" class="question">
+            <span class="number">31</span>
+            <span class="question-text">Validate name, email, phone number, and password using JavaScript.</span>
+        </a>
+
+        <a href="a32.html" class="question">
+            <span class="number">32</span>
+            <span class="question-text">Create a to-do list using JavaScript.</span>
+        </a>
+
+        <a href="a33.html" class="question">
+            <span class="number">33</span>
+            <span class="question-text">Create a simple quiz application.</span>
+        </a>
+
+        <a href="a34.html" class="question">
+            <span class="number">34</span>
+            <span class="question-text">Create a counter application with increment and decrement buttons.</span>
+        </a>
+
+        <a href="a35.html" class="question">
+            <span class="number">35</span>
+            <span class="question-text">Create a stopwatch using JavaScript.</span>
+        </a>
+
+        <a href="a36.html" class="question">
+            <span class="number">36</span>
+            <span class="question-text">Create a countdown timer using JavaScript.</span>
+        </a>
+
+    </div>
+
+
+    <!-- Questions 37-47 -->
+
+    <div class="section-title">
+        <h2>Advanced JavaScript Lab Questions — Questions 37 to 47</h2>
+    </div>
+
+    <div class="questions">
+
+        <a href="a37.html" class="question">
+            <span class="number">37</span>
+            <span class="question-text">Advanced JavaScript Lab Questions</span>
+        </a>
+
+        <a href="a38.html" class="question">
+            <span class="number">38</span>
+            <span class="question-text">Demonstrate ES6 let, const, template literals, and destructuring.</span>
+        </a>
+
+        <a href="a39.html" class="question">
+            <span class="number">39</span>
+            <span class="question-text">Demonstrate spread and rest operators.</span>
+        </a>
+
+        <a href="a40.html" class="question">
+            <span class="number">40</span>
+            <span class="question-text">Demonstrate classes and objects.</span>
+        </a>
+
+        <a href="a41.html" class="question">
+            <span class="number">41</span>
+            <span class="question-text">Demonstrate inheritance in JavaScript.</span>
+        </a>
+
+        <a href="a42.html" class="question">
+            <span class="number">42</span>
+            <span class="question-text">Demonstrate callbacks, promises, and async/await.</span>
+        </a>
+
+        <a href="a43.html" class="question">
+            <span class="number">43</span>
+            <span class="question-text">Fetch data from an API using Fetch API.</span>
+        </a>
+
+        <a href="a44.html" class="question">
+            <span class="number">44</span>
+            <span class="question-text">Display API data dynamically on a webpage.</span>
+        </a>
+
+        <a href="a45.html" class="question">
+            <span class="number">45</span>
+            <span class="question-text">Store and retrieve data using localStorage.</span>
+        </a>
+
+        <a href="a46.html" class="question">
+            <span class="number">46</span>
+            <span class="question-text">Create a responsive login form with JavaScript validation.</span>
+        </a>
+
+        <a href="a47.html" class="question">
+            <span class="number">47</span>
+            <span class="question-text">Create a complete interactive webpage using HTML, CSS, and JavaScript.</span>
+        </a>
+
+    </div>
+
+
+    <!-- Questions 48-67 -->
+
+    <div class="section-title">
+        <h2>Additional JavaScript Programs — Questions 48 to 67</h2>
+    </div>
+
+    <div class="questions">
+
+        <a href="a48.html" class="question">
+            <span class="number">48</span>
+            <span class="question-text">Write a JavaScript program to swap two numbers.</span>
+        </a>
+
+        <a href="a49.html" class="question">
+            <span class="number">49</span>
+            <span class="question-text">Write a program to find the greatest common divisor (GCD) of two numbers.</span>
+        </a>
+
+        <a href="a50.html" class="question">
+            <span class="number">50</span>
+            <span class="question-text">Write a program to find the least common multiple (LCM) of two numbers.</span>
+        </a>
+
+        <a href="a51.html" class="question">
+            <span class="number">51</span>
+            <span class="question-text">Write a program to check whether a number is an Armstrong number.</span>
+        </a>
+
+        <a href="a52.html" class="question">
+            <span class="number">52</span>
+            <span class="question-text">Write a program to check whether a number is a perfect number.</span>
+        </a>
+
+        <a href="a53.html" class="question">
+            <span class="number">53</span>
+            <span class="question-text">Write a program to generate the multiplication table of a given number.</span>
+        </a>
+
+        <a href="a54.html" class="question">
+            <span class="number">54</span>
+            <span class="question-text">Write a program to calculate the power of a number.</span>
+        </a>
+
+        <a href="a55.html" class="question">
+            <span class="number">55</span>
+            <span class="question-text">Write a program to count the number of digits in a number.</span>
+        </a>
+
+        <a href="a56.html" class="question">
+            <span class="number">56</span>
+            <span class="question-text">Write a program to find the second-largest element in an array.</span>
+        </a>
+
+        <a href="a57.html" class="question">
+            <span class="number">57</span>
+            <span class="question-text">Write a program to remove duplicate elements from an array.</span>
+        </a>
+
+        <a href="a58.html" class="question">
+            <span class="number">58</span>
+            <span class="question-text">Write a program to merge two arrays.</span>
+        </a>
+
+        <a href="a59.html" class="question">
+            <span class="number">59</span>
+            <span class="question-text">Write a program to find the frequency of each element in an array.</span>
+        </a>
+
+        <a href="a60.html" class="question">
+            <span class="number">60</span>
+            <span class="question-text">Write a program to find common elements in two arrays.</span>
+        </a>
+
+        <a href="a61.html" class="question">
+            <span class="number">61</span>
+            <span class="question-text">Write a program to reverse a string.</span>
+        </a>
+
+        <a href="a62.html" class="question">
+            <span class="number">62</span>
+            <span class="question-text">Write a program to check whether a string is a palindrome.</span>
+        </a>
+
+        <a href="a63.html" class="question">
+            <span class="number">63</span>
+            <span class="question-text">Write a program to count vowels and consonants in a string.</span>
+        </a>
+
+        <a href="a64.html" class="question">
+            <span class="number">64</span>
+            <span class="question-text">Write a program to count the number of words in a string.</span>
+        </a>
+
+        <a href="a65.html" class="question">
+            <span class="number">65</span>
+            <span class="question-text">Write a program to find the frequency of characters in a string.</span>
+        </a>
+
+        <a href="a66.html" class="question">
+            <span class="number">66</span>
+            <span class="question-text">Write a program to demonstrate regular expressions in JavaScript.</span>
+        </a>
+
+        <a href="a67.html" class="question">
+            <span class="number">67</span>
+            <span class="question-text">Write a program to validate an email address using a regular expression.</span>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>JavaScript Practical Programs | 67 Experiments</p>
+</footer>
 
 </body>
-
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Q56 - Second Largest Array Element</title>
+    <title>Q58 - Merge Arrays</title>
     <style>
         body {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .card {
-            width: 500px;
+            width: 550px;
             max-width: 85%;
             margin: 60px auto;
             padding: 30px;
@@ -30,6 +30,7 @@
         input {
             width: 90%;
             padding: 12px;
+            margin: 8px;
             border: 1px solid #fda4af;
             border-radius: 8px;
         }
@@ -45,9 +46,10 @@
         }
 
         #result {
-            font-size: 20px;
+            padding: 15px;
+            background: #fff1f2;
+            border-radius: 8px;
             font-weight: bold;
-            color: #991b1b;
         }
 
         a {
@@ -58,44 +60,37 @@
 <body>
 
 <header>
-    <h1>Second Largest Element</h1>
+    <h1>Merge Two Arrays</h1>
 </header>
 
 <div class="card">
 
-    <input type="text" id="array" placeholder="Example: 10, 25, 5, 40, 30">
+    <input type="text" id="array1" placeholder="First array: 1,2,3">
 
-    <br>
+    <input type="text" id="array2" placeholder="Second array: 4,5,6">
 
-    <button onclick="findSecondLargest()">Find</button>
+    <button onclick="mergeArrays()">Merge Arrays</button>
 
-    <p id="result"></p>
+    <div id="result"></div>
 
 </div>
 
 <a href="index.html">← Back to JavaScript Programs</a>
 
 <script>
-    function findSecondLargest() {
-        const input = document.getElementById("array").value;
-
-        const numbers = input
+    function mergeArrays() {
+        const array1 = document.getElementById("array1").value
             .split(",")
-            .map(Number)
-            .filter(number => !isNaN(number));
+            .map(item => item.trim());
 
-        const uniqueNumbers = [...new Set(numbers)];
+        const array2 = document.getElementById("array2").value
+            .split(",")
+            .map(item => item.trim());
 
-        if (uniqueNumbers.length < 2) {
-            document.getElementById("result").textContent =
-                "Enter at least two different numbers.";
-            return;
-        }
-
-        uniqueNumbers.sort((a, b) => b - a);
+        const merged = [...array1, ...array2];
 
         document.getElementById("result").textContent =
-            "Second Largest = " + uniqueNumbers[1];
+            "Merged Array: " + merged.join(", ");
     }
 </script>
 

@@ -3,214 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 6 - Width Height and Sizing</title>
+    <title>Factorial</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 500px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+        h1 {
+            color: #7f1d1d;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
             color: white;
-            text-align: center;
-            padding: 45px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 40px;
-            display: grid;
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 6px solid #b91c1c;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 18px;
-        }
-
-        .box {
+        #result {
+            margin-top: 20px;
+            padding: 18px;
             background: #ffe4e6;
-            border: 3px solid #dc2626;
-            padding: 20px;
-            margin-bottom: 15px;
-            text-align: center;
+            border-radius: 10px;
+            font-size: 20px;
             font-weight: bold;
+            color: #991b1b;
         }
 
-        .fixed-width {
-            width: 400px;
-        }
-
-        .percentage-width {
-            width: 70%;
-        }
-
-        .max-width {
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .min-width {
-            width: 50%;
-            min-width: 300px;
-        }
-
-        .fixed-height {
-            height: 120px;
-        }
-
-        .min-height {
-            min-height: 150px;
-        }
-
-        .max-height {
-            max-height: 180px;
-            overflow: auto;
-        }
-
-        .responsive-box {
-            width: 100%;
-            height: auto;
-            min-height: 100px;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-
-            .fixed-width {
-                width: 100%;
-            }
-
-            .percentage-width,
-            .min-width {
-                width: 100%;
-                min-width: 0;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Factorial of a Number</h1>
 
-        <header>
-            <h1>CSS Width, Height & Sizing</h1>
-            <p>Demonstration of Different CSS Sizing Properties</p>
-        </header>
+    <input type="number" id="number" placeholder="Enter a number">
 
-        <main>
+    <button onclick="findFactorial()">Calculate Factorial</button>
 
-            <section class="card">
-                <h2>Width Properties</h2>
+    <div id="result"></div>
 
-                <div class="box fixed-width">
-                    Fixed Width: 400px
-                </div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <div class="box percentage-width">
-                    Percentage Width: 70%
-                </div>
+<script>
+    function findFactorial() {
+        let number = Number(document.getElementById("number").value);
+        let factorial = 1;
 
-                <div class="box max-width">
-                    Maximum Width: 600px
-                </div>
+        for (let i = 1; i <= number; i++) {
+            factorial *= i;
+        }
 
-                <div class="box min-width">
-                    Minimum Width: 300px
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Height Properties</h2>
-
-                <div class="box fixed-height">
-                    Fixed Height: 120px
-                </div>
-
-                <div class="box min-height">
-                    Minimum Height: 150px
-                </div>
-
-                <div class="box max-height">
-                    Maximum Height: 180px
-                    <br><br>
-                    This box demonstrates the max-height property.
-                    When the content becomes larger than the available
-                    height, scrolling can be used to view the remaining content.
-                    <br><br>
-                    CSS provides different sizing properties to control
-                    the dimensions of webpage elements.
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Responsive Sizing</h2>
-
-                <div class="box responsive-box">
-                    Width: 100% and flexible height
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 06
-        </footer>
-
-    </div>
+        document.getElementById("result").textContent =
+            "Factorial = " + factorial;
+    }
+</script>
 
 </body>
 </html>

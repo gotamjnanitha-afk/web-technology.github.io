@@ -3,243 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 10 - Pseudo Classes</title>
+    <title>Reverse a Number</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 500px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 40px;
-            display: grid;
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 28px;
-            border-left: 6px solid #b91c1c;
-            border-radius: 15px;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .demo {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #fecdd3;
-        }
-
-        .hover-button {
-            background: #991b1b;
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .hover-button:hover {
-            background: #dc2626;
-            transform: translateY(-3px);
-        }
-
-        .active-button {
-            background: #7f1d1d;
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .active-button:active {
-            background: #450a0a;
-            transform: scale(0.9);
-        }
-
-        .focus-input {
-            width: 100%;
-            max-width: 450px;
-            padding: 14px;
-            border: 2px solid #fecdd3;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .focus-input:focus {
-            border-color: #dc2626;
-            box-shadow: 0 0 0 4px #ffe4e6;
-        }
-
-        .visited-link {
-            color: #991b1b;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .visited-link:visited {
+        h1 {
             color: #7f1d1d;
         }
 
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-            header h1 {
-                font-size: 28px;
-            }
+        #result {
+            margin-top: 20px;
+            padding: 18px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #991b1b;
+        }
 
-            main {
-                padding: 20px 15px;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Reverse a Number</h1>
 
-        <header>
-            <h1>CSS Pseudo-Classes</h1>
-            <p>Hover • Active • Focus • Visited</p>
-        </header>
+    <input type="number" id="number" placeholder="Enter a number">
 
-        <main>
+    <button onclick="reverseNumber()">Reverse Number</button>
 
-            <section class="card">
-                <h2>:hover</h2>
+    <div id="result"></div>
 
-                <p>
-                    The hover pseudo-class applies a style when the mouse
-                    pointer is placed over an element.
-                </p>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <div class="demo">
-                    <button class="hover-button">
-                        Move Mouse Over Me
-                    </button>
-                </div>
-            </section>
+<script>
+    function reverseNumber() {
+        let number = document.getElementById("number").value;
+        let reversed = number.split("").reverse().join("");
 
-            <section class="card">
-                <h2>:active</h2>
-
-                <p>
-                    The active pseudo-class applies a style while an element
-                    is being clicked.
-                </p>
-
-                <div class="demo">
-                    <button class="active-button">
-                        Click and Hold Me
-                    </button>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>:focus</h2>
-
-                <p>
-                    The focus pseudo-class applies a style when an input
-                    element receives focus.
-                </p>
-
-                <div class="demo">
-                    <input
-                        type="text"
-                        class="focus-input"
-                        placeholder="Click inside this input"
-                    >
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>:visited</h2>
-
-                <p>
-                    The visited pseudo-class changes the appearance of a
-                    link after it has been visited.
-                </p>
-
-                <div class="demo">
-                    <a
-                        href="https://www.wikipedia.org"
-                        target="_blank"
-                        class="visited-link"
-                    >
-                        Visit Wikipedia
-                    </a>
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 10
-        </footer>
-
-    </div>
+        document.getElementById("result").textContent =
+            "Reversed Number: " + reversed;
+    }
+</script>
 
 </body>
 </html>

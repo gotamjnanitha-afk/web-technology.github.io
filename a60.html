@@ -1,260 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
-
+    <title>Q60 - Common Elements</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #450a0a;
-            padding: 18px 20px;
-        }
-
-        .nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #fda4af;
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 22px;
-        }
-
-        nav a {
+            background: #7f1d1d;
             color: white;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #fda4af;
-        }
-
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 75px 20px;
-        }
-
-        .hero {
-            min-height: 550px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            color: #7f1d1d;
-            font-size: 52px;
-            margin-bottom: 15px;
-        }
-
-        .hero h2 {
-            color: #b91c1c;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: #64748b;
-            line-height: 1.7;
-            max-width: 650px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 13px 25px;
-            background: #b91c1c;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .section-title {
-            color: #7f1d1d;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .about,
-        .project {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
-        }
-
-        .about p,
-        .project p {
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        .skills {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .skill {
-            padding: 13px 22px;
-            background: #ffe4e6;
-            color: #991b1b;
-            border-radius: 25px;
-            font-weight: bold;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .project h3 {
-            color: #991b1b;
-            margin-bottom: 12px;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #ffe4e6;
-            text-align: center;
             padding: 25px;
         }
 
-        @media (max-width: 750px) {
-            .nav {
-                flex-direction: column;
-                gap: 15px;
-            }
+        .card {
+            width: 550px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
 
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
 
-            .hero h1 {
-                font-size: 38px;
-            }
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-            .projects {
-                grid-template-columns: 1fr;
-            }
+        #result {
+            padding: 15px;
+            background: #fff1f2;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <div class="nav">
-            <div class="logo">MyPortfolio</div>
+<header>
+    <h1>Common Elements</h1>
+</header>
 
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-            </nav>
-        </div>
-    </header>
+<div class="card">
 
-    <section class="hero" id="home">
-        <div>
-            <h1>Hello, I'm Alex</h1>
-            <h2>Web Developer & Designer</h2>
-            <p>
-                I create responsive, modern and user-friendly websites
-                using HTML, CSS and JavaScript.
-            </p>
-            <a href="#projects" class="btn">View Projects</a>
-        </div>
-    </section>
+    <input type="text" id="array1"
+        placeholder="First array: 1,2,3,4">
 
-    <section id="about">
+    <input type="text" id="array2"
+        placeholder="Second array: 3,4,5,6">
 
-        <h2 class="section-title">About Me</h2>
+    <button onclick="findCommon()">Find Common Elements</button>
 
-        <div class="about">
-            <p>
-                I am a passionate learner interested in web development,
-                design and modern technologies. I enjoy creating practical
-                projects and learning new skills.
-            </p>
-        </div>
+    <div id="result"></div>
 
-    </section>
+</div>
 
-    <section id="skills">
+<a href="index.html">← Back to JavaScript Programs</a>
 
-        <h2 class="section-title">My Skills</h2>
+<script>
+    function findCommon() {
+        const array1 = document.getElementById("array1").value
+            .split(",")
+            .map(item => item.trim());
 
-        <div class="skills">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Python</div>
-            <div class="skill">Git</div>
-            <div class="skill">Responsive Design</div>
-        </div>
+        const array2 = document.getElementById("array2").value
+            .split(",")
+            .map(item => item.trim());
 
-    </section>
+        const common = [...new Set(array1.filter(item => array2.includes(item)))];
 
-    <section id="projects">
-
-        <h2 class="section-title">My Projects</h2>
-
-        <div class="projects">
-
-            <div class="project">
-                <h3>Portfolio Website</h3>
-                <p>A responsive personal portfolio created using HTML and CSS.</p>
-            </div>
-
-            <div class="project">
-                <h3>Shopping Website</h3>
-                <p>An online shopping interface with products and categories.</p>
-            </div>
-
-            <div class="project">
-                <h3>Student Dashboard</h3>
-                <p>A dashboard layout designed using CSS Grid and Flexbox.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer>
-        © 2026 Alex Portfolio. All Rights Reserved.
-    </footer>
+        document.getElementById("result").textContent =
+            common.length > 0
+                ? "Common Elements: " + common.join(", ")
+                : "No common elements found.";
+    }
+</script>
 
 </body>
 </html>

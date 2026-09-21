@@ -3,208 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 11 - Pseudo Elements</title>
-
+    <title>Sum of Digits</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 500px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
             padding: 40px;
-            display: grid;
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 28px;
-            border-left: 6px solid #b91c1c;
-            border-radius: 15px;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        .before-example {
-            background: white;
-            padding: 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-        }
-
-        .before-example::before {
-            content: "★ ";
-            color: #dc2626;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .after-example {
-            background: white;
-            padding: 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-        }
-
-        .after-example::after {
-            content: " ✓";
-            color: #dc2626;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .first-letter-example {
-            background: white;
-            padding: 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-        }
-
-        .first-letter-example::first-letter {
-            color: #dc2626;
-            font-size: 50px;
-            font-weight: bold;
-            float: left;
-            line-height: 0.8;
-            margin-right: 8px;
-        }
-
-        .first-line-example {
-            background: white;
-            padding: 20px;
-            border: 2px solid #fecdd3;
-            border-radius: 10px;
-        }
-
-        .first-line-example::first-line {
-            color: #dc2626;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
+            border-radius: 18px;
             text-align: center;
-            padding: 20px;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
+        h1 { color: #7f1d1d; }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 18px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #991b1b;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Sum of Digits</h1>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="calculateSum()">Find Sum</button>
+    <div id="result"></div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-        <header>
-            <h1>CSS Pseudo-Elements</h1>
-            <p>::before • ::after • ::first-letter • ::first-line</p>
-        </header>
+<script>
+function calculateSum() {
+    let number = Math.abs(Number(document.getElementById("number").value));
+    let sum = 0;
 
-        <main>
+    while (number > 0) {
+        sum += number % 10;
+        number = Math.floor(number / 10);
+    }
 
-            <section class="card">
-                <h2>::before</h2>
-
-                <div class="before-example">
-                    This text has content added before it using the
-                    ::before pseudo-element.
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>::after</h2>
-
-                <div class="after-example">
-                    This text has content added after it using the
-                    ::after pseudo-element.
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>::first-letter</h2>
-
-                <p class="first-letter-example">
-                    CSS pseudo-elements allow developers to style a
-                    specific part of an HTML element. The first letter
-                    of this paragraph is styled differently.
-                </p>
-            </section>
-
-            <section class="card">
-                <h2>::first-line</h2>
-
-                <p class="first-line-example">
-                    This is the first line of the paragraph and it is
-                    styled using the first-line pseudo-element.
-                    The remaining text continues with the normal style
-                    of the paragraph.
-                </p>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 11
-        </footer>
-
-    </div>
+    document.getElementById("result").textContent = "Sum of digits: " + sum;
+}
+</script>
 
 </body>
 </html>

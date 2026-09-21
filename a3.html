@@ -3,200 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 3 - Colors Backgrounds Borders</title>
+    <title>Largest of Three Numbers</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 550px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
             padding: 40px;
-            display: grid;
-            gap: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+            border-top: 6px solid #991b1b;
         }
 
-        .card {
-            padding: 25px;
-            border-radius: 15px;
-        }
-
-        .card h2 {
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 17px;
-            line-height: 1.6;
-        }
-
-        .colors {
-            background: #ffe4e6;
-            color: #991b1b;
-            border: 3px solid #dc2626;
-        }
-
-        .background {
-            background: linear-gradient(135deg, #7f1d1d, #dc2626);
-            color: white;
-            border: 3px solid #450a0a;
-        }
-
-        .background h2 {
-            color: #fecdd3;
-        }
-
-        .borders {
-            background: #fff1f2;
-            border: 5px dashed #b91c1c;
+        h1 {
             color: #7f1d1d;
         }
 
-        .border-examples {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+        input {
+            width: 100%;
+            padding: 13px;
+            margin: 7px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #991b1b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #7f1d1d;
+        }
+
+        #result {
             margin-top: 20px;
+            padding: 18px;
+            background: #ffe4e6;
+            color: #991b1b;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
         }
 
-        .border-box {
-            padding: 20px;
-            text-align: center;
-            background: white;
-        }
-
-        .solid {
-            border: 3px solid #dc2626;
-        }
-
-        .dashed {
-            border: 3px dashed #991b1b;
-        }
-
-        .dotted {
-            border: 3px dotted #b91c1c;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 650px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-
-            .border-examples {
-                grid-template-columns: 1fr;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Largest of Three Numbers</h1>
 
-        <header>
-            <h1>CSS Colors, Backgrounds & Borders</h1>
-            <p>Demonstration of Basic CSS Styling Properties</p>
-        </header>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <input type="number" id="num3" placeholder="Enter third number">
 
-        <main>
+    <button onclick="findLargest()">Find Largest</button>
 
-            <section class="card colors">
-                <h2>CSS Colors</h2>
-                <p>
-                    CSS colors can be used to change the text color,
-                    background color, and other visual elements of a webpage.
-                </p>
-            </section>
+    <div id="result"></div>
 
-            <section class="card background">
-                <h2>CSS Backgrounds</h2>
-                <p>
-                    Background colors and gradients can be used to create
-                    attractive sections and improve the appearance of a webpage.
-                </p>
-            </section>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-            <section class="card borders">
-                <h2>CSS Borders</h2>
-                <p>
-                    CSS borders can be solid, dashed, dotted, and can have
-                    different widths and colors.
-                </p>
+<script>
+    function findLargest() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+        let c = Number(document.getElementById("num3").value);
 
-                <div class="border-examples">
+        let largest = Math.max(a, b, c);
 
-                    <div class="border-box solid">
-                        <strong>Solid Border</strong>
-                    </div>
-
-                    <div class="border-box dashed">
-                        <strong>Dashed Border</strong>
-                    </div>
-
-                    <div class="border-box dotted">
-                        <strong>Dotted Border</strong>
-                    </div>
-
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 03
-        </footer>
-
-    </div>
+        document.getElementById("result").textContent =
+            "Largest Number: " + largest;
+    }
+</script>
 
 </body>
 </html>

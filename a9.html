@@ -3,246 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 9 - Navigation Bar</title>
+    <title>Palindrome Number</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        nav {
-            background: #7f1d1d;
-            padding: 0 20px;
-        }
-
-        nav ul {
-            list-style: none;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 20px 25px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background: #dc2626;
-            color: #fff1f2;
-        }
-
-        nav a.active {
-            background: #dc2626;
-        }
-
-        main {
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: white;
             padding: 40px;
-        }
-
-        .hero {
-            background: #fff1f2;
-            border-left: 6px solid #b91c1c;
-            border-radius: 15px;
-            padding: 35px;
+            border-radius: 18px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        .hero h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-            font-size: 30px;
+        h1 {
+            color: #7f1d1d;
         }
 
-        .hero p {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #64748b;
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        .card {
+        #result {
+            margin-top: 20px;
+            padding: 18px;
             background: #ffe4e6;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            border-top: 4px solid #dc2626;
-        }
-
-        .card h3 {
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
             color: #991b1b;
-            margin-bottom: 10px;
         }
 
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 700px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav a {
-                width: 100%;
-                text-align: center;
-                padding: 15px 25px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Palindrome Number</h1>
 
-        <header>
-            <h1>My Website</h1>
-            <p>Styled Navigation Bar Using CSS</p>
-        </header>
+    <input type="number" id="number" placeholder="Enter a number">
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" class="active">Home</a>
-                </li>
+    <button onclick="checkPalindrome()">Check</button>
 
-                <li>
-                    <a href="#">About</a>
-                </li>
+    <div id="result"></div>
 
-                <li>
-                    <a href="#">Services</a>
-                </li>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <li>
-                    <a href="#">Projects</a>
-                </li>
+<script>
+    function checkPalindrome() {
+        let number = document.getElementById("number").value;
+        let reversed = number.split("").reverse().join("");
 
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
-
-        <main>
-
-            <section class="hero">
-                <h2>Welcome to My Website</h2>
-
-                <p>
-                    This webpage demonstrates a professional navigation bar
-                    created using HTML and CSS. The navigation links include
-                    hover effects, active styling, spacing, and responsive
-                    design.
-                </p>
-            </section>
-
-            <section class="cards">
-
-                <div class="card">
-                    <h3>About</h3>
-                    <p>
-                        Learn more about our website and its purpose.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Services</h3>
-                    <p>
-                        Explore the different services available.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Contact</h3>
-                    <p>
-                        Get in touch with us for more information.
-                    </p>
-                </div>
-
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 09
-        </footer>
-
-    </div>
+        if (number === reversed) {
+            document.getElementById("result").textContent =
+                number + " is a Palindrome";
+        } else {
+            document.getElementById("result").textContent =
+                number + " is not a Palindrome";
+        }
+    }
+</script>
 
 </body>
 </html>

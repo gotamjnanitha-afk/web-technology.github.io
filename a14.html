@@ -3,222 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 14 - Flexbox</title>
-
+    <title>Array Sum and Average</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 35px rgba(127, 29, 29, 0.15);
-        }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 35px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section h2 {
-            color: #991b1b;
-            margin-bottom: 18px;
-        }
-
-        .flex-container {
+            min-height: 100vh;
             display: flex;
-            gap: 15px;
-            padding: 20px;
-            background: #fff1f2;
-            border: 2px solid #fecdd3;
-            border-radius: 12px;
-            min-height: 150px;
+            justify-content: center;
+            align-items: center;
         }
-
-        .box {
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
+        }
+        h1 { color: #7f1d1d; }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
             background: #991b1b;
             color: white;
-            width: 120px;
-            min-height: 80px;
+            border: none;
+            border-radius: 8px;
+        }
+        #result {
+            margin-top: 20px;
             padding: 20px;
+            background: #ffe4e6;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #991b1b;
             font-weight: bold;
+            line-height: 2;
         }
-
-        .row {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .column {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .center {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .wrap {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .grow-box {
-            flex: 1;
-            background: #b91c1c;
-        }
-
-        .grow-box:nth-child(2) {
-            flex: 2;
-            background: #dc2626;
-        }
-
-        .grow-box:nth-child(3) {
-            flex: 1;
-            background: #7f1d1d;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 650px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            main {
-                padding: 20px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            .row {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .box {
-                width: 100px;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Array Sum and Average</h1>
+    <input type="text" id="array" placeholder="Example: 10, 20, 30, 40">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-        <header>
-            <h1>CSS Flexbox</h1>
-            <p>Demonstration of Flexible Box Layout</p>
-        </header>
+<script>
+function calculate() {
+    let values = document.getElementById("array").value
+        .split(",")
+        .map(Number);
 
-        <main>
+    let sum = values.reduce((total, value) => total + value, 0);
+    let average = sum / values.length;
 
-            <section class="section">
-                <h2>1. Flex Direction - Row</h2>
-
-                <div class="flex-container row">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>2. Flex Direction - Column</h2>
-
-                <div class="flex-container column">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>3. Center Alignment</h2>
-
-                <div class="flex-container center">
-                    <div class="box">Centered</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>4. Flex Wrap</h2>
-
-                <div class="flex-container wrap">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                    <div class="box">Box 4</div>
-                    <div class="box">Box 5</div>
-                    <div class="box">Box 6</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>5. Flex Grow</h2>
-
-                <div class="flex-container">
-                    <div class="box grow-box">1</div>
-                    <div class="box grow-box">2</div>
-                    <div class="box grow-box">1</div>
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 14
-        </footer>
-
-    </div>
+    document.getElementById("result").innerHTML =
+        "Sum: " + sum + "<br>" +
+        "Average: " + average;
+}
+</script>
 
 </body>
 </html>

@@ -1,178 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile First Responsive Page</title>
-
+    <title>Q64 - Word Count</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            color: #334155;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
         header {
-            background: #450a0a;
-            padding: 18px;
-            text-align: center;
-        }
-
-        .logo {
-            color: #fda4af;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        nav a {
+            background: #7f1d1d;
             color: white;
-            text-decoration: none;
-            padding: 8px;
-        }
-
-        .hero {
-            padding: 70px 20px;
-            text-align: center;
-            background: #ffe4e6;
-        }
-
-        .hero h1 {
-            color: #7f1d1d;
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        .cards {
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 1100px;
-            margin: auto;
+            padding: 25px;
         }
 
         .card {
+            width: 600px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 7px 20px rgba(127, 29, 29, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h2 {
+        textarea {
+            width: 90%;
+            height: 120px;
+            padding: 12px;
+            resize: none;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+            font-family: Arial;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
             color: #991b1b;
-            margin-bottom: 10px;
         }
 
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #ffe4e6;
-            text-align: center;
-            padding: 22px;
-        }
-
-        @media (min-width: 600px) {
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 18px 30px;
-            }
-
-            nav {
-                margin-top: 0;
-                flex-direction: row;
-                gap: 15px;
-            }
-
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 900px) {
-            .hero h1 {
-                font-size: 50px;
-            }
-
-            .cards {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
+<header>
+    <h1>Word Count</h1>
+</header>
 
-        <div class="logo">MobileFirst</div>
+<div class="card">
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
-        </nav>
+    <textarea id="text" placeholder="Type your sentence here..."></textarea>
 
-    </header>
+    <br>
 
-    <section class="hero">
+    <button onclick="countWords()">Count Words</button>
 
-        <h1>Mobile-First Design</h1>
+    <p id="result"></p>
 
-        <p>
-            This webpage is designed for small screens first and
-            enhanced for larger screens using media queries.
-        </p>
+</div>
 
-    </section>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-    <section class="cards">
+<script>
+    function countWords() {
+        const text = document.getElementById("text").value.trim();
 
-        <div class="card">
-            <h2>Responsive</h2>
-            <p>Works smoothly across different screen sizes.</p>
-        </div>
+        const words = text === "" ? [] : text.split(/\s+/);
 
-        <div class="card">
-            <h2>Mobile Friendly</h2>
-            <p>The initial layout is designed for mobile devices.</p>
-        </div>
-
-        <div class="card">
-            <h2>Flexible</h2>
-            <p>Layout changes automatically for tablets and desktops.</p>
-        </div>
-
-    </section>
-
-    <footer>
-        © 2026 MobileFirst
-    </footer>
+        document.getElementById("result").textContent =
+            "Number of words: " + words.length;
+    }
+</script>
 
 </body>
 </html>

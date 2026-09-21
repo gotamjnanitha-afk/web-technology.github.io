@@ -1,173 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Transitions</title>
-
+    <title>Q66 - Regular Expression</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            min-height: 100vh;
-            background: #fff5f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
             text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 550px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
             background: white;
-            padding: 45px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        h1 {
-            color: #7f1d1d;
-            margin-bottom: 12px;
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
         }
 
-        .subtitle {
-            color: #64748b;
-            margin-bottom: 40px;
-        }
-
-        .examples {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .box {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
+        button {
+            margin: 15px;
+            padding: 12px 25px;
             background: #b91c1c;
             color: white;
-            font-weight: bold;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
         }
 
-        .color {
-            transition: background 0.5s ease;
-        }
-
-        .color:hover {
-            background: #450a0a;
-        }
-
-        .size {
-            transition: transform 0.5s ease;
-        }
-
-        .size:hover {
-            transform: scale(1.15);
-        }
-
-        .move {
-            transition: transform 0.6s ease;
-        }
-
-        .move:hover {
-            transform: translateY(-25px);
-        }
-
-        .rotate {
-            transition: transform 0.6s ease;
-        }
-
-        .rotate:hover {
-            transform: rotate(15deg);
-        }
-
-        .multiple {
-            transition:
-                transform 0.5s ease,
-                background 0.5s ease,
-                border-radius 0.5s ease;
-        }
-
-        .multiple:hover {
-            transform: scale(1.1) rotate(5deg);
-            background: #991b1b;
-            border-radius: 50%;
-        }
-
-        .note {
-            margin-top: 35px;
+        #result {
             padding: 15px;
             background: #fff1f2;
-            color: #991b1b;
-            border-radius: 10px;
+            border-radius: 8px;
+            font-weight: bold;
         }
 
-        @media (max-width: 650px) {
-            .examples {
-                gap: 20px;
-            }
-
-            .box {
-                width: 130px;
-                height: 130px;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<header>
+    <h1>Regular Expression</h1>
+</header>
 
-        <h1>CSS Transitions</h1>
+<div class="card">
 
-        <p class="subtitle">
-            Hover over each box to see different transition effects.
-        </p>
+    <p>Check whether the input contains only letters and numbers.</p>
 
-        <div class="examples">
+    <input type="text" id="text" placeholder="Example: Student123">
 
-            <div class="box color">
-                Color
-            </div>
+    <br>
 
-            <div class="box size">
-                Scale
-            </div>
+    <button onclick="validateText()">Validate</button>
 
-            <div class="box move">
-                Move
-            </div>
+    <div id="result"></div>
 
-            <div class="box rotate">
-                Rotate
-            </div>
+</div>
 
-            <div class="box multiple">
-                Multiple
-            </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-        </div>
+<script>
+    function validateText() {
+        const text = document.getElementById("text").value;
 
-        <div class="note">
-            CSS transitions create smooth changes between two states.
-        </div>
+        const pattern = /^[A-Za-z0-9]+$/;
 
-    </div>
+        const valid = pattern.test(text);
+
+        document.getElementById("result").textContent =
+            valid
+                ? "Valid input."
+                : "Invalid input. Use only letters and numbers.";
+    }
+</script>
 
 </body>
 </html>

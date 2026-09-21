@@ -1,204 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Border Radius Shapes</title>
-
+    <title>Q33 - Quiz</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
             color: #450a0a;
+            text-align: center;
         }
 
         header {
-            background: linear-gradient(135deg, #450a0a, #991b1b);
+            background: #7f1d1d;
             color: white;
-            text-align: center;
-            padding: 35px 20px;
+            padding: 25px;
         }
 
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 32px;
-        }
-
-        header p {
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 40px auto;
-        }
-
-        .shape-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
+        .quiz {
+            width: 500px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
             background: white;
-            padding: 25px;
             border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .shape {
-            width: 130px;
-            height: 130px;
-            margin: 10px auto 20px;
-            background: #dc2626;
-        }
-
-        .square {
-            border-radius: 0;
-        }
-
-        .rounded-square {
-            border-radius: 25px;
-        }
-
-        .circle {
-            border-radius: 50%;
-        }
-
-        .oval {
-            width: 170px;
-            border-radius: 50%;
-        }
-
-        .pill {
-            width: 180px;
-            height: 80px;
-            margin-top: 35px;
-            border-radius: 50px;
-        }
-
-        .top-rounded {
-            border-radius: 60px 60px 0 0;
-        }
-
-        .bottom-rounded {
-            border-radius: 0 0 60px 60px;
-        }
-
-        .custom {
-            border-radius: 10px 50px 10px 50px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-bottom: 8px;
-            color: #7f1d1d;
-        }
-
-        .code-value {
-            display: inline-block;
-            padding: 7px 12px;
-            background: #fff1f2;
-            color: #991b1b;
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #fda4af;
             border-radius: 8px;
-            font-family: monospace;
-            font-size: 14px;
+            background: #fff1f2;
+            cursor: pointer;
         }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #450a0a;
-            color: white;
-            margin-top: 40px;
+        button:hover {
+            background: #fecdd3;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 25px;
-            }
+        #result {
+            font-weight: bold;
+            color: #991b1b;
+        }
 
-            .container {
-                width: 92%;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Border Radius</h1>
-        <p>Designing Different Shapes Using border-radius</p>
-    </header>
+<header>
+    <h1>JavaScript Quiz</h1>
+</header>
 
-    <main class="container">
+<div class="quiz">
+    <h2>Which language is used to make webpages interactive?</h2>
 
-        <div class="shape-grid">
+    <button onclick="checkAnswer('HTML')">HTML</button>
+    <button onclick="checkAnswer('CSS')">CSS</button>
+    <button onclick="checkAnswer('JavaScript')">JavaScript</button>
+    <button onclick="checkAnswer('SQL')">SQL</button>
 
-            <div class="card">
-                <div class="shape square"></div>
-                <h2>Square</h2>
-                <span class="code-value">border-radius: 0</span>
-            </div>
+    <p id="result"></p>
+</div>
 
-            <div class="card">
-                <div class="shape rounded-square"></div>
-                <h2>Rounded Square</h2>
-                <span class="code-value">25px</span>
-            </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <div class="card">
-                <div class="shape circle"></div>
-                <h2>Circle</h2>
-                <span class="code-value">50%</span>
-            </div>
+<script>
+    function checkAnswer(answer) {
+        const result = document.getElementById("result");
 
-            <div class="card">
-                <div class="shape oval"></div>
-                <h2>Oval</h2>
-                <span class="code-value">50%</span>
-            </div>
-
-            <div class="card">
-                <div class="shape pill"></div>
-                <h2>Pill</h2>
-                <span class="code-value">50px</span>
-            </div>
-
-            <div class="card">
-                <div class="shape top-rounded"></div>
-                <h2>Top Rounded</h2>
-                <span class="code-value">60px 60px 0 0</span>
-            </div>
-
-            <div class="card">
-                <div class="shape bottom-rounded"></div>
-                <h2>Bottom Rounded</h2>
-                <span class="code-value">0 0 60px 60px</span>
-            </div>
-
-            <div class="card">
-                <div class="shape custom"></div>
-                <h2>Custom Shape</h2>
-                <span class="code-value">10px 50px</span>
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical — Border Radius Shapes
-    </footer>
+        if (answer === "JavaScript") {
+            result.textContent = "Correct! 🎉";
+        } else {
+            result.textContent = "Wrong answer. Try again!";
+        }
+    }
+</script>
 
 </body>
 </html>

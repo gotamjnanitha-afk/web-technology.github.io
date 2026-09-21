@@ -1,136 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Template Areas</title>
-
+    <title>Q61 - Reverse String</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            padding: 25px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
         }
 
-        .layout {
-            max-width: 1100px;
-            min-height: 90vh;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            grid-template-rows: 80px 1fr 70px;
-            grid-template-areas:
-                "header header"
-                "sidebar main"
-                "footer footer";
-            gap: 15px;
-        }
-
-        .header {
-            grid-area: header;
-            background: #450a0a;
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .sidebar {
-            grid-area: sidebar;
+        header {
             background: #7f1d1d;
             color: white;
             padding: 25px;
-            border-radius: 12px;
         }
 
-        .sidebar h2 {
-            margin-bottom: 20px;
-        }
-
-        .sidebar p {
-            margin-bottom: 12px;
-            color: #ffe4e6;
-        }
-
-        .main {
-            grid-area: main;
-            background: white;
+        .card {
+            width: 500px;
+            max-width: 85%;
+            margin: 60px auto;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 7px 20px rgba(127, 29, 29, 0.1);
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .main h2 {
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            padding: 15px;
+            background: #fff1f2;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        a {
             color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .main p {
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        .footer {
-            grid-area: footer;
-            background: #450a0a;
-            color: #ffe4e6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-        }
-
-        @media (max-width: 650px) {
-            .layout {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-                grid-template-areas:
-                    "header"
-                    "sidebar"
-                    "main"
-                    "footer";
-            }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="layout">
+<header>
+    <h1>Reverse a String</h1>
+</header>
 
-        <header class="header">
-            <h1>CSS Grid Template Areas</h1>
-        </header>
+<div class="card">
 
-        <aside class="sidebar">
-            <h2>Menu</h2>
-            <p>Home</p>
-            <p>About</p>
-            <p>Services</p>
-            <p>Projects</p>
-            <p>Contact</p>
-        </aside>
+    <input type="text" id="text" placeholder="Enter a string">
 
-        <main class="main">
-            <h2>Main Content</h2>
+    <br>
 
-            <p>
-                This layout is created using CSS Grid template areas.
-                Each section is assigned a named grid area such as
-                header, sidebar, main and footer.
-            </p>
-        </main>
+    <button onclick="reverseString()">Reverse</button>
 
-        <footer class="footer">
-            © 2026 Grid Layout
-        </footer>
+    <p id="result"></p>
 
-    </div>
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function reverseString() {
+        const text = document.getElementById("text").value;
+
+        const reversed = text.split("").reverse().join("");
+
+        document.getElementById("result").textContent =
+            "Reversed String: " + reversed;
+    }
+</script>
 
 </body>
 </html>

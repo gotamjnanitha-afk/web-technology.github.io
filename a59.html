@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Q56 - Second Largest Array Element</title>
+    <title>Q59 - Frequency of Elements</title>
     <style>
         body {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .card {
-            width: 500px;
+            width: 550px;
             max-width: 85%;
             margin: 60px auto;
             padding: 30px;
@@ -41,13 +41,16 @@
             color: white;
             border: none;
             border-radius: 8px;
+            color: white;
             cursor: pointer;
         }
 
-        #result {
-            font-size: 20px;
-            font-weight: bold;
-            color: #991b1b;
+        .result {
+            text-align: left;
+            padding: 15px;
+            background: #fff1f2;
+            border-radius: 8px;
+            line-height: 1.8;
         }
 
         a {
@@ -58,44 +61,44 @@
 <body>
 
 <header>
-    <h1>Second Largest Element</h1>
+    <h1>Frequency of Elements</h1>
 </header>
 
 <div class="card">
 
-    <input type="text" id="array" placeholder="Example: 10, 25, 5, 40, 30">
+    <input type="text" id="array"
+        placeholder="Example: apple,banana,apple,orange,banana">
 
     <br>
 
-    <button onclick="findSecondLargest()">Find</button>
+    <button onclick="findFrequency()">Find Frequency</button>
 
-    <p id="result"></p>
+    <div class="result" id="result"></div>
 
 </div>
 
 <a href="index.html">← Back to JavaScript Programs</a>
 
 <script>
-    function findSecondLargest() {
-        const input = document.getElementById("array").value;
-
-        const numbers = input
+    function findFrequency() {
+        const values = document.getElementById("array").value
             .split(",")
-            .map(Number)
-            .filter(number => !isNaN(number));
+            .map(item => item.trim())
+            .filter(item => item !== "");
 
-        const uniqueNumbers = [...new Set(numbers)];
+        const frequency = {};
 
-        if (uniqueNumbers.length < 2) {
-            document.getElementById("result").textContent =
-                "Enter at least two different numbers.";
-            return;
+        values.forEach(value => {
+            frequency[value] = (frequency[value] || 0) + 1;
+        });
+
+        let output = "";
+
+        for (const value in frequency) {
+            output += `${value}: ${frequency[value]} time(s)<br>`;
         }
 
-        uniqueNumbers.sort((a, b) => b - a);
-
-        document.getElementById("result").textContent =
-            "Second Largest = " + uniqueNumbers[1];
+        document.getElementById("result").innerHTML = output;
     }
 </script>
 

@@ -1,140 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Grid Layout</title>
-
+    <title>Q63 - Vowels and Consonants</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #fff5f6;
-            padding: 35px 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        h1 {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
             text-align: center;
-            color: #7f1d1d;
-            margin-bottom: 10px;
+            color: #450a0a;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 35px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
         }
 
         .card {
+            width: 500px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
             background: white;
-            padding: 30px 20px;
-            min-height: 180px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h2 {
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .result {
+            padding: 15px;
+            margin: 10px;
+            background: #fff1f2;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        a {
             color: #991b1b;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 950px) {
-            .grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 700px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+<header>
+    <h1>Vowels and Consonants</h1>
+</header>
 
-        <h1>Responsive CSS Grid</h1>
+<div class="card">
 
-        <p class="subtitle">
-            Resize the browser window to see the number of columns change.
-        </p>
+    <input type="text" id="text" placeholder="Enter a string">
 
-        <div class="grid">
+    <br>
 
-            <div class="card">
-                <h2>HTML</h2>
-                <p>Creates the structure of a webpage.</p>
-            </div>
+    <button onclick="countLetters()">Count</button>
 
-            <div class="card">
-                <h2>CSS</h2>
-                <p>Styles and designs the webpage.</p>
-            </div>
+    <div class="result" id="vowels"></div>
+    <div class="result" id="consonants"></div>
 
-            <div class="card">
-                <h2>JavaScript</h2>
-                <p>Adds interaction and dynamic behavior.</p>
-            </div>
+</div>
 
-            <div class="card">
-                <h2>Python</h2>
-                <p>A popular programming language.</p>
-            </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-            <div class="card">
-                <h2>Data Science</h2>
-                <p>Works with data, analysis and models.</p>
-            </div>
+<script>
+    function countLetters() {
+        const text = document.getElementById("text").value.toLowerCase();
 
-            <div class="card">
-                <h2>AI & ML</h2>
-                <p>Build intelligent applications.</p>
-            </div>
+        let vowels = 0;
+        let consonants = 0;
 
-            <div class="card">
-                <h2>Web Design</h2>
-                <p>Creates attractive user interfaces.</p>
-            </div>
+        for (const character of text) {
+            if (/[a-z]/.test(character)) {
+                if ("aeiou".includes(character)) {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
 
-            <div class="card">
-                <h2>Projects</h2>
-                <p>Apply your skills through practical work.</p>
-            </div>
+        document.getElementById("vowels").textContent =
+            "Vowels: " + vowels;
 
-        </div>
-
-    </div>
+        document.getElementById("consonants").textContent =
+            "Consonants: " + consonants;
+    }
+</script>
 
 </body>
 </html>

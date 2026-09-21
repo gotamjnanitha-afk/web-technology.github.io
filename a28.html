@@ -1,317 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Q28 - Combinator Selectors</title>
-
+    <title>Q28 - Calculator</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
+            text-align: center;
             color: #450a0a;
         }
 
         header {
-            background: #450a0a;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        header h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #fecdd3;
-        }
-
-        main {
-            width: 90%;
-            max-width: 1100px;
-            margin: 45px auto;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .intro h2 {
-            color: #991b1b;
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .intro p {
-            color: #64748b;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border: 2px solid #fecdd3;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(127, 29, 29, 0.08);
-        }
-
-        .card h3 {
-            color: #7f1d1d;
-            margin-bottom: 10px;
-        }
-
-        .description {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .demo {
-            background: #fff1f2;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .demo h4 {
-            color: #991b1b;
-            margin-bottom: 10px;
-        }
-
-        .demo p {
-            padding: 10px;
-            margin: 5px 0;
-            background: white;
-            border-radius: 6px;
-        }
-
-        /* Descendant combinator */
-        .descendant-demo div p {
-            color: #dc2626;
-            font-weight: bold;
-        }
-
-        /* Child combinator */
-        .child-demo > p {
-            color: #7f1d1d;
-            font-weight: bold;
-            border-left: 5px solid #dc2626;
-        }
-
-        /* Adjacent sibling combinator */
-        .adjacent-demo h4 + p {
-            color: #dc2626;
-            font-weight: bold;
-            background: #ffe4e6;
-        }
-
-        /* General sibling combinator */
-        .general-demo h4 ~ p {
-            color: #991b1b;
-            font-weight: bold;
-            border-left: 5px solid #b91c1c;
-        }
-
-        .label {
-            display: inline-block;
             background: #7f1d1d;
             color: white;
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 15px;
+            padding: 25px;
         }
 
-        .result {
-            margin-top: 30px;
-            background: #991b1b;
-            color: white;
+        .calculator {
+            width: 320px;
+            margin: 50px auto;
             padding: 30px;
-            border-radius: 16px;
-            text-align: center;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .result h2 {
-            margin-bottom: 12px;
+        input, select, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #fda4af;
         }
 
-        .result p {
-            color: #ffe4e6;
-            line-height: 1.7;
+        button {
+            background: #b91c1c;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
 
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #991b1b;
         }
 
-        @media (max-width: 750px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                width: 92%;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Combinator Selectors</h1>
-        <p>Descendant, Child, Adjacent Sibling and General Sibling</p>
-    </header>
+<header>
+    <h1>Simple Calculator</h1>
+</header>
 
-    <main>
+<div class="calculator">
+    <input type="number" id="num1" placeholder="Enter first number">
 
-        <div class="intro">
-            <h2>Combinator Demonstration</h2>
-            <p>
-                Combinators define relationships between HTML elements.
-            </p>
-        </div>
+    <input type="number" id="num2" placeholder="Enter second number">
 
-        <div class="grid">
+    <select id="operator">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (×)</option>
+        <option value="/">Division (÷)</option>
+    </select>
 
-            <div class="card">
+    <button onclick="calculate()">Calculate</button>
 
-                <span class="label">Descendant Selector</span>
+    <div id="result">Result: —</div>
+</div>
 
-                <h3>Parent → Any Descendant</h3>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-                <p class="description">
-                    The descendant selector targets elements anywhere
-                    inside another element.
-                </p>
+<script>
+    function calculate() {
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+        const operator = document.getElementById("operator").value;
 
-                <div class="demo descendant-demo">
+        let result;
 
-                    <h4>Department</h4>
+        if (operator === "+") {
+            result = num1 + num2;
+        } else if (operator === "-") {
+            result = num1 - num2;
+        } else if (operator === "*") {
+            result = num1 * num2;
+        } else if (operator === "/") {
+            result = num2 === 0 ? "Cannot divide by zero" : num1 / num2;
+        }
 
-                    <div>
-                        <p>Computer Science</p>
-                        <p>Data Science</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="label">Child Selector</span>
-
-                <h3>Parent → Direct Child</h3>
-
-                <p class="description">
-                    The child selector targets only direct children
-                    of an element.
-                </p>
-
-                <div class="demo child-demo">
-
-                    <h4>Courses</h4>
-
-                    <p>Web Technologies</p>
-
-                    <div>
-                        <p>This paragraph is inside another div.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="label">Adjacent Sibling</span>
-
-                <h3>Element + Next Sibling</h3>
-
-                <p class="description">
-                    The adjacent sibling selector targets the first
-                    element immediately after another element.
-                </p>
-
-                <div class="demo adjacent-demo">
-
-                    <h4>Important Notice</h4>
-
-                    <p>This paragraph is the immediate sibling.</p>
-
-                    <p>This paragraph is not immediately after the heading.</p>
-
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="label">General Sibling</span>
-
-                <h3>Element ~ All Siblings</h3>
-
-                <p class="description">
-                    The general sibling selector targets all matching
-                    siblings that appear after an element.
-                </p>
-
-                <div class="demo general-demo">
-
-                    <h4>Available Subjects</h4>
-
-                    <p>HTML and CSS</p>
-
-                    <p>JavaScript</p>
-
-                    <p>Python</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="result">
-
-            <h2>Four Combinators Demonstrated</h2>
-
-            <p>
-                Descendant selects elements inside a parent,
-                child selects direct children, adjacent sibling
-                selects the next sibling, and general sibling
-                selects matching siblings that follow.
-            </p>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical Assignment • Question 28
-    </footer>
+        document.getElementById("result").textContent = "Result: " + result;
+    }
+</script>
 
 </body>
 </html>

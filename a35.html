@@ -1,259 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Overflow Properties</title>
-
+    <title>Q35 - Stopwatch</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
+            text-align: center;
             color: #450a0a;
         }
 
         header {
-            background: linear-gradient(135deg, #450a0a, #991b1b);
+            background: #7f1d1d;
             color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 32px;
-        }
-
-        header p {
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
-
-        .intro {
-            background: white;
             padding: 25px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
-            margin-bottom: 30px;
         }
 
-        .intro h2 {
-            color: #991b1b;
-            margin-top: 0;
-        }
-
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
+        .stopwatch {
+            width: 350px;
+            margin: 70px auto;
+            padding: 35px;
             background: white;
-            padding: 22px;
             border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+            box-shadow: 0 10px 30px #fecdd3;
         }
 
-        .card h3 {
-            color: #7f1d1d;
-            margin-bottom: 8px;
+        #display {
+            font-size: 45px;
+            font-weight: bold;
+            color: #b91c1c;
+            margin-bottom: 25px;
         }
 
-        .box {
-            width: 100%;
-            height: 150px;
-            margin: 15px auto;
-            border: 3px solid #dc2626;
-            border-radius: 12px;
-            background: #fff1f2;
-            padding: 15px;
-            text-align: left;
-            line-height: 1.6;
-        }
-
-        .visible {
-            overflow: visible;
-        }
-
-        .hidden {
-            overflow: hidden;
-        }
-
-        .scroll {
-            overflow: scroll;
-        }
-
-        .auto {
-            overflow: auto;
-        }
-
-        .x-scroll {
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-        }
-
-        .y-scroll {
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        .wide-content {
-            width: 500px;
-            background: #ffe4e6;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .value {
-            display: inline-block;
-            padding: 7px 12px;
-            background: #fff1f2;
-            color: #991b1b;
+        button {
+            padding: 12px 18px;
+            margin: 5px;
+            border: none;
             border-radius: 8px;
-            font-family: monospace;
-        }
-
-        footer {
-            background: #450a0a;
+            background: #b91c1c;
             color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
+            cursor: pointer;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 25px;
-            }
-
-            .container {
-                width: 92%;
-            }
+        a {
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Overflow Properties</h1>
-        <p>Demonstrating visible, hidden, scroll and auto overflow</p>
-    </header>
+<header>
+    <h1>Stopwatch</h1>
+</header>
 
-    <main class="container">
+<div class="stopwatch">
 
-        <section class="intro">
-            <h2>Overflow Demonstration</h2>
-            <p>
-                The CSS overflow property controls what happens when content
-                is larger than its container.
-            </p>
-        </section>
+    <div id="display">00:00:00</div>
 
-        <section class="demo-grid">
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
 
-            <div class="card">
-                <h3>Overflow: Visible</h3>
+</div>
 
-                <div class="box visible">
-                    This content is intentionally longer than the box.
-                    With visible overflow, content can extend outside the
-                    boundaries of the container.
-                    More text is added to demonstrate the effect.
-                </div>
+<a href="index.html">← Back to JavaScript Programs</a>
 
-                <span class="value">overflow: visible</span>
-            </div>
+<script>
+    let seconds = 0;
+    let timer = null;
 
-            <div class="card">
-                <h3>Overflow: Hidden</h3>
+    function updateDisplay() {
+        const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
+        const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+        const secs = String(seconds % 60).padStart(2, "0");
 
-                <div class="box hidden">
-                    This content is intentionally longer than the box.
-                    With hidden overflow, content that exceeds the
-                    container is clipped and cannot be seen outside it.
-                    Additional text will be hidden.
-                </div>
+        document.getElementById("display").textContent =
+            `${hours}:${minutes}:${secs}`;
+    }
 
-                <span class="value">overflow: hidden</span>
-            </div>
+    function start() {
+        if (timer !== null) {
+            return;
+        }
 
-            <div class="card">
-                <h3>Overflow: Scroll</h3>
+        timer = setInterval(() => {
+            seconds++;
+            updateDisplay();
+        }, 1000);
+    }
 
-                <div class="box scroll">
-                    This container always provides scrollbars when the
-                    content exceeds its available space. You can scroll
-                    through the content to see everything inside the box.
-                    Additional information is included here.
-                </div>
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
 
-                <span class="value">overflow: scroll</span>
-            </div>
-
-            <div class="card">
-                <h3>Overflow: Auto</h3>
-
-                <div class="box auto">
-                    Auto overflow adds scrollbars only when necessary.
-                    If the content fits inside the container, scrollbars
-                    are not required. This example contains extra content.
-                    More text is included for demonstration.
-                </div>
-
-                <span class="value">overflow: auto</span>
-            </div>
-
-            <div class="card">
-                <h3>Horizontal Overflow</h3>
-
-                <div class="box x-scroll">
-                    <div class="wide-content">
-                        This is a very wide content area demonstrating
-                        horizontal scrolling using overflow-x: auto.
-                    </div>
-                </div>
-
-                <span class="value">overflow-x: auto</span>
-            </div>
-
-            <div class="card">
-                <h3>Vertical Overflow</h3>
-
-                <div class="box y-scroll">
-                    Content is arranged vertically inside this container.
-                    When the content becomes taller than the available
-                    height, vertical scrolling becomes available.
-                    More content is added to demonstrate the effect.
-                    Scroll down to view additional content.
-                    This is another line of content.
-                </div>
-
-                <span class="value">overflow-y: auto</span>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        CSS Practical — Overflow Properties
-    </footer>
+    function reset() {
+        stop();
+        seconds = 0;
+        updateDisplay();
+    }
+</script>
 
 </body>
 </html>

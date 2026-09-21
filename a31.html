@@ -1,357 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Q31 - Gradients</title>
-
+    <title>Q31 - Input Validation</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff5f6;
+            background: #fff1f2;
             color: #450a0a;
         }
 
         header {
-            background: #450a0a;
+            background: #7f1d1d;
             color: white;
             text-align: center;
-            padding: 32px 20px;
-        }
-
-        header h1 {
-            font-size: 35px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #fecdd3;
-        }
-
-        main {
-            width: 90%;
-            max-width: 1100px;
-            margin: 45px auto;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .intro h2 {
-            color: #991b1b;
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .intro p {
-            color: #64748b;
-        }
-
-        .gradient-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border: 2px solid #fecdd3;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(127, 29, 29, 0.1);
-        }
-
-        .gradient-box {
-            height: 240px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
             padding: 25px;
         }
 
-        .gradient-box h3 {
-            font-size: 25px;
-            margin-bottom: 8px;
-        }
-
-        .gradient-box p {
-            color: #ffe4e6;
-        }
-
-        .linear-one {
-            background: linear-gradient(
-                90deg,
-                #450a0a,
-                #dc2626
-            );
-        }
-
-        .linear-two {
-            background: linear-gradient(
-                135deg,
-                #7f1d1d,
-                #b91c1c,
-                #fda4af
-            );
-        }
-
-        .linear-three {
-            background: linear-gradient(
-                to bottom,
-                #991b1b,
-                #ffe4e6
-            );
-        }
-
-        .radial-one {
-            background: radial-gradient(
-                circle,
-                #dc2626,
-                #7f1d1d,
-                #450a0a
-            );
-        }
-
-        .radial-two {
-            background: radial-gradient(
-                circle at top right,
-                #fda4af,
-                #b91c1c,
-                #450a0a
-            );
-        }
-
-        .radial-three {
-            background: radial-gradient(
-                ellipse,
-                #ffe4e6,
-                #dc2626,
-                #450a0a
-            );
-        }
-
-        .content {
-            padding: 22px;
-        }
-
-        .content h3 {
-            color: #991b1b;
-            margin-bottom: 8px;
-        }
-
-        .content p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .comparison {
-            margin-top: 30px;
-            background: #991b1b;
-            color: white;
+        form {
+            width: 430px;
+            max-width: 85%;
+            margin: 40px auto;
             padding: 30px;
+            background: white;
             border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 7px 0 15px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #message {
             text-align: center;
+            font-weight: bold;
         }
 
-        .comparison h2 {
-            margin-bottom: 12px;
-        }
-
-        .comparison p {
-            color: #ffe4e6;
-            line-height: 1.7;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
+        a {
+            display: block;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 750px) {
-            .gradient-grid {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                width: 92%;
-            }
-
-            .gradient-box {
-                height: 210px;
-            }
+            color: #991b1b;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>CSS Gradients</h1>
-        <p>Linear and Radial Gradient Demonstration</p>
-    </header>
+<header>
+    <h1>Complete Input Validation</h1>
+</header>
 
-    <main>
+<form onsubmit="return validate()">
 
-        <div class="intro">
-            <h2>Gradient Gallery</h2>
-            <p>
-                CSS gradients allow smooth transitions between
-                two or more colors without using image files.
-            </p>
-        </div>
+    <label>Name</label>
+    <input type="text" id="name">
 
-        <div class="gradient-grid">
+    <label>Email</label>
+    <input type="text" id="email">
 
-            <div class="card">
+    <label>Phone</label>
+    <input type="text" id="phone">
 
-                <div class="gradient-box linear-one">
-                    <div>
-                        <h3>Linear Gradient</h3>
-                        <p>Horizontal color transition</p>
-                    </div>
-                </div>
+    <label>Password</label>
+    <input type="password" id="password">
 
-                <div class="content">
-                    <h3>90 Degree Gradient</h3>
-                    <p>
-                        The colors transition from left to right
-                        using a linear gradient.
-                    </p>
-                </div>
+    <button type="submit">Validate</button>
 
-            </div>
+    <p id="message"></p>
+</form>
 
-            <div class="card">
+<a href="index.html">← Back to JavaScript Programs</a>
 
-                <div class="gradient-box linear-two">
-                    <div>
-                        <h3>Diagonal Gradient</h3>
-                        <p>135 degree color transition</p>
-                    </div>
-                </div>
+<script>
+    function validate() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const password = document.getElementById("password").value;
 
-                <div class="content">
-                    <h3>Multi-Color Linear</h3>
-                    <p>
-                        Three different colors are smoothly
-                        combined along a diagonal direction.
-                    </p>
-                </div>
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phonePattern = /^[0-9]{10}$/;
 
-            </div>
+        const message = document.getElementById("message");
 
-            <div class="card">
+        if (name === "") {
+            message.textContent = "Enter your name.";
+            return false;
+        }
 
-                <div class="gradient-box linear-three">
-                    <div>
-                        <h3>Vertical Gradient</h3>
-                        <p>Top to bottom transition</p>
-                    </div>
-                </div>
+        if (!emailPattern.test(email)) {
+            message.textContent = "Enter a valid email.";
+            return false;
+        }
 
-                <div class="content">
-                    <h3>Vertical Linear Gradient</h3>
-                    <p>
-                        The gradient moves from the top of the
-                        element toward the bottom.
-                    </p>
-                </div>
+        if (!phonePattern.test(phone)) {
+            message.textContent = "Enter a valid 10-digit phone number.";
+            return false;
+        }
 
-            </div>
+        if (password.length < 6) {
+            message.textContent = "Password must contain at least 6 characters.";
+            return false;
+        }
 
-            <div class="card">
+        message.textContent = "All details are valid!";
+        message.style.color = "green";
 
-                <div class="gradient-box radial-one">
-                    <div>
-                        <h3>Radial Gradient</h3>
-                        <p>Circular color transition</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <h3>Circle Radial Gradient</h3>
-                    <p>
-                        Colors spread outward from the center
-                        in a circular pattern.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="gradient-box radial-two">
-                    <div>
-                        <h3>Corner Radial</h3>
-                        <p>Gradient from the top-right</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <h3>Custom Radial Position</h3>
-                    <p>
-                        The gradient begins from a custom position
-                        at the top-right corner.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="gradient-box radial-three">
-                    <div>
-                        <h3>Ellipse Gradient</h3>
-                        <p>Elliptical color transition</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <h3>Elliptical Radial Gradient</h3>
-                    <p>
-                        An elliptical shape is used to create
-                        a smooth radial color transition.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="comparison">
-
-            <h2>Linear vs Radial Gradients</h2>
-
-            <p>
-                Linear gradients move colors along a straight line,
-                while radial gradients spread colors outward from
-                a central point or position.
-            </p>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical Assignment • Question 31
-    </footer>
+        return false;
+    }
+</script>
 
 </body>
 </html>

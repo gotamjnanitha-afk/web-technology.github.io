@@ -3,215 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 8 - Float and Clear</title>
+    <title>Prime Number</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
-            padding: 30px 15px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
+            width: 90%;
+            max-width: 500px;
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
         }
 
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
+        h1 {
+            color: #7f1d1d;
         }
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
         }
 
-        header p {
-            color: #ffe4e6;
-            font-size: 17px;
-        }
-
-        main {
-            padding: 40px;
-        }
-
-        .card {
-            background: #fff1f2;
-            padding: 25px;
-            border-left: 6px solid #b91c1c;
-            border-radius: 15px;
-            margin-bottom: 25px;
-        }
-
-        .card h2 {
-            color: #991b1b;
-            margin-bottom: 15px;
-        }
-
-        .float-left {
-            float: left;
-            width: 180px;
-            height: 120px;
-            background: #dc2626;
-            color: white;
-            margin: 0 20px 15px 0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .float-right {
-            float: right;
-            width: 180px;
-            height: 120px;
+        button {
+            width: 100%;
+            padding: 14px;
             background: #991b1b;
             color: white;
-            margin: 0 0 15px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        .text {
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .clear-section {
-            margin-top: 30px;
-            padding: 20px;
+        #result {
+            margin-top: 20px;
+            padding: 18px;
             background: #ffe4e6;
-            border-radius: 12px;
-            clear: both;
-        }
-
-        .clear-box {
-            background: #7f1d1d;
-            color: white;
-            padding: 20px;
-            margin-top: 15px;
-            clear: both;
             border-radius: 10px;
-            text-align: center;
+            font-size: 20px;
             font-weight: bold;
+            color: #991b1b;
         }
 
-        .clearfix {
-            overflow: auto;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-
-            .float-left,
-            .float-right {
-                float: none;
-                width: 100%;
-                margin: 0 0 15px 0;
-            }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
+    <h1>Prime Number Checker</h1>
 
-        <header>
-            <h1>CSS Float & Clear</h1>
-            <p>Demonstration of Float and Clear Properties</p>
-        </header>
+    <input type="number" id="number" placeholder="Enter a number">
 
-        <main>
+    <button onclick="checkPrime()">Check Prime</button>
 
-            <section class="card clearfix">
-                <h2>Float Left</h2>
+    <div id="result"></div>
 
-                <div class="float-left">
-                    Float Left
-                </div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-                <p class="text">
-                    The float property allows an element to move to the
-                    left or right side of its container. When an element
-                    is floated to the left, the text can flow around it.
-                    This technique was commonly used for creating layouts
-                    and positioning images beside text.
-                </p>
-            </section>
+<script>
+    function checkPrime() {
+        let number = Number(document.getElementById("number").value);
+        let prime = true;
 
-            <section class="card clearfix">
-                <h2>Float Right</h2>
+        if (number < 2) {
+            prime = false;
+        }
 
-                <div class="float-right">
-                    Float Right
-                </div>
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                prime = false;
+                break;
+            }
+        }
 
-                <p class="text">
-                    An element can also be floated to the right using
-                    the float property. The surrounding text flows around
-                    the floated element. Float can be useful for simple
-                    layouts and content positioning.
-                </p>
-            </section>
-
-            <section class="card">
-                <h2>Clear Property</h2>
-
-                <p class="text">
-                    The clear property prevents an element from being
-                    positioned next to floated elements.
-                </p>
-
-                <div class="clear-box">
-                    Clear: Both — This element starts below floated elements
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            CSS Practical Program 08
-        </footer>
-
-    </div>
+        document.getElementById("result").textContent =
+            prime ? number + " is a Prime Number" : number + " is not a Prime Number";
+    }
+</script>
 
 </body>
 </html>

@@ -3,313 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Question 23 - Product Cards</title>
-
+    <title>Button Click Event</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #fff5f6;
-            color: #450a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        header {
-            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #ffe4e6;
-        }
-
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: 45px auto;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #991b1b;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .product-card {
+            max-width: 550px;
             background: white;
-            border: 2px solid #fecdd3;
+            padding: 45px;
             border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.1);
-            transition: 0.4s;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
         }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 18px 35px rgba(127, 29, 29, 0.2);
-        }
-
-        .product-image {
-            height: 230px;
-            background: linear-gradient(135deg, #ffe4e6, #fda4af);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #991b1b;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .category {
-            color: #dc2626;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-info h2 {
-            color: #7f1d1d;
-            font-size: 22px;
-            margin: 10px 0;
-        }
-
-        .description {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .price {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-
-        .current-price {
-            color: #991b1b;
-            font-size: 23px;
-            font-weight: bold;
-        }
-
-        .old-price {
-            color: #94a3b8;
-            text-decoration: line-through;
-        }
-
-        .discount {
-            background: #ffe4e6;
-            color: #dc2626;
-            padding: 5px 8px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .buy-button {
-            display: block;
-            width: 100%;
-            padding: 13px;
+        h1 { color: #7f1d1d; }
+        button {
+            padding: 15px 30px;
             background: #991b1b;
             color: white;
             border: none;
             border-radius: 8px;
-            text-align: center;
+            cursor: pointer;
+            font-size: 17px;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            color: #991b1b;
+            font-weight: bold;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .buy-button:hover {
-            background: #dc2626;
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #dc2626;
-            color: white;
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .image-wrapper {
-            position: relative;
-        }
-
-        footer {
-            background: #450a0a;
-            color: #fecdd3;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 900px) {
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .products {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 30px;
-            }
-
-            .container {
-                width: 92%;
-            }
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Product Collection</h1>
-        <p>Modern CSS Product Card Layout</p>
-    </header>
+<div class="container">
+    <h1>Button Click Event</h1>
 
-    <main class="container">
+    <button onclick="buttonClicked()">Click Me</button>
 
-        <h2 class="section-title">Featured Products</h2>
+    <div id="result">Waiting for button click...</div>
 
-        <div class="products">
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
 
-            <div class="product-card">
-
-                <div class="image-wrapper">
-                    <div class="product-image">
-                        PREMIUM SHIRT
-                    </div>
-                    <span class="badge">NEW</span>
-                </div>
-
-                <div class="product-info">
-                    <span class="category">Men's Fashion</span>
-
-                    <h2>Classic Formal Shirt</h2>
-
-                    <p class="description">
-                        Premium cotton formal shirt with a clean
-                        and comfortable modern fit.
-                    </p>
-
-                    <div class="price">
-                        <span class="current-price">₹1,299</span>
-                        <span class="old-price">₹1,799</span>
-                        <span class="discount">28% OFF</span>
-                    </div>
-
-                    <a href="#" class="buy-button">
-                        Add to Cart
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="product-card">
-
-                <div class="image-wrapper">
-                    <div class="product-image">
-                        DENIM JEANS
-                    </div>
-                    <span class="badge">SALE</span>
-                </div>
-
-                <div class="product-info">
-                    <span class="category">Men's Fashion</span>
-
-                    <h2>Regular Fit Jeans</h2>
-
-                    <p class="description">
-                        Comfortable regular-fit denim designed
-                        for everyday casual wear.
-                    </p>
-
-                    <div class="price">
-                        <span class="current-price">₹1,599</span>
-                        <span class="old-price">₹2,199</span>
-                        <span class="discount">27% OFF</span>
-                    </div>
-
-                    <a href="#" class="buy-button">
-                        Add to Cart
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="product-card">
-
-                <div class="image-wrapper">
-                    <div class="product-image">
-                        SNEAKERS
-                    </div>
-                    <span class="badge">POPULAR</span>
-                </div>
-
-                <div class="product-info">
-                    <span class="category">Footwear</span>
-
-                    <h2>Casual Sneakers</h2>
-
-                    <p class="description">
-                        Lightweight everyday sneakers with a
-                        stylish design and comfortable sole.
-                    </p>
-
-                    <div class="price">
-                        <span class="current-price">₹1,899</span>
-                        <span class="old-price">₹2,499</span>
-                        <span class="discount">24% OFF</span>
-                    </div>
-
-                    <a href="#" class="buy-button">
-                        Add to Cart
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer>
-        CSS Practical Program 23
-    </footer>
+<script>
+function buttonClicked() {
+    document.getElementById("result").textContent =
+        "Button was clicked successfully!";
+}
+</script>
 
 </body>
 </html>
