@@ -1,10 +1,10 @@
-# CodeSphere – HTML, CSS & JavaScript Practical Programs
+# WEB DEVELOPMENT PRACTICALS
 
 ## 📌 Project Overview
 
-CodeSphere is a practical-programs website created to demonstrate HTML, CSS, and JavaScript concepts as part of the Web Technology practical assignment.
+**WEB DEVELOPMENT PRACTICALS** is a practical-programs website created to demonstrate HTML, CSS, and JavaScript concepts as part of the Web Technology practical assignment.
 
-The project contains separate programs for different Web Technology topics. Each program can be opened and executed directly in a web browser.
+The project contains separate programs for different Web Development topics. Each program can be opened and executed directly in a web browser.
 
 ## 👩‍🎓 Student Details
 
@@ -27,7 +27,6 @@ The main objectives of this project are:
 - Create interactive web pages
 - Organize practical programs into separate files
 - Practice working with Visual Studio Code and web browsers
-- Implement Web Technology concepts through practical programs
 
 ## 🛠️ Technologies Used
 
@@ -39,18 +38,26 @@ The main objectives of this project are:
 
 ## 📚 Assignment
 
-**Web Technology Practical Programs**
+**WEB DEVELOPMENT PRACTICALS**
 
-This project contains the practical programs completed as part of the Web Technology subject.
+This project contains **167 practical programs** completed as part of the Web Technology subject.
 
-### Total Number of Programs Completed
+## 📊 Project Summary
 
-**167 Programs**
+| Category | Details |
+|---|---|
+| **Project Name** | WEB DEVELOPMENT PRACTICALS |
+| **Student Name** | Jnanitha Gotam |
+| **Register Number** | 250200491 |
+| **Section** | 7 |
+| **Subject** | Web Technology |
+| **Total Programs** | 167 |
+| **Technologies** | HTML, CSS, JavaScript |
 
 ## 📂 Project Structure
 
 ```text
-CodeSphere/
+WEB-DEVELOPMENT-PRACTICALS/
 │
 ├── index.html
 │
@@ -59,21 +66,21 @@ CodeSphere/
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   ├── ...
+│   └── ...
 │
 ├── css/
 │   ├── index.html
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   ├── ...
+│   └── ...
 │
 ├── javascript/
 │   ├── index.html
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   ├── ...
+│   └── ...
 │
 ├── assets/
 │   ├── images/
