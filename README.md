@@ -2,9 +2,19 @@
 
 ## 📌 Project Overview
 
-CodeSphere is a practical-programs website created to demonstrate HTML, CSS, and JavaScript concepts.
+CodeSphere is a practical-programs website created to demonstrate HTML, CSS, and JavaScript concepts as part of the Web Technology practical assignment.
 
-The project contains separate programs for each topic. Each program can be opened and executed directly in a web browser.
+The project contains separate programs for different Web Technology topics. Each program can be opened and executed directly in a web browser.
+
+## 👩‍🎓 Student Details
+
+| Details | Information |
+|---|---|
+| **Student Name** | Jnanitha Gotam |
+| **Register Number** | 250200491 |
+| **Class / Section** | Section - 7 |
+| **Subject** | Web Technology |
+| **Total Programs Completed** | 167 |
 
 ## 🎯 Objective
 
@@ -16,7 +26,8 @@ The main objectives of this project are:
 - Understand web page structure
 - Create interactive web pages
 - Organize practical programs into separate files
-- Practice working with VS Code and web browsers
+- Practice working with Visual Studio Code and web browsers
+- Implement Web Technology concepts through practical programs
 
 ## 🛠️ Technologies Used
 
@@ -25,6 +36,16 @@ The main objectives of this project are:
 - JavaScript
 - Visual Studio Code
 - Web Browser
+
+## 📚 Assignment
+
+**Web Technology Practical Programs**
+
+This project contains the practical programs completed as part of the Web Technology subject.
+
+### Total Number of Programs Completed
+
+**167 Programs**
 
 ## 📂 Project Structure
 
@@ -38,21 +59,21 @@ CodeSphere/
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   └── ...
+│   ├── ...
 │
 ├── css/
 │   ├── index.html
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   └── ...
+│   ├── ...
 │
 ├── javascript/
 │   ├── index.html
 │   ├── program-01.html
 │   ├── program-02.html
 │   ├── program-03.html
-│   └── ...
+│   ├── ...
 │
 ├── assets/
 │   ├── images/
