@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
+        }
+        h1 { color: #7f1d1d; }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #991b1b;
+            color: white;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Change Background Color</h1>
+
+    <div class="buttons">
+        <button onclick="changeColor('#ffe4e6')">Pink</button>
+        <button onclick="changeColor('#fecdd3')">Light Red</button>
+        <button onclick="changeColor('#ffffff')">White</button>
+    </div>
+
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
+
+<script>
+function changeColor(color) {
+    document.body.style.backgroundColor = color;
+}
+</script>
+
+</body>
+</html>

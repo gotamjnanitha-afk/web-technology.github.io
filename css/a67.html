@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Keyframe Animation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f6;
+    color: #450a0a;
+}
+
+header {
+    background: linear-gradient(135deg, #450a0a, #b91c1c);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(127,29,29,0.12);
+    text-align: center;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+    background: #b91c1c;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.move {
+    animation: moveBox 3s infinite alternate;
+}
+
+@keyframes moveBox {
+    from {
+        transform: translateX(-150px);
+    }
+    to {
+        transform: translateX(150px);
+    }
+}
+
+.color {
+    animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% {
+        background: #7f1d1d;
+    }
+    50% {
+        background: #dc2626;
+        transform: scale(1.2);
+    }
+    100% {
+        background: #fda4af;
+        transform: scale(0.8);
+    }
+}
+
+.rotate {
+    animation: rotateBox 3s linear infinite;
+}
+
+@keyframes rotateBox {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    background: #450a0a;
+    color: #fecdd3;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CSS Keyframe Animations</h1>
+    <p>Different animation effects using @keyframes</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Moving Animation</h2>
+        <div class="box move">MOVE</div>
+    </div>
+
+    <div class="card">
+        <h2>Color & Scale Animation</h2>
+        <div class="box color">COLOR</div>
+    </div>
+
+    <div class="card">
+        <h2>Rotation Animation</h2>
+        <div class="box rotate">ROTATE</div>
+    </div>
+
+</div>
+
+<footer>
+    CSS Animations | Practical Program 67
+</footer>
+
+</body>
+</html>

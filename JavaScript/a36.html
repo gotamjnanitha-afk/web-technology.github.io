@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q36 - Countdown Timer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .timer {
+            width: 400px;
+            max-width: 85%;
+            margin: 70px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            padding: 12px;
+            width: 80%;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #b91c1c;
+            color: white;
+            cursor: pointer;
+        }
+
+        #display {
+            margin-top: 25px;
+            font-size: 45px;
+            font-weight: bold;
+            color: #991b1b;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Countdown Timer</h1>
+</header>
+
+<div class="timer">
+
+    <input type="number" id="secondsInput" placeholder="Enter seconds">
+
+    <br>
+
+    <button onclick="startCountdown()">Start Countdown</button>
+
+    <div id="display">00</div>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    let timer;
+
+    function startCountdown() {
+        clearInterval(timer);
+
+        let seconds = Number(document.getElementById("secondsInput").value);
+        const display = document.getElementById("display");
+
+        if (seconds <= 0) {
+            display.textContent = "Enter valid seconds";
+            return;
+        }
+
+        display.textContent = seconds;
+
+        timer = setInterval(() => {
+            seconds--;
+
+            display.textContent = seconds;
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                display.textContent = "Time's Up!";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>

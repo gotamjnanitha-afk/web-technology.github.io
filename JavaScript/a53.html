@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q53 - Multiplication Table</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 400px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fda4af;
+            padding: 10px;
+        }
+
+        th {
+            background: #7f1d1d;
+            color: white;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Multiplication Table</h1>
+</header>
+
+<div class="card">
+
+    <input type="number" id="number" placeholder="Enter number">
+
+    <br>
+
+    <button onclick="generateTable()">Generate</button>
+
+    <div id="table"></div>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function generateTable() {
+        const number = Number(document.getElementById("number").value);
+
+        let html = `
+            <table>
+                <tr>
+                    <th>Expression</th>
+                    <th>Result</th>
+                </tr>
+        `;
+
+        for (let i = 1; i <= 10; i++) {
+            html += `
+                <tr>
+                    <td>${number} × ${i}</td>
+                    <td>${number * i}</td>
+                </tr>
+            `;
+        }
+
+        html += "</table>";
+
+        document.getElementById("table").innerHTML = html;
+    }
+</script>
+
+</body>
+</html>

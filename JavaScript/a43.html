@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q43 - Fetch API</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            color: #450a0a;
+            text-align: center;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 650px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff1f2;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Fetch API</h1>
+</header>
+
+<div class="card">
+
+    <button onclick="fetchData()">Fetch Data</button>
+
+    <div id="result">
+        Click the button to fetch data.
+    </div>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function fetchData() {
+        const result = document.getElementById("result");
+
+        result.textContent = "Loading...";
+
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+            .then(response => response.json())
+            .then(data => {
+                result.innerHTML = `
+                    <strong>ID:</strong> ${data.id}<br><br>
+                    <strong>Title:</strong> ${data.title}<br><br>
+                    <strong>Completed:</strong> ${data.completed}
+                `;
+            })
+            .catch(error => {
+                result.textContent = "Error while fetching data.";
+            });
+    }
+</script>
+
+</body>
+</html>

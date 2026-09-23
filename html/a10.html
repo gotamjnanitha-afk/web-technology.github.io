@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Timetable</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #475569;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: #ffffff;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .table-box {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        th {
+            background: #991b1b;
+            color: #ffffff;
+            padding: 15px 12px;
+            border: 1px solid #7f1d1d;
+            font-size: 15px;
+        }
+
+        td {
+            padding: 15px 12px;
+            text-align: center;
+            border: 1px solid #fecdd3;
+            font-size: 15px;
+        }
+
+        tr:nth-child(even) td {
+            background: #fff5f6;
+        }
+
+        tr:hover td {
+            background: #ffe4e6;
+        }
+
+        .lunch {
+            background: #fecdd3 !important;
+            color: #991b1b;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            letter-spacing: 2px;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .table-box {
+                padding: 15px;
+            }
+
+            th,
+            td {
+                padding: 10px 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>College Timetable</h1>
+            <p>Weekly Class Schedule</p>
+        </div>
+
+        <div class="content">
+
+            <div class="table-box">
+
+                <table border="1" cellpadding="10">
+
+                    <tr>
+                        <th>Day</th>
+                        <th>9-10 AM</th>
+                        <th>10-11 AM</th>
+                        <th>11-12 PM</th>
+                        <th>12-1 PM</th>
+                        <th>2-3 PM</th>
+                    </tr>
+
+                    <tr>
+                        <td>Monday</td>
+                        <td>Python</td>
+                        <td>Maths</td>
+                        <td>DSA</td>
+                        <td rowspan="5" class="lunch">Lunch</td>
+                        <td>Web Technology</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>DSA</td>
+                        <td>Python</td>
+                        <td>English</td>
+                        <td>Maths</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Maths</td>
+                        <td>Web Technology</td>
+                        <td>Python</td>
+                        <td>DSA</td>
+                    </tr>
+
+                    <tr>
+                        <td>Thursday</td>
+                        <td>English</td>
+                        <td>DSA</td>
+                        <td>Maths</td>
+                        <td>Python</td>
+                    </tr>
+
+                    <tr>
+                        <td>Friday</td>
+                        <td>Python</td>
+                        <td>Maths</td>
+                        <td>DSA</td>
+                        <td>Web Technology</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; College Timetable
+        </div>
+
+    </div>
+
+</body>
+</html>

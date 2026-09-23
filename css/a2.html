@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Question 2 - Selectors</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ffe4e6;
+            font-size: 17px;
+        }
+
+        main {
+            padding: 40px;
+            display: grid;
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff1f2;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid #b91c1c;
+        }
+
+        .card h2 {
+            color: #991b1b;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        #special {
+            background: #7f1d1d;
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .highlight {
+            background: #fecdd3;
+            color: #7f1d1d;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #dc2626;
+            margin-top: 15px;
+        }
+
+        .card > p {
+            border-left: 4px solid #fda4af;
+            padding-left: 12px;
+        }
+
+        .card h2 + p {
+            margin-top: 5px;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>CSS Selectors</h1>
+            <p>Demonstration of Different CSS Selectors</p>
+        </header>
+
+        <main>
+
+            <section class="card">
+                <h2>Element Selector</h2>
+                <p>
+                    The element selector selects HTML elements using their tag name.
+                </p>
+                <h3>This heading is styled using an element selector.</h3>
+            </section>
+
+            <section class="card">
+                <h2>Class Selector</h2>
+                <p class="highlight">
+                    This paragraph is styled using a class selector.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>ID Selector</h2>
+                <p id="special">
+                    This paragraph is styled using an ID selector.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Universal Selector</h2>
+                <p>
+                    The universal selector (*) applies basic styles to all elements.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Child Selector</h2>
+                <p>
+                    This paragraph is a direct child of the section.
+                </p>
+                <div>
+                    <p>
+                        This paragraph is inside a div.
+                    </p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Grouping Selector</h2>
+                <p>
+                    Multiple selectors can be grouped together to apply the same style.
+                </p>
+                <h3>CSS makes webpage design easier.</h3>
+            </section>
+
+        </main>
+
+        <footer>
+            CSS Practical Program 02
+        </footer>
+
+    </div>
+
+</body>
+</html>

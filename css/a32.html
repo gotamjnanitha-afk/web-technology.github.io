@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Q32 - Shadows</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+        }
+
+        header {
+            background: #450a0a;
+            color: white;
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #fecdd3;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .intro h2 {
+            color: #991b1b;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            color: #64748b;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 2px solid #fecdd3;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .box-shadow-demo {
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff1f2;
+            border-radius: 14px;
+            margin-top: 20px;
+            box-shadow: 0 15px 30px rgba(127, 29, 29, 0.25);
+        }
+
+        .box-shadow-demo .box {
+            width: 170px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #dc2626;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 8px 8px 18px rgba(69, 10, 10, 0.4);
+            font-weight: bold;
+        }
+
+        .text-shadow-demo {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffe4e6;
+            border-radius: 14px;
+            margin-top: 20px;
+        }
+
+        .text-shadow-demo h3 {
+            color: #991b1b;
+            font-size: 36px;
+            text-shadow:
+                3px 3px 5px rgba(69, 10, 10, 0.4);
+        }
+
+        .card h2 {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .card > p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .examples {
+            margin-top: 30px;
+            background: white;
+            border: 2px solid #fecdd3;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .examples h2 {
+            text-align: center;
+            color: #991b1b;
+            margin-bottom: 25px;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .example {
+            padding: 25px;
+            border-radius: 12px;
+            background: #fff1f2;
+            text-align: center;
+        }
+
+        .example h3 {
+            color: #b91c1c;
+            margin-bottom: 15px;
+        }
+
+        .shadow-small {
+            box-shadow: 0 4px 10px rgba(69, 10, 10, 0.2);
+        }
+
+        .shadow-large {
+            box-shadow: 0 15px 30px rgba(69, 10, 10, 0.25);
+        }
+
+        .shadow-inset {
+            box-shadow: inset 0 0 15px rgba(127, 29, 29, 0.25);
+        }
+
+        .example-box {
+            background: white;
+            padding: 25px 10px;
+            border-radius: 10px;
+            color: #991b1b;
+            font-weight: bold;
+        }
+
+        .final-demo {
+            margin-top: 30px;
+            background: #991b1b;
+            padding: 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(69, 10, 10, 0.3);
+        }
+
+        .final-demo h2 {
+            color: white;
+            font-size: 34px;
+            text-shadow: 3px 3px 5px rgba(69, 10, 10, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .final-demo p {
+            color: #ffe4e6;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            .demo-grid,
+            .example-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 29px;
+            }
+
+            main {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Shadows</h1>
+        <p>Box Shadow and Text Shadow Demonstration</p>
+    </header>
+
+    <main>
+
+        <div class="intro">
+            <h2>Shadow Effects</h2>
+            <p>
+                CSS shadows add depth and visual emphasis to
+                elements and text.
+            </p>
+        </div>
+
+        <div class="demo-grid">
+
+            <div class="card">
+
+                <h2>Box Shadow</h2>
+
+                <p>
+                    The box-shadow property creates a shadow
+                    around an HTML element.
+                </p>
+
+                <div class="box-shadow-demo">
+                    <div class="box">
+                        BOX SHADOW
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Text Shadow</h2>
+
+                <p>
+                    The text-shadow property adds a shadow
+                    effect behind text.
+                </p>
+
+                <div class="text-shadow-demo">
+                    <h3>TEXT SHADOW</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="examples">
+
+            <h2>Different Box Shadow Effects</h2>
+
+            <div class="example-grid">
+
+                <div class="example">
+                    <h3>Small Shadow</h3>
+                    <div class="example-box shadow-small">
+                        Small Shadow
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Large Shadow</h3>
+                    <div class="example-box shadow-large">
+                        Large Shadow
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Inset Shadow</h3>
+                    <div class="example-box shadow-inset">
+                        Inset Shadow
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="final-demo">
+
+            <h2>Beautiful Shadow Effects</h2>
+
+            <p>
+                Box shadows create depth around elements,
+                while text shadows create depth behind text.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        CSS Practical Assignment • Question 32
+    </footer>
+
+</body>
+</html>

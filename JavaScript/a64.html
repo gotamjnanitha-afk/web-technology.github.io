@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q64 - Word Count</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 600px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        textarea {
+            width: 90%;
+            height: 120px;
+            padding: 12px;
+            resize: none;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+            font-family: Arial;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #991b1b;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Word Count</h1>
+</header>
+
+<div class="card">
+
+    <textarea id="text" placeholder="Type your sentence here..."></textarea>
+
+    <br>
+
+    <button onclick="countWords()">Count Words</button>
+
+    <p id="result"></p>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function countWords() {
+        const text = document.getElementById("text").value.trim();
+
+        const words = text === "" ? [] : text.split(/\s+/);
+
+        document.getElementById("result").textContent =
+            "Number of words: " + words.length;
+    }
+</script>
+
+</body>
+</html>

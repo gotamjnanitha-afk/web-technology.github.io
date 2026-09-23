@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q65 - Character Frequency</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 600px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: left;
+            padding: 20px;
+            background: #fff1f2;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Character Frequency</h1>
+</header>
+
+<div class="card">
+
+    <input type="text" id="text"
+        placeholder="Enter a string">
+
+    <br>
+
+    <button onclick="findFrequency()">Find Frequency</button>
+
+    <div id="result"></div>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function findFrequency() {
+        const text = document.getElementById("text").value;
+
+        const frequency = {};
+
+        for (const character of text) {
+            if (character === " ") {
+                continue;
+            }
+
+            frequency[character] = (frequency[character] || 0) + 1;
+        }
+
+        let output = "";
+
+        for (const character in frequency) {
+            output += `${character}: ${frequency[character]}<br>`;
+        }
+
+        document.getElementById("result").innerHTML =
+            output || "Enter some text.";
+    }
+</script>
+
+</body>
+</html>

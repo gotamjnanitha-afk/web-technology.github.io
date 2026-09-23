@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q67 - Email Regex</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 500px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            width: 90%;
+            padding: 13px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #result {
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Email Validation</h1>
+</header>
+
+<div class="card">
+
+    <input type="email" id="email"
+        placeholder="Enter your email">
+
+    <br>
+
+    <button onclick="validateEmail()">Validate Email</button>
+
+    <div id="result"></div>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function validateEmail() {
+        const email = document.getElementById("email").value.trim();
+
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const result = document.getElementById("result");
+
+        if (pattern.test(email)) {
+            result.textContent = "✓ Valid email address.";
+            result.style.color = "green";
+            result.style.background = "#ecfdf5";
+        } else {
+            result.textContent = "✗ Invalid email address.";
+            result.style.color = "#b91c1c";
+            result.style.background = "#fff1f2";
+        }
+    }
+</script>
+
+</body>
+</html>

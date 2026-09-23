@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Question 16 - Responsive Webpage</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #450a0a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            padding: 30px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fecdd3;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: #ffe4e6;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #7f1d1d;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #991b1b;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #fecdd3;
+            box-shadow: 0 8px 20px rgba(127, 29, 29, 0.1);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin: auto auto 20px;
+            background: #ffe4e6;
+            color: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .responsive-box {
+            background: #991b1b;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .responsive-box h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 900px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            header {
+                padding: 25px 0;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 35px 0;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .responsive-box h3 {
+                font-size: 21px;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .responsive-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+
+            <div class="logo">
+                Responsive Web
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>Responsive Web Design</h1>
+
+            <p>
+                This webpage automatically adjusts its layout,
+                text, navigation, and cards according to the
+                screen size using CSS media queries.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Features
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        01
+                    </div>
+
+                    <h3>Flexible Layout</h3>
+
+                    <p>
+                        The layout automatically changes
+                        according to the available screen width.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        02
+                    </div>
+
+                    <h3>Mobile Friendly</h3>
+
+                    <p>
+                        The webpage works smoothly on
+                        smartphones and smaller screens.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        03
+                    </div>
+
+                    <h3>Media Queries</h3>
+
+                    <p>
+                        CSS media queries change the design
+                        at different screen sizes.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="responsive-box">
+
+                <h3>Resize Your Browser Window</h3>
+
+                <p>
+                    Try changing the browser width to see
+                    the responsive design in action.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        CSS Practical Program 16
+    </footer>
+
+</body>
+</html>

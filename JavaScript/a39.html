@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q39 - Spread and Rest</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            color: #450a0a;
+            text-align: center;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .card {
+            width: 600px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        .result {
+            padding: 18px;
+            margin: 15px 0;
+            background: #fff1f2;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Spread and Rest Operators</h1>
+</header>
+
+<div class="card">
+    <div class="result" id="spread"></div>
+    <div class="result" id="rest"></div>
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    const first = [1, 2, 3];
+    const second = [4, 5, 6];
+
+    const combined = [...first, ...second];
+
+    function calculateSum(...numbers) {
+        return numbers.reduce((total, number) => total + number, 0);
+    }
+
+    document.getElementById("spread").textContent =
+        "Spread Result: " + combined.join(", ");
+
+    document.getElementById("rest").textContent =
+        "Rest Result: Sum = " + calculateSum(10, 20, 30, 40);
+</script>
+
+</body>
+</html>

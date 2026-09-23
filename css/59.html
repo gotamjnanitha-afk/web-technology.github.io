@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Blog Layout</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f6;
+            color: #334155;
+        }
+
+        header {
+            background: #450a0a;
+            color: white;
+            padding: 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fda4af;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .featured,
+        .sidebar,
+        .article {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
+        }
+
+        .featured img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .content h1,
+        .content h2 {
+            color: #7f1d1d;
+            margin-bottom: 12px;
+        }
+
+        .content p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .sidebar {
+            padding: 25px;
+        }
+
+        .sidebar h2 {
+            color: #7f1d1d;
+            margin-bottom: 18px;
+        }
+
+        .category {
+            padding: 13px;
+            margin-bottom: 10px;
+            background: #fff1f2;
+            color: #991b1b;
+            border-radius: 8px;
+        }
+
+        .articles {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .article img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .article .content {
+            padding: 18px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #450a0a;
+            color: #ffe4e6;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 750px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .articles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <div class="logo">DailyNews</div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Technology</a>
+                <a href="#">Business</a>
+                <a href="#">Sports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="layout">
+
+            <article class="featured">
+                <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1000&q=80" alt="News">
+
+                <div class="content">
+                    <h1>Technology and Innovation</h1>
+                    <p>
+                        Discover the latest developments in technology,
+                        innovation and the digital world.
+                    </p>
+                </div>
+            </article>
+
+            <aside class="sidebar">
+                <h2>Categories</h2>
+
+                <div class="category">Technology</div>
+                <div class="category">Business</div>
+                <div class="category">Education</div>
+                <div class="category">Sports</div>
+                <div class="category">Entertainment</div>
+            </aside>
+
+        </div>
+
+        <div class="articles">
+
+            <article class="article">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Technology">
+
+                <div class="content">
+                    <h2>Future of Web Development</h2>
+                    <p>Modern technologies are changing how websites are developed.</p>
+                </div>
+            </article>
+
+            <article class="article">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data">
+
+                <div class="content">
+                    <h2>Growing Importance of Data</h2>
+                    <p>Data plays an important role in modern businesses and applications.</p>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 DailyNews. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

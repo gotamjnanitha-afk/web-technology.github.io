@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff5f6;
+            color: #334155;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #450a0a;
+            padding: 18px 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fda4af;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #fda4af;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 75px 20px;
+        }
+
+        .hero {
+            min-height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #7f1d1d;
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: #b91c1c;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #64748b;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #b91c1c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            color: #7f1d1d;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about,
+        .project {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
+        }
+
+        .about p,
+        .project p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 13px 22px;
+            background: #ffe4e6;
+            color: #991b1b;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project h3 {
+            color: #991b1b;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #ffe4e6;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 750px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <div class="logo">MyPortfolio</div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div>
+            <h1>Hello, I'm Alex</h1>
+            <h2>Web Developer & Designer</h2>
+            <p>
+                I create responsive, modern and user-friendly websites
+                using HTML, CSS and JavaScript.
+            </p>
+            <a href="#projects" class="btn">View Projects</a>
+        </div>
+    </section>
+
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+            <p>
+                I am a passionate learner interested in web development,
+                design and modern technologies. I enjoy creating practical
+                projects and learning new skills.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+            <div class="skill">Git</div>
+            <div class="skill">Responsive Design</div>
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>A responsive personal portfolio created using HTML and CSS.</p>
+            </div>
+
+            <div class="project">
+                <h3>Shopping Website</h3>
+                <p>An online shopping interface with products and categories.</p>
+            </div>
+
+            <div class="project">
+                <h3>Student Dashboard</h3>
+                <p>A dashboard layout designed using CSS Grid and Flexbox.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Alex Portfolio. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

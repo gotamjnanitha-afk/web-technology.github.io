@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sum and Average</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
+        }
+        h1 { color: #7f1d1d; }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffe4e6;
+            border-radius: 10px;
+            color: #991b1b;
+            font-weight: bold;
+            line-height: 2;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Array Sum and Average</h1>
+    <input type="text" id="array" placeholder="Example: 10, 20, 30, 40">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
+
+<script>
+function calculate() {
+    let values = document.getElementById("array").value
+        .split(",")
+        .map(Number);
+
+    let sum = values.reduce((total, value) => total + value, 0);
+    let average = sum / values.length;
+
+    document.getElementById("result").innerHTML =
+        "Sum: " + sum + "<br>" +
+        "Average: " + average;
+}
+</script>
+
+</body>
+</html>

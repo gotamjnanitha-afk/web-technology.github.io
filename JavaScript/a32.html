@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q32 - Todo List</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .todo {
+            width: 450px;
+            max-width: 85%;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 8px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 18px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 12px;
+            background: #fff1f2;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Todo List</h1>
+</header>
+
+<div class="todo">
+
+    <div class="input-area">
+        <input type="text" id="task" placeholder="Enter a task">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    function addTask() {
+        const taskInput = document.getElementById("task");
+        const task = taskInput.value.trim();
+
+        if (task === "") {
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${task}</span>
+            <button onclick="this.parentElement.remove()">Delete</button>
+        `;
+
+        document.getElementById("taskList").appendChild(li);
+
+        taskInput.value = "";
+    }
+</script>
+
+</body>
+</html>

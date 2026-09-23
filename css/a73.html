@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Functions</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f6;
+    color: #450a0a;
+}
+
+header {
+    background: #450a0a;
+    color: white;
+    text-align: center;
+    padding: clamp(25px, 5vw, 50px);
+}
+
+header h1 {
+    font-size: clamp(28px, 6vw, 55px);
+}
+
+.container {
+    width: min(90%, 1100px);
+    margin: 40px auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: max(20px, 3vw);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(127,29,29,0.12);
+}
+
+.card h2 {
+    color: #991b1b;
+    font-size: clamp(20px, 3vw, 30px);
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.demo {
+    margin-top: 20px;
+    background: #fecdd3;
+    padding: min(30px, 5vw);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 40px;
+    background: #450a0a;
+    color: #fecdd3;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CSS Sizing Functions</h1>
+    <p>clamp() • min() • max()</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>clamp()</h2>
+            <p>
+                clamp() sets a minimum, preferred, and maximum value.
+            </p>
+            <div class="demo">Responsive Text</div>
+        </div>
+
+        <div class="card">
+            <h2>min()</h2>
+            <p>
+                min() selects the smallest value from the provided values.
+            </p>
+            <div class="demo">Flexible Width</div>
+        </div>
+
+        <div class="card">
+            <h2>max()</h2>
+            <p>
+                max() selects the largest value from the provided values.
+            </p>
+            <div class="demo">Flexible Padding</div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    CSS Functions | Practical Program 73
+</footer>
+
+</body>
+</html>

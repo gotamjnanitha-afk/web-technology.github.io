@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Image</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(127,29,29,.15);
+        }
+        h1 { color: #7f1d1d; }
+        img {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 13px 25px;
+            background: #991b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #991b1b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Change Image</h1>
+
+    <img id="photo"
+         src="https://picsum.photos/id/1015/500/300"
+         alt="Sample Image">
+
+    <br>
+
+    <button onclick="changeImage()">Change Image</button>
+
+    <a href="index.html" class="back">← Back to JavaScript Programs</a>
+</div>
+
+<script>
+function changeImage() {
+    document.getElementById("photo").src =
+        "https://picsum.photos/id/1025/500/300";
+}
+</script>
+
+</body>
+</html>

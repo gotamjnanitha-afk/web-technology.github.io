@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q29 - Guessing Game</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff1f2;
+            text-align: center;
+            color: #450a0a;
+        }
+
+        header {
+            background: #7f1d1d;
+            color: white;
+            padding: 25px;
+        }
+
+        .game {
+            width: 380px;
+            max-width: 85%;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px #fecdd3;
+        }
+
+        input {
+            padding: 12px;
+            width: 80%;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Number Guessing Game</h1>
+</header>
+
+<div class="game">
+    <p>Guess a number between 1 and 10.</p>
+
+    <input type="number" id="guess" min="1" max="10">
+
+    <br>
+
+    <button onclick="checkGuess()">Check Guess</button>
+
+    <p id="message"></p>
+</div>
+
+<a href="index.html">← Back to JavaScript Programs</a>
+
+<script>
+    const secretNumber = Math.floor(Math.random() * 10) + 1;
+
+    function checkGuess() {
+        const guess = Number(document.getElementById("guess").value);
+        const message = document.getElementById("message");
+
+        if (guess === secretNumber) {
+            message.textContent = "🎉 Correct! You guessed the number.";
+        } else if (guess < secretNumber) {
+            message.textContent = "Try a higher number.";
+        } else {
+            message.textContent = "Try a lower number.";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f6;
+            color: #334155;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #450a0a;
+            padding: 18px 30px;
+            box-shadow: 0 4px 15px rgba(69, 10, 10, 0.2);
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #fda4af;
+        }
+
+        .hero {
+            max-width: 1100px;
+            min-height: 450px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            color: #7f1d1d;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 18px;
+        }
+
+        .sections {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px 20px 100px;
+        }
+
+        .section {
+            min-height: 350px;
+            background: white;
+            margin-bottom: 30px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.1);
+        }
+
+        .section h2 {
+            color: #991b1b;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 15px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="nav">
+
+            <div class="logo">TechLearn</div>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Sticky Header</h1>
+            <p>Scroll down and notice that the header stays at the top.</p>
+        </div>
+    </section>
+
+    <main class="sections">
+
+        <section class="section" id="courses">
+            <h2>Courses</h2>
+            <p>
+                Learn HTML, CSS, JavaScript, Python and other modern
+                technologies through practical examples.
+            </p>
+            <p>
+                The navigation header remains visible while scrolling
+                because the CSS position property is set to sticky.
+            </p>
+        </section>
+
+        <section class="section" id="projects">
+            <h2>Projects</h2>
+            <p>
+                Build responsive websites, dashboards, portfolios and
+                interactive web applications.
+            </p>
+            <p>
+                Sticky navigation improves accessibility because important
+                navigation links remain available while the user scrolls.
+            </p>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <p>
+                This section demonstrates the scrolling behavior of the
+                sticky header.
+            </p>
+            <p>
+                Continue scrolling to see that the header remains fixed
+                at the top of the page.
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>

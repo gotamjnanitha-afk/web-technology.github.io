@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #475569;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-section {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #7f1d1d;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #475569;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px #ffe4e6;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: normal;
+            color: #475569;
+            margin: 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #dc2626;
+            width: 16px;
+            height: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .buttons input {
+            flex: 1;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .register {
+            background: #991b1b;
+            color: #ffffff;
+        }
+
+        .register:hover {
+            background: #dc2626;
+        }
+
+        .clear {
+            background: #fecdd3;
+            color: #7f1d1d;
+        }
+
+        .clear:hover {
+            background: #fda4af;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .form-container {
+                padding: 25px 15px;
+            }
+
+            .form-section {
+                padding: 20px 15px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Student Registration Form</h1>
+            <p>Enter your details to register</p>
+        </div>
+
+        <div class="form-container">
+
+            <div class="form-section">
+
+                <form>
+
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender:</label>
+
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="gender" value="male">
+                                Male
+                            </label>
+
+                            <label>
+                                <input type="radio" name="gender" value="female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course:</label>
+
+                        <select id="course" name="course">
+                            <option>CSE</option>
+                            <option>Data Science</option>
+                            <option>AI & ML</option>
+                            <option>ECE</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hobbies:</label>
+
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="hobby">
+                                Reading
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="hobby">
+                                Music
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="hobby">
+                                Sports
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" rows="4"></textarea>
+                    </div>
+
+                    <div class="buttons">
+                        <input type="submit" value="Register" class="register">
+                        <input type="reset" value="Clear" class="clear">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Student Registration Form
+        </div>
+
+    </div>
+
+</body>
+</html>

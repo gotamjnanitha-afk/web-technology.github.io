@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Filters</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff5f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.12);
+        }
+
+        .card h2 {
+            color: #991b1b;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .normal {
+            filter: none;
+        }
+
+        .blur {
+            filter: blur(5px);
+        }
+
+        .grayscale {
+            filter: grayscale(100%);
+        }
+
+        .brightness {
+            filter: brightness(150%);
+        }
+
+        .contrast {
+            filter: contrast(180%);
+        }
+
+        .sepia {
+            filter: sepia(100%);
+        }
+
+        .saturate {
+            filter: saturate(200%);
+        }
+
+        .invert {
+            filter: invert(100%);
+        }
+
+        @media (max-width: 700px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>CSS Filter Effects</h1>
+
+        <p class="subtitle">
+            Demonstration of blur, grayscale, brightness, contrast and other CSS filters.
+        </p>
+
+        <div class="gallery">
+
+            <div class="card">
+                <h2>Normal</h2>
+                <img class="image normal"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Nature">
+            </div>
+
+            <div class="card">
+                <h2>Blur</h2>
+                <img class="image blur"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Blur Effect">
+            </div>
+
+            <div class="card">
+                <h2>Grayscale</h2>
+                <img class="image grayscale"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Grayscale Effect">
+            </div>
+
+            <div class="card">
+                <h2>Brightness</h2>
+                <img class="image brightness"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Brightness Effect">
+            </div>
+
+            <div class="card">
+                <h2>Contrast</h2>
+                <img class="image contrast"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Contrast Effect">
+            </div>
+
+            <div class="card">
+                <h2>Sepia</h2>
+                <img class="image sepia"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Sepia Effect">
+            </div>
+
+            <div class="card">
+                <h2>Saturate</h2>
+                <img class="image saturate"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Saturation Effect">
+            </div>
+
+            <div class="card">
+                <h2>Invert</h2>
+                <img class="image invert"
+                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Invert Effect">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

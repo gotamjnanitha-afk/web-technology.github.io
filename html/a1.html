@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Basic Webpage</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #475569;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #991b1b;
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-left: 5px solid #dc2626;
+            padding-left: 12px;
+        }
+
+        h3 {
+            color: #be123c;
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+
+        .line-example {
+            background: #ffe4e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #7f1d1d;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Welcome to My Webpage</h1>
+            <p>HTML Practical Program</p>
+        </div>
+
+        <div class="content">
+
+            <h2>About HTML</h2>
+
+            <div class="info-box">
+                <p>HTML stands for HyperText Markup Language.</p>
+                <p>It is used to create webpages.</p>
+            </div>
+
+            <h3>Line Break Example</h3>
+
+            <div class="line-example">
+                This is the first line.<br>
+                This is the second line.<br>
+                This is the third line.
+            </div>
+
+            <h3>Thank You</h3>
+
+        </div>
+
+        <div class="footer">
+            HTML Practical &nbsp; | &nbsp; Basic Webpage
+        </div>
+
+    </div>
+
+</body>
+</html>

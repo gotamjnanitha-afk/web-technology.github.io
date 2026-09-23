@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Alignment and Ordering</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 7px 22px rgba(127, 29, 29, 0.1);
+        }
+
+        .box h2 {
+            color: #991b1b;
+            margin-bottom: 18px;
+        }
+
+        .flex-container {
+            min-height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background: #fff1f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .item {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #b91c1c;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .order-container {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: #fff1f2;
+            border-radius: 10px;
+        }
+
+        .order-one {
+            order: 3;
+        }
+
+        .order-two {
+            order: 1;
+        }
+
+        .order-three {
+            order: 2;
+        }
+
+        .align-container {
+            height: 180px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 20px;
+            background: #fff1f2;
+            border-radius: 10px;
+        }
+
+        .align-item {
+            width: 70px;
+            padding: 15px 5px;
+            background: #7f1d1d;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .small {
+            height: 50px;
+        }
+
+        .medium {
+            height: 80px;
+        }
+
+        .large {
+            height: 120px;
+        }
+
+        @media (max-width: 600px) {
+            .flex-container,
+            .order-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Flexbox Alignment & Ordering</h1>
+
+        <p class="subtitle">
+            Demonstration of justify-content, align-items, gap and order.
+        </p>
+
+        <div class="box">
+
+            <h2>Alignment</h2>
+
+            <div class="flex-container">
+                <div class="item">A</div>
+                <div class="item">B</div>
+                <div class="item">C</div>
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <h2>Ordering</h2>
+
+            <div class="order-container">
+                <div class="item order-one">1</div>
+                <div class="item order-two">2</div>
+                <div class="item order-three">3</div>
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <h2>Align Items</h2>
+
+            <div class="align-container">
+                <div class="align-item small">Small</div>
+                <div class="align-item medium">Medium</div>
+                <div class="align-item large">Large</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

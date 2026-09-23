@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile First Responsive Page</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f6;
+            color: #334155;
+        }
+
+        header {
+            background: #450a0a;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .logo {
+            color: #fda4af;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .hero {
+            padding: 70px 20px;
+            text-align: center;
+            background: #ffe4e6;
+        }
+
+        .hero h1 {
+            color: #7f1d1d;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .cards {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 7px 20px rgba(127, 29, 29, 0.1);
+        }
+
+        .card h2 {
+            color: #991b1b;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #450a0a;
+            color: #ffe4e6;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (min-width: 600px) {
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 18px 30px;
+            }
+
+            nav {
+                margin-top: 0;
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">MobileFirst</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <h1>Mobile-First Design</h1>
+
+        <p>
+            This webpage is designed for small screens first and
+            enhanced for larger screens using media queries.
+        </p>
+
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+            <h2>Responsive</h2>
+            <p>Works smoothly across different screen sizes.</p>
+        </div>
+
+        <div class="card">
+            <h2>Mobile Friendly</h2>
+            <p>The initial layout is designed for mobile devices.</p>
+        </div>
+
+        <div class="card">
+            <h2>Flexible</h2>
+            <p>Layout changes automatically for tablets and desktops.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 MobileFirst
+    </footer>
+
+</body>
+</html>

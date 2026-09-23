@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login and Signup</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff5f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(127, 29, 29, 0.15);
+        }
+
+        .welcome {
+            background: #450a0a;
+            color: white;
+            padding: 55px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome h1 {
+            color: #fda4af;
+            margin-bottom: 18px;
+            font-size: 36px;
+        }
+
+        .welcome p {
+            color: #ffe4e6;
+            line-height: 1.7;
+        }
+
+        .form-area {
+            padding: 45px 40px;
+        }
+
+        .form-area h2 {
+            color: #7f1d1d;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #475569;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #fecdd3;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #b91c1c;
+            box-shadow: 0 0 0 3px #fff1f2;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #b91c1c;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .btn:hover {
+            background: #7f1d1d;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .switch a {
+            color: #b91c1c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                text-align: center;
+                padding: 35px 25px;
+            }
+
+            .welcome h1 {
+                font-size: 30px;
+            }
+
+            .form-area {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section class="welcome">
+            <h1>Welcome Back!</h1>
+            <p>
+                Login to continue your learning journey or create
+                a new account to get started.
+            </p>
+        </section>
+
+        <section class="form-area">
+
+            <h2>Create Account</h2>
+
+            <form>
+
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+
+                <button class="btn" type="submit">Sign Up</button>
+
+            </form>
+
+            <div class="switch">
+                Already have an account?
+                <a href="#">Login</a>
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>

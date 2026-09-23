@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Webpage</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f6;
+            color: #475569;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(127, 29, 29, 0.15);
+        }
+
+        header {
+            background: linear-gradient(135deg, #450a0a, #991b1b, #dc2626);
+            color: #ffffff;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ffe4e6;
+            font-size: 16px;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        .content {
+            background: #fff1f2;
+            border-left: 5px solid #dc2626;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .content h2 {
+            color: #991b1b;
+            margin-bottom: 25px;
+        }
+
+        .container-box {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 200px;
+            padding: 30px;
+            border: 2px solid #991b1b;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #991b1b;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(127, 29, 29, 0.1);
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            background: #ffe4e6;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: #450a0a;
+            color: #fecdd3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 25px 15px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .container-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Responsive Website</h1>
+            <p>Responsive Design Using CSS Media Queries</p>
+        </header>
+
+        <main>
+
+            <div class="content">
+
+                <h2>Web Technologies</h2>
+
+                <div class="container-box">
+
+                    <div class="box">HTML</div>
+
+                    <div class="box">CSS</div>
+
+                    <div class="box">JavaScript</div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+            CSS Practical &nbsp; | &nbsp; Responsive Webpage
+        </footer>
+
+    </div>
+
+</body>
+</html>

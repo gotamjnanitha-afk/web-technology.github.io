@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Spinner</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff5f6;
+    min-height: 100vh;
+}
+
+header {
+    background: #450a0a;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+}
+
+.card {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(127,29,29,0.12);
+}
+
+.spinner {
+    width: 90px;
+    height: 90px;
+    margin: 25px auto;
+    border: 10px solid #fecdd3;
+    border-top: 10px solid #b91c1c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h2 {
+    color: #7f1d1d;
+}
+
+p {
+    color: #64748b;
+}
+
+footer {
+    margin-top: 40px;
+    background: #450a0a;
+    color: #fecdd3;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Loading Spinner</h1>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Please Wait</h2>
+        <div class="spinner"></div>
+        <p>Loading your content...</p>
+    </div>
+</div>
+
+<footer>
+    CSS Loading Animation | Practical Program 68
+</footer>
+
+</body>
+</html>
